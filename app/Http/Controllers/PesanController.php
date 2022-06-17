@@ -97,7 +97,7 @@ class PesanController extends Controller
 
         }
 
-        return view('user.pesan.checkout', compact('pesanan', 'pesanan_details'));
+        return view('user.pesan.checkout', compact('pesanan', 'pesanan_details',));
     }
 
     public function delete($id)

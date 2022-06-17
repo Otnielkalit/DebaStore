@@ -40,7 +40,7 @@
                                 <tr>
                                     <td>{{ $no++ }}</td>
                                     <td>
-                                        <img src="{{ url('productimage') }}/{{ $pesanan_detail->gambar }}" width="100px" class="card-img-top" alt="product image"/>
+                                        <img src="{{ url('productimage') }}/{{ $pesanan_detail->barang->gambar }}" style="width: 100px; height:100px;" class="card-img-top" alt="product image"/>
                                     </td>
                                     <td>{{ $pesanan_detail->barang->nama_barang }}</td>
                                     <td>{{ $pesanan_detail->jumlah }} buah</td>
@@ -58,7 +58,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            <td class="text-end" colspan="4"><strong>Total Harga :</strong></td>
+                            <td class="text-end" colspan="5"><strong>Total Harga :</strong></td>
                             <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
                             <td>
                                 <a href="{{ url('konfirmasi-check-out') }}" class="btn btn-success"
