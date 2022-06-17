@@ -11,7 +11,7 @@
                             class="forms-sample">
                             @csrf
                             <div class="form-group">
-                                <input type="text" name="nama_barang" class="form-control" placeholder="Nama Produk">
+                                <input type="text" name="nama_barang" class="form-control" placeholder="Nama Produk" value="{{ old('nama_barang') }}">
                                 @error('nama_barang')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -19,8 +19,8 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input type="number" name="harga" class="form-control" placeholder="Harga Produk">
-                                @error('nama_barang')
+                                <input type="number" name="harga" class="form-control" placeholder="Harga Produk" value="{{ old('harga') }}">
+                                @error('harga')
                                     <div class="text-danger">
                                         {{ $message }}
                                     </div>
@@ -28,17 +28,17 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" name="keterangan" class="form-control"
-                                    placeholder="Keterangan Produk">
-                                @error('nama_barang')
-                                    <div class="text-danger">
+                                    placeholder="Keterangan Produk" >
+                                @error('keterangan')
+                                    <div class="text-danger" value="{{ old('keterangan') }}">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <input type="number" name="stok" class="form-control"
-                                    placeholder="Stok">
-                                @error('nama_barang')
+                                    placeholder="Stok" value="{{ old('stok') }}">
+                                @error('stok')
                                     <div class="text-danger">
                                         {{ $message }}
                                     </div>
@@ -46,18 +46,19 @@
                             </div>
                             <div class="form-group">
                                 <label>Gambar Produk</label>
-                                <input type="file" name="gambar">
-                                @error('nama_barang')
+                                <input type="file" name="gambar" value="{{ old('gambar') }}">
+                                @error('gambar')
                                     <div class="text-danger">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
+                            <a href="{{ route('menu') }}"><button type="button" class="btn btn-dark btn-icon-text" value="Save"><i class="mdi mdi-plus-box"></i> Kembali</button></a>
                             <button type="submit" class="btn btn-primary btn-icon-text" value="Save"><i class="mdi mdi-plus-box"></i> Tambahkan</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+</div>
 @endsection

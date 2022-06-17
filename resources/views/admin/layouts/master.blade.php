@@ -8,6 +8,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>Otika - Admin Dashboard Template</title>
   <!-- General CSS Files -->
+  {{-- <base href="/public"> --}}
   <link rel="stylesheet" href="assets/css/app.min.css">
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -34,6 +35,10 @@
       @include('admin.layouts.footer')
     </div>
   </div>
+  @include('sweetalert::alert')
+  {{--  Sweetalert --}}
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
   <!-- General JS Scripts -->
   <script src="assets/js/app.min.js"></script>
   <!-- JS Libraies -->
