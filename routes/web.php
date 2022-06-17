@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +40,14 @@ Route::post('profile', [App\Http\Controllers\ProfileController::class, 'update']
 Route::get('history', [App\Http\Controllers\HistoryController::class, 'index']);
 
 Route::get('history/{id}', [App\Http\Controllers\HistoryController::class, 'detail']);
+
+
+// For Admin
+Route::get('/user-role', [HomeController::class, 'userManagement'])->name('user.role');
+Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+Route::get('/add-menu', [MenuController::class, 'menu'])->name('add.menu');
+Route::post('/add-menu-process', [MenuController::class, 'store'])->name('add.menu.process');
+Route::get('/edit-menu', [MenuController::class, 'getUpdate'])->name('edit.menu');
+
+
+Route::get('/logout', [HomeController::class, 'logout'])->name('logout');

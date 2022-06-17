@@ -21,7 +21,7 @@ class PesanController extends Controller
     {
         $barang = Barang::where('id', $id)->first();
 
-        return view('pesan.index', compact('barang'));
+        return view('user.pesan.index', compact('barang'));
     }
 
 
@@ -97,7 +97,7 @@ class PesanController extends Controller
 
         }
 
-        return view('pesan.checkout', compact('pesanan', 'pesanan_details'));
+        return view('user.pesan.checkout', compact('pesanan', 'pesanan_details'));
     }
 
     public function delete($id)
