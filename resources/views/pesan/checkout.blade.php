@@ -26,6 +26,7 @@
                         <table class="table table-hover">
                             <tr>
                                 <th>No</th>
+                                <th>Gambar</th>
                                 <th>Nama Barang</th>
                                 <th>Jumlah</th>
                                 <th>Harga</th>
@@ -38,6 +39,9 @@
                             @foreach ($pesanan_details as $pesanan_detail)
                                 <tr>
                                     <td>{{ $no++ }}</td>
+                                    <td>
+                                        <img src="{{ url('productimage') }}/{{ $pesanan_detail->gambar }}" width="100px" class="card-img-top" alt="product image"/>
+                                    </td>
                                     <td>{{ $pesanan_detail->barang->nama_barang }}</td>
                                     <td>{{ $pesanan_detail->jumlah }} buah</td>
                                     <td>Rp. {{ number_format($pesanan_detail->barang->harga) }}</td>

@@ -144,7 +144,7 @@ class PesanController extends Controller
         }
 
 
-        return redirect('checkout')->with('toast_success', 'Check Out Berhasil');
+        return redirect('history/'.$pesanan_id)->with('success', 'CheckOut berhasil silahkan lakukan pembayaran');
     }
 
 

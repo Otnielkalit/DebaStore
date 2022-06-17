@@ -11,15 +11,38 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
                             <li class="breadcrumb-item"><a href="{{ url('history') }}">History Pesanan</a></li>
-                            <li class="breadcrumb-item">Detail Pemesanan</li>
+                            <li class="breadcrumb-item"> Detail Pemesanan</li>
                         </ol>
                     </nav>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card-body">
+                        <h3 class="text-center">CheckOut pesanan anda berhasil</h3>
+                        <h5 >Selanjutnya silahkan lakukan pembayaran melalui:</h5>
+                        <table class="table">
+                            <tr>
+                                <th>No Rekening BRI atas nama Jerry LumbanGaol</th>
+                                <td><strong>12345678910</strong></td>
+                            </tr>
+                            <tr>
+                                <th>Jumlah Pembayaran</th>
+                                <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
+                            </tr>
+                            <tr>
+                                <th>Kode pemesanan anda</th>
+                                <td><strong>{{ ($pesanan->kode) }}</strong></td>
+                            </tr>
+                        </table>
+                        {{-- <h5>Selanjutnya silahkan lakukan pembayaran melalui <strong>Bank BRI Nomor Rekening: 12345678910</strong>
+                            dengan nominal : <strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong>
+                        </h5> --}}
+                    </div>
+                </div>
+                <div class="card mt-2">
                     <div class="card-header">
-                        <h4><i class="fa fa-shopping-cart">Check Out</i></h4>
+                        <h4><i class="fa fa-shopping-cart">Detail Pemesanan</i></h4>
                         @if (!empty($pesanan))
                             <p class="text-end">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
                     </div>
@@ -31,7 +54,6 @@
                                 <th>Jumlah</th>
                                 <th>Harga</th>
                                 <th>Total Harga</th>
-                                <th>Action</th>
                             </tr>
                             <?php
                             $no = 1;
@@ -46,12 +68,16 @@
                                 </tr>
                             @endforeach
                             <tr>
-                                <td class="text-end" colspan="4"><strong>Kode Pesanan :</strong></td>
+                                <td colspan="4" class="text-end" colspan="4"><strong>Total Pembayaran :</strong></td>
+                                <td><strong>Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</strong></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="text-end" colspan="4"><strong>Kode Pesanan :</strong></td>
                                 <td><strong>{{ ($pesanan->kode) }}</strong></td>
                             </tr>
                             <tr>
-                                <td class="text-end" colspan="4"><strong>Total Pembayaran :</strong></td>
-                                <td><strong>Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</strong></td>
+                                <td colspan="4" class="text-end" colspan="4"><strong>Total Pembayaran :</strong></td>
+                                <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
                             </tr>
                         </table>
                         @endif
