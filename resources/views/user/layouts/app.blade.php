@@ -88,11 +88,12 @@
                                         <!-- Icon -->
 
                                         <?php
-                                        $pesanan_utama = App\Models\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
-                                        if (!empty($pesanan_utama))
-                                            {
-                                                $notif = App\Models\PesananDetail::where('pesanan_id' ,$pesanan_utama->id)->count();
-                                            }
+                                        $pesanan_utama = App\Models\Pesanan::where('user_id', Auth::user()->id)
+                                            ->where('status', 0)
+                                            ->first();
+                                        if (!empty($pesanan_utama)) {
+                                            $notif = App\Models\PesananDetail::where('pesanan_id', $pesanan_utama->id)->count();
+                                        }
                                         ?>
                                         <a class="text-reset me-4" href="{{ 'checkout' }}">
                                             <i class="fas fa-shopping-cart"></i>
@@ -138,105 +139,104 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <!-- Container wrapper -->
             <div class="container-fluid">
-            <!-- Toggle button -->
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-mdb-toggle="collapse"
-                data-mdb-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <i class="fas fa-bars"></i>
-            </button>
-        
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Navbar brand -->
-                <a class="navbar-brand mt-2 mt-lg-0" href="{{ route('home') }}">
-                <img
-                    src="img/deba.png"
-                    height="15"
-                    alt="MDB Logo"
-                    loading="lazy"
-                />
-                </a>
-                <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                </li>
-                </ul>
-                <!-- Left links -->
-            </div>
-            <!-- Collapsible wrapper -->
-        
-            <!-- Right elements -->
-            <div class="d-flex align-items-center">
-                @guest
-                    @if (Route::has('login'))
-                    <a href="{{ route('login') }}" class="nav-link">Login</a>
-                    @endif
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
 
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}"><button type="button" class="btn btn-primary">SIGN UP FOR FREE</button></a>
-                    @endif
-                @endguest
-                <!-- Icon -->
-                @if(Route::has('login'))
-                @auth
-                    <?php
-                        $pesanan_utama = App\Models\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
-                        if (!empty($pesanan_utama))
-                        {
-                            $notif = App\Models\PesananDetail::where('pesanan_id' ,$pesanan_utama->id)->count();
-                        }
-                    ?>
-                    <a class="text-reset me-4" href="{{ 'checkout' }}">
-                        <i class="fas fa-shopping-cart"></i>
-                        @if (!empty($notif))
-                            <span class="badge rounded-pill badge-notification bg-danger">{{ $notif }}</span>
-                        @endif
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Navbar brand -->
+                    <a class="navbar-brand mt-2 mt-lg-0" href="{{ route('home') }}">
+                        <img src="img/deba.png" height="15" alt="MDB Logo" loading="lazy" />
                     </a>
-                <!-- Avatar -->
-                    <div class="dropdown">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="35" alt="Black and White Portrait of a Man" loading="lazy"/>
-                            <strong class="d-none d-sm-block ms-3 text-dark">{{ Auth::user()->name }}</strong>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                            <li>
-                                <a class="dropdown-item" href="{{ url('profile') }}">My profile</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ url('history') }}">History Pesanan</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href=" {{ url('/agen') }}">Agen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                    <!-- Left links -->
+                </div>
+                <!-- Collapsible wrapper -->
+
+                <!-- Right elements -->
+                <div class="d-flex align-items-center">
+                    @guest
+                        @if (Route::has('login'))
+                            <a href="{{ route('login') }}" class="nav-link">Login</a>
+                        @endif
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}"><button type="button" class="btn btn-primary">SIGN UP FOR
+                                    FREE</button></a>
+                        @endif
+                    @endguest
+                    <!-- Icon -->
+                    @if (Route::has('login'))
+                        @auth
+                            <?php
+                            $pesanan_utama = App\Models\Pesanan::where('user_id', Auth::user()->id)
+                                ->where('status', 0)
+                                ->first();
+                            if (!empty($pesanan_utama)) {
+                                $notif = App\Models\PesananDetail::where('pesanan_id', $pesanan_utama->id)->count();
+                            }
+                            ?>
+                            <a class="text-reset me-4" href="{{ 'checkout' }}">
+                                <i class="fas fa-shopping-cart"></i>
+                                @if (!empty($notif))
+                                    <span
+                                        class="badge rounded-pill badge-notification bg-danger">{{ $notif }}</span>
+                                @endif
+                            </a>
+                            <!-- Avatar -->
+                            <div class="dropdown">
+                                <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                                    id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle"
+                                        height="35" alt="Black and White Portrait of a Man" loading="lazy" />
+                                    <strong class="d-none d-sm-block ms-3 text-dark">{{ Auth::user()->name }}</strong>
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                class="d-none">
-                                @csrf
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                    @endauth
-                @endif
-            </div>
-            <!-- Right elements -->
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url('profile') }}">My profile</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url('history') }}">History Pesanan</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        @endauth
+                    @endif
+                </div>
+                <!-- Right elements -->
             </div>
             <!-- Container wrapper -->
         </nav>
-  <!-- Navbar -->
+        <!-- Navbar -->
         <main class="py-4">
             @yield('content')
         </main>
@@ -312,5 +312,5 @@
   <!-- Copyright -->
 </footer> --}}
 </body>
-</html>
 
+</html>

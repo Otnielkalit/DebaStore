@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
-<di class="row ">
+<div class="row ">
     <div class="card">
         <div class="card-header" style="margin:5%">
             <h1>Hello, {{ Auth::user()->name }}</h1>

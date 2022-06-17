@@ -42,12 +42,30 @@ Route::get('history', [App\Http\Controllers\HistoryController::class, 'index']);
 Route::get('history/{id}', [App\Http\Controllers\HistoryController::class, 'detail']);
 
 
+Route::get('/agen', [HomeController::class, 'useragen']);
+
+
 // For Admin
 Route::get('/user-role', [HomeController::class, 'userManagement'])->name('user.role');
+
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+
 Route::get('/add-menu', [MenuController::class, 'menu'])->name('add.menu');
+
 Route::post('/add-menu-process', [MenuController::class, 'store'])->name('add.menu.process');
+
 Route::get('/edit-menu', [MenuController::class, 'getUpdate'])->name('edit.menu');
 
-
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
+
+Route::get('/viewagen', [HomeController::class, 'viewagen']);
+
+Route::post('/uploadagen', [HomeController::class, 'uploadagen']);
+
+Route::get('/updateagen/{id}', [HomeController::class, 'updateagen']);
+
+Route::post('/editagen/{id}', [HomeController::class, 'editagen']);
+
+Route::get('/addagen', [HomeController::class, 'addagen']);
+
+Route::get("/deleteagen/{id}",[HomeController::class,"deleteagen"]);

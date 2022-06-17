@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <!-- index.html  21 Nov 2019 03:44:50 GMT -->
 <head>
+    <base href="/public">
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>Otika - Admin Dashboard Template</title>
@@ -44,8 +43,7 @@
   <script src="assets/js/scripts.js"></script>
   <!-- Custom JS File -->
   <script src="assets/js/custom.js"></script>
+  @include('sweetalert::alert')
 </body>
-
-
 <!-- index.html  21 Nov 2019 03:47:04 GMT -->
 </html>
