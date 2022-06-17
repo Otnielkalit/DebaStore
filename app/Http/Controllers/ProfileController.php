@@ -5,6 +5,7 @@ use Auth;
 use Alert;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -17,7 +18,7 @@ class ProfileController extends Controller
     {
         $user = User::where('id', Auth::user()->id)->first();
 
-        return view('profile.index', compact('user'));
+        return view('user.profile.index', compact('user'));
     }
 
     public function update(Request $request)
