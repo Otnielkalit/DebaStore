@@ -97,7 +97,7 @@ class PesanController extends Controller
 
         }
 
-        return view('user.pesan.checkout', compact('pesanan', 'pesanan_details'));
+        return view('user.pesan.checkout', compact('pesanan', 'pesanan_details',));
     }
 
     public function delete($id)
@@ -144,7 +144,7 @@ class PesanController extends Controller
         }
 
 
-        return redirect('checkout')->with('toast_success', 'Check Out Berhasil');
+        return redirect('history/'.$pesanan_id)->with('success', 'CheckOut berhasil silahkan lakukan pembayaran');
     }
 
 
