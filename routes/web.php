@@ -51,13 +51,11 @@ Route::post('/reservation', [HomeController::class, 'reservation']);
 
 // For Admin
 Route::get('/user-role', [HomeController::class, 'userManagement'])->name('user.role');
-<<<<<<< HEAD
 Route::get('/delete-role/{id}', [HomeController::class, 'delete'])->name('delete.user');
 Route::get('/trash', [HomeController::class, 'trash'])->name('trash.user');
 Route::get('/restore/{id}', [HomeController::class, 'restore'])->name('restore.user');
 Route::get('/restore-all', [HomeController::class, 'restoreAll'])->name('restore.all.user');
 
-=======
 
 Route::get('/delete-role/{id}', [HomeController::class, 'delete'])->name('delete.user');
 
@@ -67,7 +65,6 @@ Route::get('/restore/{id}', [HomeController::class, 'restore'])->name('restore.u
 
 Route::get('/restore-all', [HomeController::class, 'restoreAll'])->name('restore.all.user');
 
->>>>>>> 96735fec338aae5f7762943f58e95495a4af40b3
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 
 Route::get('/add-menu', [MenuController::class, 'menu'])->name('add.menu');
