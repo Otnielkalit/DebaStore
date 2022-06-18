@@ -212,4 +212,12 @@ class HomeController extends Controller
             return redirect()->back()->with('success', 'Pesan Anda Terkirim');
     }
 
+    // class viewreservation
+    public function viewreservation()
+    {
+        $data = reservation::all();
+
+        return view('admin.viewreservation', compact('data'));
+    }
+
 }

@@ -30,7 +30,7 @@
                         Pelayan</span></a>
             </li>
             <li class="dropdown">
-                <a href="index.html" class="nav-link"><i
+                <a href="{{ url('/viewreservation') }}" class="nav-link"><i
                         class="
               fas fa-ticket-alt"></i><span>Reservation</span></a>
             </li>

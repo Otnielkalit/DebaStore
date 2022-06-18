@@ -45,7 +45,7 @@
                     </ul>
                 </div>
                 <div class="col-md-7 col-lg-8">
-                    <h4 class="mb-3">Billing address</h4>
+                    <h4 class="mb-3">Gas hamu ma ro tuson lae</h4>
                     <form action="{{ url('/reservation') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                         @csrf
                         <div class="row g-3">
@@ -120,7 +120,7 @@
         <!-- <div class="size-303" id="google_map" data-map-x="40.691446" data-map-y="-73.886787" data-pin="images/icons/pin.png" data-scrollwhell="0" data-draggable="1" data-zoom="11"></div> -->
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5086.907373970723!2d98.71762905804279!3d2.3350194502143786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302e252ebe3e90e9%3A0xf5b5c24020b9df4c!2sBandrek%20Andaliman!5e1!3m2!1sid!2sid!4v1654255804608!5m2!1sid!2sid"
-            width="1349" height="550" style="border:0;" allowfullscreen="" loading="lazy"
+            width="1520" height="550" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 @endsection

@@ -164,7 +164,7 @@
                             <a class="nav-link" href=" {{ url('/agen') }}">Agen</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/contact') }}">Contact Us</a>
+                            <a class="nav-link" href="{{ url('/contact') }}">Pesan Tempat</a>
                         </li>
                     </ul>
                     <!-- Left links -->
