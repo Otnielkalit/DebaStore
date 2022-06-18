@@ -55,6 +55,9 @@ Route::get('/add-menu', [MenuController::class, 'menu'])->name('add.menu');
 Route::post('/add-menu-process', [MenuController::class, 'store'])->name('add.menu.process');
 
 Route::get('/edit-menu', [MenuController::class, 'getUpdate'])->name('edit.menu');
+Route::get('/edit-menu/{id}', [MenuController::class, 'getUpdate'])->name('edit.menu');
+Route::post('/edit-menu-process/{id}', [MenuController::class, 'update'])->name('edit.menu.process');
+Route::get('/delete/{id}', [MenuController::class, 'delete'])->name('delete');
 
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 
