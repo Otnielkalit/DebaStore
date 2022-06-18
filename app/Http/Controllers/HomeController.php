@@ -45,6 +45,30 @@ class HomeController extends Controller
         return view('admin.user-management', compact('dataUser'));
     }
 
+    public function delete($id) {
+        $roleUser = User::find($id);
+        $roleUser->delete();
+        return redirect()->route('user.role')->with('success', 'Data berhasil dihapus');
+    }
+
+    public function trash() {
+        $trashesUser = User::onlyTrashed()->get();
+        return view('admin.restore-user', compact('trashesUser'));
+    }
+
+    public function restore($id) {
+        $restoreUser = User::onlyTrashed()->where('id', $id);
+        $restoreUser->restore();
+        return redirect()->route('user.role')->with('toast_success', 'Data user berhasil di kemabalikan');
+    }
+
+    public function restoreAll()
+    {
+        $restoreAll = User::onlyTrashed();
+        $restoreAll->restore();
+        return back();
+    }
+
     public function logout()
     {
         Session::flush();
