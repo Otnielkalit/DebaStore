@@ -46,11 +46,12 @@
                 </div>
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Billing address</h4>
-                    <form action="{{ url('reservation') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    <form action="{{ url('/reservation') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        @csrf
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="namaanda" class="form-label">Nama Anda</label>
-                                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="" value=""
+                                <input type="text" name="name" class="form-control" id="validationDefaultUsername" placeholder="" value=""
                                     required autofocus>
                                 <div class="invalid-feedback">
                                     Valid first nama is required.
@@ -59,7 +60,7 @@
 
                             <div class="col-sm-6">
                                 <label for="lastName" class="form-label">Email Aktif</label>
-                                <input type="email" class="form-control" id="lastName" placeholder="" value=""
+                                <input type="email" name="email" class="form-control" id="lastName" placeholder="" value=""
                                     required>
                                 <div class="invalid-feedback">
                                     Valid last email is required.
@@ -69,17 +70,15 @@
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <label class="form-label" for="typeNumber">No Hp/WA</label>
-                                    <input type="number" id="typeNumber" class="form-control" placeholder="" value=""
+                                    <input type="number" name="phone" id="typeNumber" class="form-control" placeholder="" value=""
                                         required>
-
-
                                     <div class="invalid-feedback">
                                         Valid first No HP/WA is required.
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="form-label" for="typeNumber">Nomor Meja</label>
-                                    <input type="number" id="typeNumber" class="form-control" placeholder="" value=""
+                                    <input type="number" name="guest" id="typeNumber" class="form-control" placeholder="" value=""
                                         required>
                                     <div class="invalid-feedback">
                                         Valid nomor meja is required.
@@ -88,7 +87,7 @@
                                 <div class="row g-3">
                                     <div class="col-sm-6">
                                         <label for="firstName" class="form-label">Tanggal Kedatangan</label>
-                                        <input type="date" class="form-control timepicker-input active" id="firstName"
+                                        <input type="date" name="date"  class="form-control timepicker-input active" id="firstName"
                                             placeholder="" value="" required>
                                         <div class="invalid-feedback">
                                             Valid first Tanggal Kedatangan is required.
@@ -96,20 +95,21 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="lastName" class="form-label">Waktu tiba di tempat</label>
-                                        <input type="time" class="form-control" id="lastName" placeholder=""
+                                        <input type="time" name="time"  class="form-control" id="lastName" placeholder=""
                                             value="" required>
                                         <div class="invalid-feedback">
                                             Valid last is required.
                                         </div>
                                     </div>
                                     <div class="form-outline mb-4">
-                                        <textarea class="form-control" id="form6Example7" rows="7"></textarea>
+                                        <textarea name="message" class="form-control" id="form6Example7" rows="7"></textarea>
                                         <label class="form-label" for="form6Example7">Pesan</label>
                                     </div>
                                     <button type="submit" class="btn btn-primary" value="Save">Kirim Pesan</button>
                                     <hr class="my-4">
                                 </div>
                             </div>
+                        </div>
                     </form>
                 </div>
             </div>

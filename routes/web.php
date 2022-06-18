@@ -47,6 +47,7 @@ Route::get('/aboutus', [HomeController::class, 'aboutus']);
 
 Route::get('/contact', [HomeController::class, 'contact']);
 
+Route::post('/reservation', [HomeController::class, 'reservation']);
 
 // For Admin
 Route::get('/user-role', [HomeController::class, 'userManagement'])->name('user.role');
