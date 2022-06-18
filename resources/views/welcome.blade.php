@@ -81,7 +81,7 @@
             </div>
         </nav>
 
-        <section id="gtco-hero" class="gtco-cover" style="background-image: url(welcome/images/img_bg_4.jpg);"
+        <section id="gtco-hero" class="gtco-cover" style="background-image: url(aboutimg/b.jpeg);"
             data-section="home" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="container">
@@ -110,15 +110,29 @@
                         <p class="subtle-text animate-box" data-animate-effect="fadeIn">Welcome</p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mb-1">
                     <div class="col-md-6 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
                         <div class="img-shadow">
-                            <img src="welcome/images/img_1.jpg" class="img-responsive"
-                                alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                            <img src="aboutimg/c.jpeg" class="img-responsive" alt="product">
                         </div>
                     </div>
                     <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-                        <h2 class="heading-colored">Excellence &amp; Honesty</h2>
+                        <h2 class="heading-colored">Bersama Bapak M. Suhendra</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aut praesentium nihil hic
+                            quam culpa magnam ducimus suscipit repellat quidem cumque, unde impedit, labore earum
+                            eligendi perspiciatis nemo molestiae sequi veritatis. Veritatis, reprehenderit, eaque!
+                            Rerum, libero ipsam enim, iusto adipisci quae repellendus officia consequatur ducimus
+                            cupiditate impedit, aliquam numquam excepturi.</p>
+                    </div>
+                </div><br>
+                <div class="row mb-1">
+                    <div class="col-md-6 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
+                        <div class="img-shadow">
+                            <img src="aboutimg/c.jpeg" class="img-responsive" alt="product">
+                        </div>
+                    </div>
+                    <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+                        <h2 class="heading-colored">Bersama Bapak M. Suhendra</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aut praesentium nihil hic
                             quam culpa magnam ducimus suscipit repellat quidem cumque, unde impedit, labore earum
                             eligendi perspiciatis nemo molestiae sequi veritatis. Veritatis, reprehenderit, eaque!
@@ -143,11 +157,10 @@
                     <div class="col-md-6">
                         <div class="gtco-practice-area-item animate-box">
                             <div class="gtco-icon">
-                                <img src="welcome/images/scale.png"
-                                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                                <img src="productimage/bandrek.png" alt="product" height="160px" class="img-responsive">
                             </div>
                             <div class="gtco-copy">
-                                <h3>Criminal Law</h3>
+                                <h3>Bandrek Andaliamn</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
                                     sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
                                     ornare tortor leo eget erat. </p>
@@ -156,40 +169,24 @@
 
                         <div class="gtco-practice-area-item animate-box">
                             <div class="gtco-icon">
-                                <img src="welcome/images/scale.png"
-                                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                                <img src="productimage/kulit.png" alt="product" height="160px" class="img-responsive">
                             </div>
                             <div class="gtco-copy">
-                                <h3>Industrial Law</h3>
+                                <h3>Kulit Pangsit Kriuk</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
                                     sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
                                     ornare tortor leo eget erat. </p>
                             </div>
                         </div>
-
-                        <div class="gtco-practice-area-item animate-box">
-                            <div class="gtco-icon">
-                                <img src="welcome/images/scale.png"
-                                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-                            </div>
-                            <div class="gtco-copy">
-                                <h3>Financial Law</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
-                                    sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
-                                    ornare tortor leo eget erat. </p>
-                            </div>
-                        </div>
-
                     </div>
                     <div class="col-md-6">
 
                         <div class="gtco-practice-area-item animate-box">
                             <div class="gtco-icon">
-                                <img src="welcome/images/scale.png"
-                                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                                <img src="productimage/kacang.png" alt="product" height="160px" class="img-responsive">
                             </div>
                             <div class="gtco-copy">
-                                <h3>Divorce Law</h3>
+                                <h3>Kacang Pariban</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
                                     sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
                                     ornare tortor leo eget erat. </p>
@@ -198,30 +195,15 @@
 
                         <div class="gtco-practice-area-item animate-box">
                             <div class="gtco-icon">
-                                <img src="welcome/images/scale.png"
-                                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                                <img src="productimage/kopi.jpg" alt="product" height="160px" class="img-responsive">
                             </div>
                             <div class="gtco-copy">
-                                <h3>Corporate Law</h3>
+                                <h3>Kopi Tombak</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
                                     sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
                                     ornare tortor leo eget erat. </p>
                             </div>
                         </div>
-
-                        <div class="gtco-practice-area-item animate-box">
-                            <div class="gtco-icon">
-                                <img src="welcome/images/scale.png"
-                                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-                            </div>
-                            <div class="gtco-copy">
-                                <h3>Accident Law</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
-                                    sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
-                                    ornare tortor leo eget erat. </p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -231,17 +213,16 @@
             <div class="container">
                 <div class="row row-pb-md">
                     <div class="col-md-8 col-md-offset-2 heading animate-box" data-animate-effect="fadeIn">
-                        <h1>Our Team</h1>
+                        <h1>Produk Terbaik Kami</h1>
                         <p class="sub">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus
                             alias autem provident. Odit ab aliquam dolor eius.</p>
-                        <p class="subtle-text animate-box" data-animate-effect="fadeIn">Our Team</p>
+                        <p class="subtle-text animate-box" data-animate-effect="fadeIn">Produk Terbaik</p>
                     </div>
                 </div>
                 <div class="row team-item gtco-team-reverse">
                     <div class="col-md-6 col-md-push-7 animate-box" data-animate-effect="fadeInRight">
                         <div class="img-shadow">
-                            <img src="welcome/images/img_team_1.jpg" class="img-responsive"
-                                alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                            <img src="aboutimg/a.jpeg" class="img-responsive" alt="Photos" class="img-responsive">
                         </div>
                     </div>
                     <div class="col-md-6  col-md-pull-6 animate-box" data-animate-effect="fadeInRight">
@@ -262,12 +243,11 @@
                 <div class="row team-item gtco-team">
                     <div class="col-md-6 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
                         <div class="img-shadow">
-                            <img src="welcome/images/img_team_2.jpg" class="img-responsive"
-                                alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                            <img src="productimage/kopii.png" alt="product" height="160px" class="img-responsive">
                         </div>
                     </div>
                     <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-                        <h2>Craig Campbell</h2>
+                        <h2>Kopi Tombak</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus aliquid maiores,
                             voluptatum ex. Accusantium, eum distinctio laudantium. Perferendis dolor, corporis quasi?
                             Tempore quod molestiae quis cumque pariatur dolore vel sit, fugit delectus quasi
@@ -336,16 +316,12 @@
                     <div class="col-md-12">
                         <p class="pull-left">
                             <small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
-                            <small class="block">Designed by <a href="http://freehtml5.co/"
-                                    target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/"
-                                    target="_blank">Unsplash</a></small>
                         </p>
                         <p class="pull-right">
                         <ul class="gtco-social-icons pull-right">
-                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-phone"></i></a></li>
                             <li><a href="#"><i class="icon-facebook"></i></a></li>
-                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                            <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                            <li><a href="#"><i class="icon-instagram"></i></a></li>
                         </ul>
                         </p>
                     </div>
