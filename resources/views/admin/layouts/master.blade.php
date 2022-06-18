@@ -8,7 +8,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>Otika - Admin Dashboard Template</title>
   <!-- General CSS Files -->
-  {{-- <base href="/public"> --}}
+  <base href="/public">
   <link rel="stylesheet" href="assets/css/app.min.css">
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -49,6 +49,28 @@
   <script src="assets/js/scripts.js"></script>
   <!-- Custom JS File -->
   <script src="assets/js/custom.js"></script>
+  <script>
+    $('.delete').click( function() {
+      var userid = $(this).attr('data-id')
+      // var type = $(this).attr('data-type');
+      swal({
+            title: "Apa anda yakin delete data ini?",
+            text: "Anda akan menghapus data user "+userid+'',
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal("Data berhasil dihapus", {
+                icon: "success",
+              });
+            } else {
+              swal("Data tidak jadi dihapus");
+            }
+      });
+    })
+  </script>
 </body>
 
 

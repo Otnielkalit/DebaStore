@@ -44,6 +44,10 @@ Route::get('history/{id}', [App\Http\Controllers\HistoryController::class, 'deta
 
 // For Admin
 Route::get('/user-role', [HomeController::class, 'userManagement'])->name('user.role');
+Route::get('/delete-role/{id}', [HomeController::class, 'delete'])->name('delete.user');
+Route::get('/trash', [HomeController::class, 'trash'])->name('trash.user');
+Route::get('/restore/{id}', [HomeController::class, 'restore'])->name('restore.user');
+Route::get('/restore-all', [HomeController::class, 'restoreAll'])->name('restore.all.user');
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/add-menu', [MenuController::class, 'menu'])->name('add.menu');
 Route::post('/add-menu-process', [MenuController::class, 'store'])->name('add.menu.process');

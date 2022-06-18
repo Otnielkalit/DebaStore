@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 
 class MenuController extends Controller
 {
@@ -40,7 +41,7 @@ class MenuController extends Controller
             $menu->save();
         }
 
-        return redirect()->route('menu')->with('toast_success', 'Menu berhasil ditambahkan');
+        return redirect()->route('menu')->with('toast_success', 'Sukses, menu berhasil ditambahkan');
     }
 
     public function getUpdate($id) {
@@ -49,31 +50,32 @@ class MenuController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $data = Barang::find($id);
-        $image = $request->gambar;
-
-        $imagename = $image->getClientOriginalName();
-
-            $request->gambar->move('productimage/', $imagename);
-
-            $data->gambar=$imagename;
-
-            $data->nama_barang=$request->nama_barang;
-
-            $data->harga=$request->harga;
-
-            $data->keterangan=$request->keterangan;
-
-            $data->stok=$request->stok;
-
-            $data->save();
-
-            return redirect()->route('menu')->with('toast_success', 'Menu berhasil di ubah');
+        $request->validate([
+            'nama_barang' => 'required',
+            'harga' => 'required',
+            'keterangan' => 'required',
+            'stok' => 'required',
+            ]);
+            $update = ['nama_barang' => $request->nama_barang, 'harga' => $request->harga, 'keterangan' => $request->keterangan, 'stok' => $request->stok];
+            if ($files = $request->file('gambar')) {
+            $destinationPath = 'productimage/'; // upload path
+            $profileImage = date('YmdHis') . "." . $files->getClientOriginalName();
+            $files->move($destinationPath, $profileImage);
+            $update['gambar'] = "$profileImage";
+            }
+            $update['nama_barang'] = $request->get('nama_barang');
+            $update['harga'] = $request->get('harga');
+            $update['keterangan'] = $request->get('keterangan');
+            $update['stok'] = $request->get('stok');
+            Barang::where('id',$id)->update($update);
+            return Redirect::to('menu')
+            ->with('toast_success','Sukses, Menu berhasil di update');
     }
 
+    
     public function delete($id) {
         $data = Barang::find($id);
         $data->delete();
-        return redirect()->route('menu')->with('toast_success', 'Data berhasil dihapus');
+        return redirect()->route('menu')->with('toast_success', 'Produk berhasil dihapus');
     }
 }

@@ -19,6 +19,34 @@
       </ul>
     </div>
     <ul class="navbar-nav navbar-right">
+      @php 
+        $stocks = \DB::select("SELECT * from barangs where stok = 0");  
+      @endphp
+      <li class="dropdown dropdown-list-toggle ">
+        <a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle count"><i data-feather="bell"></i>
+          <span class="badge headerBadge1 bg-danger count">{{ count($stocks) }}</span> 
+        </a>
+        <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+          <div class="dropdown-header">
+            Notifications
+          </div>
+          <div class="dropdown-list-content dropdown-list-icons">
+            @foreach ($stocks as $stock)
+            <a href="{{ url('/edit-menu/'.$stock->id) }}" class="dropdown-item dropdown-item-unread"> 
+              <span class="dropdown-item-icon bg-danger text-white"> 
+                <i class="fas fa-exclamation-triangle"></i>
+              </span> 
+              <span class="dropdown-item-desc"> {{ $stock->nama_barang.' sudah habis.' }} <br>
+                <i class="text-danger">*silahkan lakukan pengisian stok segera!</i>
+              </span>
+            </a> 
+            @endforeach
+          </div>
+          <div class="dropdown-footer text-center">
+            <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+          </div>
+      </div>
+      </li>
       <li class="dropdown"><a href="#" data-toggle="dropdown"
           class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="assets/img/user.png"
             class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>

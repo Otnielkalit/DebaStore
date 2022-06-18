@@ -11,7 +11,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
-                            <li class="breadcrumb-item">{{ $barang->nama_barang }}</li>
+                            <li class="breadcrumb-item">Check Out</li>
                         </ol>
                     </nav>
                 </div>
@@ -47,8 +47,7 @@
                                         <td>:</td>
                                         <td>
                                             <form action="{{ url('pesan') }}/{{ $barang->id }}" method="post">
-                                                @csrf
-                                                <input type="text" name="jumlah_pesan" class="form-control" required="">
+                                                <input type="number" name="jumlah_pesan" class="form-control" required="">
                                                 <button type="submit" class="btn btn-primary mt-2"><i
                                                         class="fas fa-shopping-cart"></i>add cart</button>
                                             </form>
