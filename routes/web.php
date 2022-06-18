@@ -41,17 +41,33 @@ Route::get('history', [App\Http\Controllers\HistoryController::class, 'index']);
 
 Route::get('history/{id}', [App\Http\Controllers\HistoryController::class, 'detail']);
 
-
 Route::get('/agen', [HomeController::class, 'useragen']);
+
+Route::get('/contact', [HomeController::class, 'contact']);
+
+Route::post('/reservation', [HomeController::class, 'reservation']);
+
 
 
 // For Admin
 Route::get('/user-role', [HomeController::class, 'userManagement'])->name('user.role');
+<<<<<<< HEAD
 Route::get('/delete-role/{id}', [HomeController::class, 'delete'])->name('delete.user');
 Route::get('/trash', [HomeController::class, 'trash'])->name('trash.user');
 Route::get('/restore/{id}', [HomeController::class, 'restore'])->name('restore.user');
 Route::get('/restore-all', [HomeController::class, 'restoreAll'])->name('restore.all.user');
 
+=======
+
+Route::get('/delete-role/{id}', [HomeController::class, 'delete'])->name('delete.user');
+
+Route::get('/trash', [HomeController::class, 'trash'])->name('trash.user');
+
+Route::get('/restore/{id}', [HomeController::class, 'restore'])->name('restore.user');
+
+Route::get('/restore-all', [HomeController::class, 'restoreAll'])->name('restore.all.user');
+
+>>>>>>> 96735fec338aae5f7762943f58e95495a4af40b3
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 
 Route::get('/add-menu', [MenuController::class, 'menu'])->name('add.menu');
@@ -59,8 +75,11 @@ Route::get('/add-menu', [MenuController::class, 'menu'])->name('add.menu');
 Route::post('/add-menu-process', [MenuController::class, 'store'])->name('add.menu.process');
 
 Route::get('/edit-menu', [MenuController::class, 'getUpdate'])->name('edit.menu');
+
 Route::get('/edit-menu/{id}', [MenuController::class, 'getUpdate'])->name('edit.menu');
+
 Route::post('/edit-menu-process/{id}', [MenuController::class, 'update'])->name('edit.menu.process');
+
 Route::get('/delete/{id}', [MenuController::class, 'delete'])->name('delete');
 
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
@@ -76,3 +95,6 @@ Route::post('/editagen/{id}', [HomeController::class, 'editagen']);
 Route::get('/addagen', [HomeController::class, 'addagen']);
 
 Route::get("/deleteagen/{id}",[HomeController::class,"deleteagen"]);
+
+Route::get('/viewreservation', [HomeController::class, 'viewreservation']);
+

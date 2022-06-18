@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Barang;
 use App\Models\Agen;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -172,4 +173,43 @@ class HomeController extends Controller
 
             return redirect('viewagen')->with('success', 'Berhasil Menghapus Orang');
         }
+
+    // Class     contact
+    public function contact()
+    {
+        return view('contactus');
+    }
+
+    // class reservation
+    public function reservation(Request $request)
+    {
+        $data = new reservation;
+
+            $data->name=$request->name;
+
+            $data->email=$request->email;
+
+            $data->phone=$request->phone;
+
+            $data->guest=$request->guest;
+
+            $data->date=$request->date;
+
+            $data->time=$request->time;
+
+            $data->message=$request->message;
+
+            $data->save();
+
+            return redirect()->back()->with('success', 'Pesan Anda Terkirim');
+    }
+
+    // class viewreservation
+    public function viewreservation()
+    {
+        $data = reservation::all();
+
+        return view('admin.viewreservation', compact('data'));
+    }
+
 }
