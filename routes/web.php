@@ -41,8 +41,11 @@ Route::get('history', [App\Http\Controllers\HistoryController::class, 'index']);
 
 Route::get('history/{id}', [App\Http\Controllers\HistoryController::class, 'detail']);
 
-
 Route::get('/agen', [HomeController::class, 'useragen']);
+
+Route::get('/aboutus', [HomeController::class, 'aboutus']);
+
+Route::get('/contact', [HomeController::class, 'contact']);
 
 
 // For Admin
