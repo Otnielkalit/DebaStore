@@ -158,8 +158,11 @@ class PesanController extends Controller
 
         return redirect('history/'.$pesanan_id)->with('success', 'CheckOut berhasil silahkan lakukan pembayaran');
     }
+<<<<<<< HEAD
 
     public function orderDetails() {
         return view('admin.orders');
     }
+=======
+>>>>>>> 2fbf3eb2ea0e18d1df38d3008205fcc800205973
 }
