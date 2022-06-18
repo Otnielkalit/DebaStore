@@ -48,7 +48,6 @@
   <script src="assets/js/scripts.js"></script>
   <!-- Custom JS File -->
   <script src="assets/js/custom.js"></script>
-<<<<<<< HEAD
   <script>
     $('.delete').click( function() {
       var userid = $(this).attr('data-id')
@@ -71,9 +70,7 @@
       });
     })
   </script>
-=======
   @include('sweetalert::alert')
->>>>>>> 5c94b36e6923e7a68f63863e9969e163aadb473d
 </body>
 <!-- index.html  21 Nov 2019 03:47:04 GMT -->
 </html>
