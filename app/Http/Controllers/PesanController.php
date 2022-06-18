@@ -31,10 +31,21 @@ class PesanController extends Controller
         $barang     = Barang::where('id', $id)->first();
         $tanggal    = Carbon::now();
 
+        $cek_pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
+
+        //cek order detail
+        
         // Validate whether it exceeds the stock quantity
         if($request->jumlah_pesan > $barang->stok)
         {
-            return redirect('pesan/'.$id);
+            return redirect('pesan/'.$id)->with('toast_error', 'Anda sudah melebihi batas stok');
+        }elseif(!empty($cek_pesanan)){
+            $cek_pesanan_detail   = PesananDetail::where('barang_id', $barang->id)->where('pesanan_id', $cek_pesanan->id)->first();
+            if(!empty($cek_pesanan_detail)){
+                if($request->jumlah_pesan + $cek_pesanan_detail->jumlah > $barang->stok){
+                    return redirect()->back()->with('toast_error', 'Anda sudah melebihi batas stok');
+                }
+            }
         }
 
         // Cek Validation
@@ -148,5 +159,7 @@ class PesanController extends Controller
         return redirect('history/'.$pesanan_id)->with('success', 'CheckOut berhasil silahkan lakukan pembayaran');
     }
 
-
+    public function orderDetails() {
+        return view('admin.orders');
+    }
 }

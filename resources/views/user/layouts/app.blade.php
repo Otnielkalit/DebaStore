@@ -10,6 +10,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+
+    <base href="/public">
+    @yield('style')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- MDB -->
@@ -31,110 +34,6 @@
 
 <body>
     <div id="app">
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                            @else
-                            <nav class="navbar fixed-top navbar-light bg-light">
-                                <!-- Container wrapper -->
-                                <div class="container-fluid">
-                                    <!-- Toggle button -->
-                                    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                                        data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                        aria-expanded="false" aria-label="Toggle navigation">
-                                        <i class="fas fa-bars"></i>
-                                    </button>
-
-                                    <!-- Collapsible wrapper -->
-                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                        <!-- Navbar brand -->
-                                        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                                            <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"height="23" alt="MDB Logo" loading="lazy" />
-                                        </a>
-                                    </div>
-                                    <!-- Collapsible wrapper -->
-
-                                    <!-- Right elements -->
-                                    <div class="d-flex align-items-center">
-                                        <!-- Icon -->
-
-                                        <?php
-                                        $pesanan_utama = App\Models\Pesanan::where('user_id', Auth::user()->id)
-                                            ->where('status', 0)
-                                            ->first();
-                                        if (!empty($pesanan_utama)) {
-                                            $notif = App\Models\PesananDetail::where('pesanan_id', $pesanan_utama->id)->count();
-                                        }
-                                        ?>
-                                        <a class="text-reset me-4" href="{{ 'checkout' }}">
-                                            <i class="fas fa-shopping-cart"></i>
-                                            @if (!empty($notif))
-                                            <span class="badge rounded-pill badge-notification bg-danger">{{ $notif }}</span>
-                                            @endif
-                                        </a>
-                                        <!-- Avatar -->
-                                        <div class="dropdown">
-                                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="35" alt="Black and White Portrait of a Man" loading="lazy"/>
-                                                    <strong class="d-none d-sm-block ms-3">{{ Auth::user()->name }}</strong>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                                                <li>
-                                                    <a class="dropdown-item" href="{{ url('profile') }}">My profile</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                        {{ __('Logout') }}
-                                                    </a>
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                    class="d-none">
-                                                    @csrf
-                                                </form>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="{{ url('history') }}">History Pesanan</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Right elements -->
-                                </div>
-                                <!-- Container wrapper -->
-                            </nav>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav> --}}
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <!-- Container wrapper -->
@@ -156,6 +55,9 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/list-menu') }}">Menu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href=" {{ url('/agen') }}">Agen</a>
@@ -308,6 +210,22 @@
   </div>
   <!-- Copyright -->
 </footer> --}}
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 </body>
+<script>
+    $(document).on('change', '.file-input', function() {
+        
 
+        var filesCount = $(this)[0].files.length;
+        
+        var textbox = $(this).prev();
+      
+        if (filesCount === 1) {
+          var fileName = $(this).val().split('\\').pop();
+          textbox.text(fileName);
+        } else {
+          textbox.text(filesCount + ' files selected');
+        }
+      });
+</script>
 </html>

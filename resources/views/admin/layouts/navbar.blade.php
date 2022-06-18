@@ -4,10 +4,9 @@
             <li><a href="#" data-toggle="sidebar"
                     class="nav-link nav-link-lg
                                 collapse-btn"> <i
-                        data-feather="align-justify"></i></a></li>
-            <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
-                    <i data-feather="maximize"></i>
-                </a></li>
+                        data-feather="align-justify"></i>
+                </a>
+            </li>
             <li>
                 <form class="form-inline mr-auto">
                     <div class="search-element">
@@ -24,10 +23,11 @@
     <ul class="navbar-nav navbar-right">
       @php 
         $stocks = \DB::select("SELECT * from barangs where stok = 0");  
+        $orders = \DB::select("SELECT * from pesanans where status = 2");
       @endphp
       <li class="dropdown dropdown-list-toggle ">
         <a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle count"><i data-feather="bell"></i>
-          <span class="badge headerBadge1 bg-danger count">{{ count($stocks) }}</span> 
+          <span class="badge headerBadge1 bg-danger count">{{ count($orders) }}</span> 
         </a>
         <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
           <div class="dropdown-header">
@@ -44,6 +44,15 @@
               </span>
             </a> 
             @endforeach
+            @foreach ($orders as $order)
+            <a href="{{ url('/edit-menu/'.$order->id) }}" class="dropdown-item dropdown-item-unread"> 
+              <span class="dropdown-item-icon bg-success text-white"> 
+                <i class="fas fa-check"></i>
+              </span> 
+              <span class="dropdown-item-desc"> {{'Kode dengan nomor ' .$order->kode. ' telah bayar pesanan'}} <br>
+              </span>
+            </a> 
+            @endforeach
           </div>
           <div class="dropdown-footer text-center">
             <a href="#">View All <i class="fas fa-chevron-right"></i></a>
@@ -55,11 +64,10 @@
             class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
         <div class="dropdown-menu dropdown-menu-right pullDown">
           <div class="dropdown-title">Hello {{ Auth::user()->name }}</div>
-          <a href="profile.html" class="dropdown-item has-icon"> <i class="far
+          <a href="{{ route('profile.admin') }}" class="dropdown-item has-icon"> <i class="far
                                     fa-user"></i> Profile
-                </a> <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
-                    Activities
-                </a> <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
+                </a> 
+                <a href="{{ route('setting.admin') }}" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
                     Settings
                 </a>
                 <div class="dropdown-divider"></div>

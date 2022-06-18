@@ -9,7 +9,7 @@
                 <div class="container-fluid">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('list-menu') }}">Menu</a></li>
                             <li class="breadcrumb-item">Check Out</li>
                         </ol>
                     </nav>
@@ -60,11 +60,13 @@
                             @endforeach
                             <td class="text-end" colspan="5"><strong>Total Harga :</strong></td>
                             <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
+                            @if(count($pesanan_details) > 0 )
                             <td>
                                 <a href="{{ url('konfirmasi-check-out') }}" class="btn btn-success"
                                     onclick="return confirm('Yakin Mau CheckOut?');">
                                     <i class="fa fa-shopping-cart"></i>Check Out</a>
                             </td>
+                            @endif
                         </table>
                         @endif
                     </div>

@@ -19,12 +19,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="text-center">CheckOut pesanan anda berhasil</h3>
+                        <h3 class="text-center">Checkout pesanan anda berhasil</h3>
                         <h5>Selanjutnya silahkan lakukan pembayaran melalui:</h5>
                         <table class="table">
                             <tr>
                                 <th>No Rekening BRI atas nama Jerry LumbanGaol</th>
-                                <td><strong>12345678910</strong></td>
+                                <td><strong><b>12345678910</b></strong></td>
                             </tr>
                             <tr>
                                 <th>Jumlah Pembayaran</th>
@@ -42,47 +42,52 @@
                         <h4><i class="fa fa-shopping-cart"></i> Detail Pemesanan</h4>
                         @if (!empty($pesanan))
                             <p class="text-end">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
+                            <p class="text-end text-danger">*setelah melakukan pembayaran, silahkan upload bukti pembayaran dibawah ini</p>
                     </div>
                     <div class="card-body">
-                        <table class="table table-hover">
-                            <tr>
-                                <th>No</th>
-                                <th>Gambar</th>
-                                <th>Nama Barang</th>
-                                <th>Jumlah</th>
-                                <th>Harga</th>
-                                <th>Total Harga</th>
-                            </tr>
-                            <?php
-                            $no = 1;
-                            ?>
-                            @foreach ($pesanan_details as $pesanan_detail)
+                        <div class="table-responsive">
+                            <table class="table table-hover">
                                 <tr>
-                                    <td>{{ $no++ }}</td>
-                                    <td>
-                                        <img src="{{ url('productimage') }}/{{ $pesanan_detail->barang->gambar }}"
-                                            style="width: 100px; height:100px;" class="card-img-top" alt="product image" />
-                                    </td>
-                                    <td>{{ $pesanan_detail->barang->nama_barang }}</td>
-                                    <td>{{ $pesanan_detail->jumlah }} buah</td>
-                                    <td>Rp. {{ number_format($pesanan_detail->barang->harga) }}</td>
-                                    <td>Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</td>
+                                    <th>No</th>
+                                    <th>Gambar</th>
+                                    <th>Nama Barang</th>
+                                    <th>Jumlah</th>
+                                    <th>Harga</th>
+                                    <th>Total Harga</th>
+                                    <th>Action</th>
                                 </tr>
-                            @endforeach
-                            <tr>
-                                <td colspan="5" class="text-end" colspan="4"><strong>Total Pesanan:</strong></td>
-                                <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-end" colspan="4"><strong>Kode Pesanan :</strong></td>
-                                <td><strong>{{ $pesanan->kode }}</strong></td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-end" colspan="4"><strong>Total Pembayaran :</strong></td>
-                                <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
-                            </tr>
-                        </table>
-                        @endif
+                                <?php
+                                $no = 1;
+                                ?>
+                                @foreach ($pesanan_details as $pesanan_detail)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>
+                                            <img src="{{ url('productimage') }}/{{ $pesanan_detail->barang->gambar }}"
+                                                style="width: 100px; height:100px;" class="card-img-top" alt="product image" />
+                                        </td>
+                                        <td>{{ $pesanan_detail->barang->nama_barang }}</td>
+                                        <td>{{ $pesanan_detail->jumlah }} buah</td>
+                                        <td>Rp. {{ number_format($pesanan_detail->barang->harga) }}</td>
+                                        <td>Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</td>
+                                    </tr>
+                                @endforeach
+                                <tr>
+                                    <td colspan="5" class="text-end" colspan="4"><strong>Total Pesanan:</strong></td>
+                                    <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="text-end" colspan="4"><strong>Kode Pesanan :</strong></td>
+                                    <td><strong>{{ $pesanan->kode }}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="text-end" colspan="4"><strong>Total Pembayaran :</strong></td>
+                                    <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
+                                    <td><strong><a href="{{ url('/upload/'.$pesanan->id) }}"><button class="btn btn-secondary">Upload</button></a></strong></td>
+                                </tr>
+                            </table>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

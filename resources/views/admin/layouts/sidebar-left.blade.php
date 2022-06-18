@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html"> <img alt="image" src="img/db.png" class="header-logo" /> <span
+            <a href="{{ route('home') }}"> <img alt="image" src="img/db.png" class="header-logo" /> <span
                     class="logo-name">Debastore</span>
             </a>
         </div>
@@ -31,6 +31,9 @@
             </li>
             <li class="dropdown">
                 <a href="{{ url('/viewreservation') }}" class="nav-link"><i class="fas fa-ticket-alt"></i><span>Reservation</span></a>
+            </li>
+            <li class="dropdown">
+                <a href="{{ route('oder.deatail') }}" class="nav-link"><i class="fas fa-shopping-cart"></i><span>Order Details</span></a>
             </li>
         </ul>
     </aside>

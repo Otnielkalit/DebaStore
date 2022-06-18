@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Agen;
 use App\Models\User;
 use App\Models\Barang;
-use App\Models\Agen;
+use App\Models\Pesanan;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,10 +36,13 @@ class HomeController extends Controller
         }
         else
         {
-
-            $barangs = Barang::paginate('20');
-            return view('home', compact('barangs'));
+            return view('home');
         }
+    }
+
+    public function menu() {
+        $dataMenu = Barang::all();
+        return view('user.menu', compact('dataMenu'));
     }
 
     public function userManagement() {
@@ -183,25 +187,27 @@ class HomeController extends Controller
     // class reservation
     public function reservation(Request $request)
     {
-        $data = new reservation;
+       $request->validate([
+        'name' => 'required',
+        'email' => 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+        'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:11',
+        'guest' => 'required', 
+        'date' => 'required', 
+        'time' => 'required',
+        'message' => 'required',
+       ]);
 
-            $data->name=$request->name;
+       $reservation = new Reservation();
+       $reservation->name = $request->name;
+       $reservation->email = $request->email;
+       $reservation->phone = $request->phone;
+       $reservation->guest = $request->guest;
+       $reservation->date = $request->date;
+       $reservation->time = $request->time;
+       $reservation->message = $request->message;
 
-            $data->email=$request->email;
-
-            $data->phone=$request->phone;
-
-            $data->guest=$request->guest;
-
-            $data->date=$request->date;
-
-            $data->time=$request->time;
-
-            $data->message=$request->message;
-
-            $data->save();
-
-            return redirect()->back()->with('success', 'Pesan Anda Terkirim');
+       $reservation->save();
+       return redirect()->route('reservation')->with('toast_success', 'Your data has been saved');
     }
 
     // class viewreservation
@@ -210,6 +216,28 @@ class HomeController extends Controller
         $data = reservation::all();
 
         return view('admin.viewreservation', compact('data'));
+    }
+
+    public function upload($id) {
+        $dataPesan = Pesanan::find($id);
+        return view('user.upload', compact('dataPesan'));
+    }
+
+    public function uploadProcess(Request $request) {
+        // dd($request);
+        $request->validate([
+            'gambar' => 'required',
+        ]);
+
+        $dataPesanan = Pesanan::where('id', Auth::user()->id)->first();
+        // $dataPesanan->gambar     = $request->gambar;
+
+        if($request->hasFile('gambar')) {
+            $request->file('gambar')->move('productimage/', $request->file('gambar')->getClientOriginalName());
+            $dataPesanan->gambar = $request->file('gambar')->getClientOriginalName();
+            $dataPesanan->update();
+        }
+        
     }
 
 }

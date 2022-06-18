@@ -66,59 +66,76 @@
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="namaanda" class="form-label">Nama Anda</label>
-                                <input type="text" name="name" class="form-control" id="validationDefaultUsername" placeholder="" value=""
+                                <input type="text" name="name" class="form-control" id="validationDefaultUsername" placeholder="" value="{{ old('name') }}"
                                     required autofocus>
-                                <div class="invalid-feedback">
-                                    Valid first nama is required.
-                                </div>
+                                @error('name')
+                                    <div class="text-danger">
+                                        *{{ $message }}
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="col-sm-6">
                                 <label for="lastName" class="form-label">Email Aktif</label>
-                                <input type="email" name="email" class="form-control" id="lastName" placeholder="" value=""
+                                <input type="email" name="email" class="form-control" id="lastName" placeholder="" value="{{ old('email') }}"
                                     required>
-                                <div class="invalid-feedback">
-                                    Valid last email is required.
-                                </div>
+                                    @error('email')
+                                    <div class="text-danger">
+                                        *{{ $message }}
+                                    </div>
+                                    @enderror
                             </div>
 
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <label class="form-label" for="typeNumber">No Hp/WA</label>
-                                    <input type="number" name="phone" id="typeNumber" class="form-control" placeholder="" value=""
+                                    <input type="number" name="phone" id="typeNumber" class="form-control" placeholder="" value="{{ old('phone') }}"
                                         required>
-                                    <div class="invalid-feedback">
-                                        Valid first No HP/WA is required.
+                                    @error('phone')
+                                    <div class="text-danger">
+                                        *{{ $message }}
                                     </div>
+                                    @enderror
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="form-label" for="typeNumber">Nomor Meja</label>
                                     <input type="number" name="guest" id="typeNumber" class="form-control" placeholder="" value=""
                                         required>
-                                    <div class="invalid-feedback">
-                                        Valid nomor meja is required.
-                                    </div>
+                                        @error('guest')
+                                        <div class="text-danger">
+                                            *{{ $message }}
+                                        </div>
+                                        @enderror
                                 </div>
                                 <div class="row g-3">
                                     <div class="col-sm-6">
                                         <label for="firstName" class="form-label">Tanggal Kedatangan</label>
                                         <input type="date" name="date"  class="form-control timepicker-input active" id="firstName"
                                             placeholder="" value="" required>
-                                        <div class="invalid-feedback">
-                                            Valid first Tanggal Kedatangan is required.
-                                        </div>
+                                            @error('date')
+                                            <div class="text-danger">
+                                                *{{ $message }}
+                                            </div>
+                                            @enderror
                                     </div>
                                     <div class="col-sm-6">
                                         <label for="lastName" class="form-label">Waktu tiba di tempat</label>
                                         <input type="time" name="time"  class="form-control" id="lastName" placeholder=""
                                             value="" required>
-                                        <div class="invalid-feedback">
-                                            Valid last is required.
-                                        </div>
+                                            @error('time')
+                                            <div class="text-danger">
+                                                *{{ $message }}
+                                            </div>
+                                            @enderror
                                     </div>
                                     <div class="form-outline mb-4">
-                                        <textarea name="message" class="form-control" id="form6Example7" rows="7"></textarea>
+                                        <textarea name="message" class="form-control" id="form6Example7" rows="7" style="resize: none;"></textarea>
                                         <label class="form-label" for="form6Example7">Pesan</label>
+                                        @error('message')
+                                        <div class="text-danger">
+                                            *{{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                     <button type="submit" class="btn btn-primary" value="Save">Kirim Pesan</button>
                                     <hr class="my-4">
