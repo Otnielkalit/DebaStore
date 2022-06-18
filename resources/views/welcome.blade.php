@@ -1,132 +1,376 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE HTML>
+<html>
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to Debastore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+    <meta name="keywords"
+        content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+    <meta name="author" content="FreeHTML5.co" />
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
-        </style>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400, 900" rel="stylesheet"> -->
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="welcome/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="welcome/css/icomoon.css">
+    <!-- Themify Icons-->
+    <link rel="stylesheet" href="welcome/css/themify-icons.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="welcome/css/bootstrap.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="welcome/css/magnific-popup.css">
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="welcome/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="welcome/css/owl.theme.default.min.css">
+    <!-- Flexslider -->
+    <link rel="stylesheet" href="welcome/css/flexslider.css">
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="welcome/css/style.css">
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+    <!-- Modernizr JS -->
+    <script src="welcome/js/modernizr-2.6.2.min.js"></script>
+</head>
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
+<body>
 
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
+    <div class="gtco-loader"></div>
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
+    <div id="page">
+        <nav class="gtco-nav" role="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2 col-xs-12">
+                        <div id="gtco-logo">
+                            <a href="{{ url('/') }}">Deba<em>Store</em></a>
                         </div>
+                    </div>
+                    <div class="col-xs-10 text-right menu-1">
+                        <ul>
+                            @if (Route::has('login'))
+                                @auth
+                                    <a href="{{ url('/home') }}" class="btn-cta">Home</a>
+                                @else
+                                    <li class="btn-cta"><a href="{{ route('login') }}"
+                                            class="btn-cta"><span>Login</span></a></li>
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
+                                    @if (Route::has('register'))
+                                        <li class="btn-cta"><a href="{{ route('register') }}"><span>Register</span></a>
+                                        </li>
+                                    @endif
+                                @endauth
+                            @endif
+                        </ul>
                     </div>
                 </div>
 
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
+            </div>
+        </nav>
 
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
-
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
+        <section id="gtco-hero" class="gtco-cover" style="background-image: url(welcome/images/img_bg_4.jpg);"
+            data-section="home" data-stellar-background-ratio="0.5">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-0 text-center">
+                        <div class="display-t">
+                            <div class="display-tc">
+                                <h1 class="animate-box" data-animate-effect="fadeIn">The Greatest Firm You Can Trust
+                                </h1>
+                                <p class="gtco-video-link animate-box" data-animate-effect="fadeIn"><i
+                                        class="icon-controller-play"></i></p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
                 </div>
             </div>
-        </div>
-    </body>
+        </section>
+
+        <section id="gtco-about" data-section="about">
+            <div class="container">
+                <div class="row row-pb-md">
+                    <div class="col-md-8 col-md-offset-2 heading animate-box" data-animate-effect="fadeIn">
+                        <h1>Selamat Datang di DebaStore</h1>
+                        <p class="sub">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias
+                            autem provident. Odit ab aliquam dolor eius.</p>
+                        <p class="subtle-text animate-box" data-animate-effect="fadeIn">Welcome</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
+                        <div class="img-shadow">
+                            <img src="welcome/images/img_1.jpg" class="img-responsive"
+                                alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                        </div>
+                    </div>
+                    <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+                        <h2 class="heading-colored">Excellence &amp; Honesty</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aut praesentium nihil hic
+                            quam culpa magnam ducimus suscipit repellat quidem cumque, unde impedit, labore earum
+                            eligendi perspiciatis nemo molestiae sequi veritatis. Veritatis, reprehenderit, eaque!
+                            Rerum, libero ipsam enim, iusto adipisci quae repellendus officia consequatur ducimus
+                            cupiditate impedit, aliquam numquam excepturi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gtco-practice-areas" data-section="practice-areas">
+            <div class="container">
+                <div class="row row-pb-md">
+                    <div class="col-md-8 col-md-offset-2 heading animate-box" data-animate-effect="fadeIn">
+                        <h1>Produk Kami</h1>
+                        <p class="sub">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus
+                            alias autem provident. Odit ab aliquam dolor eius.</p>
+                        <p class="subtle-text animate-box" data-animate-effect="fadeIn">Produk <span>Kami</span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="gtco-practice-area-item animate-box">
+                            <div class="gtco-icon">
+                                <img src="welcome/images/scale.png"
+                                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                            </div>
+                            <div class="gtco-copy">
+                                <h3>Criminal Law</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
+                                    sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
+                                    ornare tortor leo eget erat. </p>
+                            </div>
+                        </div>
+
+                        <div class="gtco-practice-area-item animate-box">
+                            <div class="gtco-icon">
+                                <img src="welcome/images/scale.png"
+                                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                            </div>
+                            <div class="gtco-copy">
+                                <h3>Industrial Law</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
+                                    sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
+                                    ornare tortor leo eget erat. </p>
+                            </div>
+                        </div>
+
+                        <div class="gtco-practice-area-item animate-box">
+                            <div class="gtco-icon">
+                                <img src="welcome/images/scale.png"
+                                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                            </div>
+                            <div class="gtco-copy">
+                                <h3>Financial Law</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
+                                    sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
+                                    ornare tortor leo eget erat. </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="gtco-practice-area-item animate-box">
+                            <div class="gtco-icon">
+                                <img src="welcome/images/scale.png"
+                                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                            </div>
+                            <div class="gtco-copy">
+                                <h3>Divorce Law</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
+                                    sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
+                                    ornare tortor leo eget erat. </p>
+                            </div>
+                        </div>
+
+                        <div class="gtco-practice-area-item animate-box">
+                            <div class="gtco-icon">
+                                <img src="welcome/images/scale.png"
+                                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                            </div>
+                            <div class="gtco-copy">
+                                <h3>Corporate Law</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
+                                    sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
+                                    ornare tortor leo eget erat. </p>
+                            </div>
+                        </div>
+
+                        <div class="gtco-practice-area-item animate-box">
+                            <div class="gtco-icon">
+                                <img src="welcome/images/scale.png"
+                                    alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                            </div>
+                            <div class="gtco-copy">
+                                <h3>Accident Law</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
+                                    sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
+                                    ornare tortor leo eget erat. </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gtco-our-team" data-section="our-team">
+            <div class="container">
+                <div class="row row-pb-md">
+                    <div class="col-md-8 col-md-offset-2 heading animate-box" data-animate-effect="fadeIn">
+                        <h1>Our Team</h1>
+                        <p class="sub">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus
+                            alias autem provident. Odit ab aliquam dolor eius.</p>
+                        <p class="subtle-text animate-box" data-animate-effect="fadeIn">Our Team</p>
+                    </div>
+                </div>
+                <div class="row team-item gtco-team-reverse">
+                    <div class="col-md-6 col-md-push-7 animate-box" data-animate-effect="fadeInRight">
+                        <div class="img-shadow">
+                            <img src="welcome/images/img_team_1.jpg" class="img-responsive"
+                                alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                        </div>
+                    </div>
+                    <div class="col-md-6  col-md-pull-6 animate-box" data-animate-effect="fadeInRight">
+                        <h2>Jeff Finley</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus aliquid maiores,
+                            voluptatum ex. Accusantium, eum distinctio laudantium. Perferendis dolor, corporis quasi?
+                            Tempore quod molestiae quis cumque pariatur dolore vel sit, fugit delectus quasi
+                            reprehenderit officia voluptate incidunt, culpa odit impedit qui dolorum fugiat. Quidem
+                            possimus reprehenderit, quae recusandae voluptatibus magnam!</p>
+                        <p>Ratione facilis quod laborum eaque illo dolore blanditiis nobis dicta voluptatem fugit optio,
+                            eveniet non dolor quia delectus, sint, dignissimos atque porro consequuntur unde. Soluta ex
+                            necessitatibus delectus saepe aliquam, culpa officiis doloremque, ipsa facere hic,
+                            voluptatem accusantium veniam, quasi! Explicabo accusantium sint, corporis consequuntur
+                            fugit ipsam, dolorum excepturi adipisci.</p>
+                    </div>
+                </div>
+
+                <div class="row team-item gtco-team">
+                    <div class="col-md-6 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
+                        <div class="img-shadow">
+                            <img src="welcome/images/img_team_2.jpg" class="img-responsive"
+                                alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+                        </div>
+                    </div>
+                    <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+                        <h2>Craig Campbell</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus aliquid maiores,
+                            voluptatum ex. Accusantium, eum distinctio laudantium. Perferendis dolor, corporis quasi?
+                            Tempore quod molestiae quis cumque pariatur dolore vel sit, fugit delectus quasi
+                            reprehenderit officia voluptate incidunt, culpa odit impedit qui dolorum fugiat. Quidem
+                            possimus reprehenderit, quae recusandae voluptatibus magnam!</p>
+                        <p>Ratione facilis quod laborum eaque illo dolore blanditiis nobis dicta voluptatem fugit optio,
+                            eveniet non dolor quia delectus, sint, dignissimos atque porro consequuntur unde. Soluta ex
+                            necessitatibus delectus saepe aliquam, culpa officiis doloremque, ipsa facere hic,
+                            voluptatem accusantium veniam, quasi! Explicabo accusantium sint, corporis consequuntur
+                            fugit ipsam, dolorum excepturi adipisci.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="gtco-contact" data-section="contact">
+            <div class="container">
+                <div class="row row-pb-md">
+                    <div class="col-md-8 col-md-offset-2 heading animate-box" data-animate-effect="fadeIn">
+                        <h1>Contact</h1>
+                        <p class="sub">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus
+                            alias autem provident. Odit ab aliquam dolor eius.</p>
+                        <p class="subtle-text animate-box" data-animate-effect="fadeIn">Contact</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-push-6 animate-box">
+                        <form action="#">
+                            <div class="form-group">
+                                <label for="name" class="sr-only">Name</label>
+                                <input type="text" class="form-control" placeholder="Name" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="sr-only">Email</label>
+                                <input type="email" class="form-control" placeholder="Email" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="sr-only">Message</label>
+                                <textarea name="message" id="message" class="form-control" cols="30" rows="7" placeholder="Message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Send Message" class="btn btn-success">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4 col-md-pull-6 animate-box">
+                        <div class="gtco-contact-info">
+                            <ul>
+                                <li class="address"><a href="https://www.google.com/maps/place/Bandrek+Andaliman/@2.3346893,98.7226768,3404m/data=!3m1!1e3!4m5!3m4!1s0x0:0xf5b5c24020b9df4c!8m2!3d2.3346893!4d98.7226768?hl=id" target="_blank">
+                                    Jl. Sisingamangaraja desa No.km.10.5, Huta Paung, Kec. Pollung, Kabupaten Humbang
+                                    Hasundutan, Sumatera Utara 22457</a>
+                                </li>
+                                <li class="phone"><a href="s">0822-6250-5752</a></li>
+                                <li class="email"><a href="mailto:info@yoursite.com">bandrekandaliman@gmail.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer id="gtco-footer" role="contentinfo">
+            <div class="container">
+                <div class="row copyright">
+                    <div class="col-md-12">
+                        <p class="pull-left">
+                            <small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
+                            <small class="block">Designed by <a href="http://freehtml5.co/"
+                                    target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/"
+                                    target="_blank">Unsplash</a></small>
+                        </p>
+                        <p class="pull-right">
+                        <ul class="gtco-social-icons pull-right">
+                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                            <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+    </div>
+    <!-- jQuery -->
+    <script src="welcome/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="welcome/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="welcome/js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="welcome/js/jquery.waypoints.min.js"></script>
+    <!-- Stellar -->
+    <script src="welcome/js/jquery.stellar.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="welcome/js/jquery.magnific-popup.min.js"></script>
+    <script src="welcome/js/magnific-popup-options.js"></script>
+    <!-- Main -->
+    <script src="welcome/js/main.js"></script>
+</body>
+
 </html>
