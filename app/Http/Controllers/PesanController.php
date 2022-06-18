@@ -27,6 +27,7 @@ class PesanController extends Controller
 
     public function pesan(Request $request, $id)
     {
+        $request->input();
         $barang     = Barang::where('id', $id)->first();
         $tanggal    = Carbon::now();
 

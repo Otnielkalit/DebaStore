@@ -46,7 +46,8 @@
                                         <td>Jumlah Pesan</td>
                                         <td>:</td>
                                         <td>
-                                            <form action="{{ url('pesan') }}/{{ $barang->id }}" method="post">
+                                            <form action="{{ url('/pesan-process/'.$barang->id) }}" method="POST">
+                                                @csrf
                                                 <input type="number" name="jumlah_pesan" class="form-control" required="">
                                                 <button type="submit" class="btn btn-primary mt-2"><i
                                                         class="fas fa-shopping-cart"></i>add cart</button>

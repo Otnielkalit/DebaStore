@@ -12,10 +12,7 @@
                     <strong>Harga :</strong> Rp.{{ number_format($barang->harga) }} <br>
                     <strong>Stok :</strong> {{ $barang->stok }} <br>
                     <hr>
-<<<<<<< HEAD
                     <strong>Keterangan : {{ $barang->keterangan }}</strong> <br>
-=======
->>>>>>> 5c94b36e6923e7a68f63863e9969e163aadb473d
                   </p>
                   @if ($barang->stok == 0) 
                     <p class="text-danger">*Maaf, stok sudah habis.</p>

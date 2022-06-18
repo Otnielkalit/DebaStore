@@ -25,7 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('pesan/{id}', [App\Http\Controllers\PesanController::class, 'index']);
 
-Route::post('pesan/{id}', [App\Http\Controllers\PesanController::class, 'pesan']);
+Route::post('pesan-process/{id}', [App\Http\Controllers\PesanController::class, 'pesan']);
 
 Route::get('checkout', [App\Http\Controllers\PesanController::class, 'check_out']);
 
@@ -47,14 +47,11 @@ Route::get('/agen', [HomeController::class, 'useragen']);
 
 // For Admin
 Route::get('/user-role', [HomeController::class, 'userManagement'])->name('user.role');
-<<<<<<< HEAD
 Route::get('/delete-role/{id}', [HomeController::class, 'delete'])->name('delete.user');
 Route::get('/trash', [HomeController::class, 'trash'])->name('trash.user');
 Route::get('/restore/{id}', [HomeController::class, 'restore'])->name('restore.user');
 Route::get('/restore-all', [HomeController::class, 'restoreAll'])->name('restore.all.user');
-=======
 
->>>>>>> 5c94b36e6923e7a68f63863e9969e163aadb473d
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 
 Route::get('/add-menu', [MenuController::class, 'menu'])->name('add.menu');
