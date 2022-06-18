@@ -43,8 +43,6 @@ Route::get('history/{id}', [App\Http\Controllers\HistoryController::class, 'deta
 
 Route::get('/agen', [HomeController::class, 'useragen']);
 
-Route::get('/aboutus', [HomeController::class, 'aboutus']);
-
 Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::post('/reservation', [HomeController::class, 'reservation']);
@@ -91,3 +89,4 @@ Route::get('/addagen', [HomeController::class, 'addagen']);
 Route::get("/deleteagen/{id}",[HomeController::class,"deleteagen"]);
 
 Route::get('/viewreservation', [HomeController::class, 'viewreservation']);
+

@@ -158,9 +158,6 @@
                             <a class="nav-link" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/aboutus') }}">About Us</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href=" {{ url('/agen') }}">Agen</a>
                         </li>
                         <li class="nav-item">

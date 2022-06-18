@@ -15,6 +15,9 @@
   <!-- Custom style CSS -->
   <link rel="stylesheet" href="assets/css/custom.css">
   <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+
+      <!-- Styles -->
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>

@@ -174,14 +174,6 @@ class HomeController extends Controller
             return redirect('viewagen')->with('success', 'Berhasil Menghapus Orang');
         }
 
-    // Class aboutus
-
-    public function aboutus()
-    {
-        return view('aboutus');
-    }
-
-
     // Class     contact
     public function contact()
     {
