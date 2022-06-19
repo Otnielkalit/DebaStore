@@ -31,13 +31,23 @@
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
     <style>
+<<<<<<< HEAD
+=======
+        footer {
+            width: 100%;
+            /* height: 50px;
+    padding-left: 10px; */
+            line-height: 50px;
+            position: fixed;
+            bottom: 0px;
+        }
+>>>>>>> b4dd1e9b329216482322e3eef336606557c59312
     </style>
 </head>
 
 <body style="height: 100%;">
     <div id="app">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Toggle button -->
@@ -46,17 +56,28 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
                 <!-- Collapsible wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Navbar brand -->
                     <a class="navbar-brand mt-2 mt-lg-0" href="{{ url('/') }}">
-                        <img src="img/deba.png" height="15" alt="logo Deba" loading="lazy" />
+                        <img src="img/deba.png" height="45" alt="logo Deba" loading="lazy" />
                     </a>
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<<<<<<< HEAD
                         <li class="nav-item">
                             <a class="nav-link {{ ('title' === "Menu") ? 'active' : '' }}" href="{{ url('/list-menu') }}">Menu</a>
+=======
+                        {{-- <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        </li> --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/list-menu') }}">Menu</a>
+>>>>>>> b4dd1e9b329216482322e3eef336606557c59312
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href=" {{ url('/agen') }}">Agen</a>
@@ -65,7 +86,11 @@
                             <a class="nav-link" href="{{ url('/contact') }}">Pesan Tempat</a>
                         </li>
                         <li class="nav-item">
+<<<<<<< HEAD
+                            <a class="nav-link" href="{{ url('/aboutususer') }}">About Us</a>
+=======
                             <a class="nav-link" href="/aboutususer">About Us</a>
+>>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
                         </li>
                     </ul>
                     <!-- Left links -->
@@ -141,96 +166,104 @@
             <!-- Container wrapper -->
         </nav>
         <!-- Navbar -->
-        <main class="py-4">
+        <main class="py-4" style="margin-bottom: 50px; margin-top: 60px;">
             @yield('content')
         </main>
     </div>
     @include('sweetalert::alert')
+<<<<<<< HEAD
     <footer class="text-center text-white" style="background-color: #f1f1f1;" id="footer">
   <!-- Grid container -->
+=======
+<<<<<<< HEAD
+    <footer class="text-center text-white" style="background-color: #f1f1f1;">
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center text-dark p-2" style="background-color: rgba(0, 0, 0, 0.2);">
+            <section class="mb-1">
+                © 2022 Copyright:
+                <!-- Facebook -->
+                <a class="btn btn-link btn-floating btn-lg text-dark" href="https://www.facebook.com/bandrekandaliman" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
+
+                <!-- Twitter -->
+                <a class="btn btn-link btn-floating btn-lg text-dark" href="https://twitter.com/login" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark" href="https://www.instagram.com/bandrek_andaliman/?hl=id" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+            </section>
+=======
+    <footer class="text-center text-white fixed-bottom" style="background-color: #f1f1f1;">
+        {{-- <!-- Grid container -->
+>>>>>>> b4dd1e9b329216482322e3eef336606557c59312
         <div class="container pt-4">
             <!-- Section: Social media -->
             <section class="mb-4">
-            <!-- Facebook -->
-            <a
-                class="btn btn-link btn-floating btn-lg text-dark m-1"
-                href="#!"
-                role="button"
-                data-mdb-ripple-color="dark"
-                ><i class="fab fa-facebook-f"></i
-            ></a>
+                <!-- Facebook -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
 
-            <!-- Twitter -->
-            <a
-                class="btn btn-link btn-floating btn-lg text-dark m-1"
-                href="#!"
-                role="button"
-                data-mdb-ripple-color="dark"
-                ><i class="fab fa-twitter"></i
-            ></a>
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
 
-            <!-- Google -->
-            <a
-                class="btn btn-link btn-floating btn-lg text-dark m-1"
-                href="#!"
-                role="button"
-                data-mdb-ripple-color="dark"
-                ><i class="fab fa-google"></i
-            ></a>
 
-            <!-- Instagram -->
-            <a
-                class="btn btn-link btn-floating btn-lg text-dark m-1"
-                href="#!"
-                role="button"
-                data-mdb-ripple-color="dark"
-                ><i class="fab fa-instagram"></i
-            ></a>
-
-            <!-- Linkedin -->
-            <a
-                class="btn btn-link btn-floating btn-lg text-dark m-1"
-                href="#!"
-                role="button"
-                data-mdb-ripple-color="dark"
-                ><i class="fab fa-linkedin"></i
-            ></a>
-            <!-- Github -->
-            <a
-                class="btn btn-link btn-floating btn-lg text-dark m-1"
-                href="#!"
-                role="button"
-                data-mdb-ripple-color="dark"
-                ><i class="fab fa-github"></i
-            ></a>
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-whatsapp"></i></a>
             </section>
             <!-- Section: Social media -->
         </div>
-  <!-- Grid container -->
+        <!-- Grid container --> --}}
 
-  <!-- Copyright -->
+        <!-- Copyright -->
         <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2020 Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
+
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+
+
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-whatsapp"></i></a>
+            © 2022 DebaStore
+>>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
         </div>
+<<<<<<< HEAD
   <!-- Copyright -->
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     </body>
     <script>
         $(document).on('change', '.file-input', function() {
+=======
+        <!-- Copyright -->
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+</body>
+<script>
+    $(document).on('change', '.file-input', function() {
+>>>>>>> b4dd1e9b329216482322e3eef336606557c59312
 
 
-            var filesCount = $(this)[0].files.length;
+        var filesCount = $(this)[0].files.length;
 
-            var textbox = $(this).prev();
+        var textbox = $(this).prev();
 
-            if (filesCount === 1) {
+        if (filesCount === 1) {
             var fileName = $(this).val().split('\\').pop();
             textbox.text(fileName);
-            }else {
+        } else {
             textbox.text(filesCount + ' files selected');
-            }
-        });
-    </script>
+        }
+    });
+</script>
+
 </html>

@@ -60,16 +60,21 @@ Route::post('/upload-process/{id}', [HomeController::class, 'uploadProcess'])->n
 
 Route::get('/aboutususer', [AboutUsController::class, 'indexuser']);
 
-Route::get('/detailbandrek', [DetailMenuController::class, 'detailbandrek']);
-
-Route::get('/usertambah', function() {
-    return view('user.tambah');
+Route::get('/detailbandrek', function(){
+    return view('user.detailmenu.bandrek');
 });
 
+<<<<<<< HEAD
 Route::get('/history', [HistoryController::class, 'history'])->name('history');
 Route::get('/history/{id}', [HistoryController::class, 'historyDetail'])->name('history');
 // Route::get('/aboutususer', [AboutUsController::class, 'slideSatu']);
+=======
+<<<<<<< HEAD
+>>>>>>> b4dd1e9b329216482322e3eef336606557c59312
 
+=======
+// Route::get('/aboutususer', [AboutUsController::class, 'slideSatu']);
+>>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
 
 
 // For Admin

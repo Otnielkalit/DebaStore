@@ -45,7 +45,6 @@ class AboutUsController extends Controller
             'judul' => 'required',
             'deskripsi' => 'required',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'link' => 'required',
         ]);
 
         $aboutus = AboutUs::create([
