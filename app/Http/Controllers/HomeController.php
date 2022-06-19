@@ -159,7 +159,7 @@ class HomeController extends Controller
 
             $data->save();
 
-            return redirect()->back()->with('success', 'Profil Berhasil di update');
+            return redirect('viewagen')->with('success', 'Profil Berhasil di update');
 
     }
 
@@ -191,8 +191,8 @@ class HomeController extends Controller
         'name' => 'required',
         'email' => 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
         'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:11',
-        'guest' => 'required', 
-        'date' => 'required', 
+        'guest' => 'required',
+        'date' => 'required',
         'time' => 'required',
         'message' => 'required',
        ]);
@@ -237,7 +237,6 @@ class HomeController extends Controller
             $dataPesanan->gambar = $request->file('gambar')->getClientOriginalName();
             $dataPesanan->update();
         }
-        
-    }
 
+    }
 }

@@ -34,7 +34,7 @@ class PesanController extends Controller
         $cek_pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
 
         //cek order detail
-        
+
         // Validate whether it exceeds the stock quantity
         if($request->jumlah_pesan > $barang->stok)
         {
@@ -158,11 +158,4 @@ class PesanController extends Controller
 
         return redirect('history/'.$pesanan_id)->with('success', 'CheckOut berhasil silahkan lakukan pembayaran');
     }
-<<<<<<< HEAD
-
-    public function orderDetails() {
-        return view('admin.orders');
-    }
-=======
->>>>>>> 2fbf3eb2ea0e18d1df38d3008205fcc800205973
 }

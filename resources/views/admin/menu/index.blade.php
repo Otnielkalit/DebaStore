@@ -14,12 +14,12 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr class="text-center">
-                                        <th class="text-center"><h4>Nama Produk</h4></th>
-                                        <th class="text-center"><h4>Harga</h4></th>
-                                        <th class="text-center"><h4>Deskripsi</h4></th>
-                                        <th class="text-center"><h4>Stok</h4></th>
-                                        <th class="text-center"><h4>Gambar Produk</h4></th>
-                                        <th class="text-center"><h4>Action</h4></th>
+                                        <th class="text-center"><h6>Nama Produk</h6></th>
+                                        <th class="text-center"><h6>Harga</h6></th>
+                                        <th class="text-center"><h6>Deskripsi</h6></th>
+                                        <th class="text-center"><h6>Stok</h6></th>
+                                        <th class="text-center"><h6>Gambar Produk</h6></th>
+                                        <th class="text-center"><h6>Action</h6></th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -63,10 +63,9 @@
                         <ul>
                             @if (Route::has('login'))
                                 @auth
-                                    <a href="{{ url('/home') }}" class="btn-cta">Home</a>
+                                <li class="btn-cta"><a href="{{ url('/home') }}" class="btn-cta"><span>Home</span></a></li>
                                 @else
-                                    <li class="btn-cta"><a href="{{ route('login') }}"
-                                            class="btn-cta"><span>Login</span></a></li>
+                                    <li class="btn-cta"><a href="{{ route('login') }}"class="btn-cta"><span>Login</span></a></li>
 
                                     @if (Route::has('register'))
                                         <li class="btn-cta"><a href="{{ route('register') }}"><span>Register</span></a>
@@ -80,7 +79,6 @@
 
             </div>
         </nav>
-
         <section id="gtco-hero" class="gtco-cover" style="background-image: url(aboutimg/b.jpeg);"
             data-section="home" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
@@ -89,8 +87,7 @@
                     <div class="col-md-12 col-md-offset-0 text-center">
                         <div class="display-t">
                             <div class="display-tc">
-                                <h1 class="animate-box" data-animate-effect="fadeIn">The Greatest Firm You Can Trust
-                                </h1>
+                                <h1 class="animate-box" data-animate-effect="fadeIn">Selamat Datang di DebaStore</h1>
                                 <p class="gtco-video-link animate-box" data-animate-effect="fadeIn"><i
                                         class="icon-controller-play"></i></p>
                             </div>
@@ -124,7 +121,27 @@
                             Rerum, libero ipsam enim, iusto adipisci quae repellendus officia consequatur ducimus
                             cupiditate impedit, aliquam numquam excepturi.</p>
                     </div>
-                </div><br>
+                </div><br><br><br>
+                <div class="row team-item gtco-team-reverse">
+                    <div class="col-md-6 col-md-push-7 animate-box" data-animate-effect="fadeInRight">
+                        <div class="img-shadow">
+                            <img src="aboutimg/e.png" class="img-responsive" alt="Photos" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="col-md-6  col-md-pull-6 animate-box" data-animate-effect="fadeInRight">
+                        <h2>Kacang Pariban</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus aliquid maiores,
+                            voluptatum ex. Accusantium, eum distinctio laudantium. Perferendis dolor, corporis quasi?
+                            Tempore quod molestiae quis cumque pariatur dolore vel sit, fugit delectus quasi
+                            reprehenderit officia voluptate incidunt, culpa odit impedit qui dolorum fugiat. Quidem
+                            possimus reprehenderit, quae recusandae voluptatibus magnam!</p>
+                        <p>Ratione facilis quod laborum eaque illo dolore blanditiis nobis dicta voluptatem fugit optio,
+                            eveniet non dolor quia delectus, sint, dignissimos atque porro consequuntur unde. Soluta ex
+                            necessitatibus delectus saepe aliquam, culpa officiis doloremque, ipsa facere hic,
+                            voluptatem accusantium veniam, quasi! Explicabo accusantium sint, corporis consequuntur
+                            fugit ipsam, dolorum excepturi adipisci.</p>
+                    </div>
+                </div> <br><br><br>
                 <div class="row mb-1">
                     <div class="col-md-6 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
                         <div class="img-shadow">
@@ -226,7 +243,7 @@
                         </div>
                     </div>
                     <div class="col-md-6  col-md-pull-6 animate-box" data-animate-effect="fadeInRight">
-                        <h2>Jeff Finley</h2>
+                        <h2>Bandrek Andaliman</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus aliquid maiores,
                             voluptatum ex. Accusantium, eum distinctio laudantium. Perferendis dolor, corporis quasi?
                             Tempore quod molestiae quis cumque pariatur dolore vel sit, fugit delectus quasi
@@ -261,6 +278,26 @@
                     </div>
                 </div>
 
+                <div class="row team-item gtco-team-reverse">
+                    <div class="col-md-6 col-md-push-7 animate-box" data-animate-effect="fadeInRight">
+                        <div class="img-shadow">
+                            <img src="aboutimg/e.png" class="img-responsive" alt="Photos" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="col-md-6  col-md-pull-6 animate-box" data-animate-effect="fadeInRight">
+                        <h2>Kacang Pariban</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus aliquid maiores,
+                            voluptatum ex. Accusantium, eum distinctio laudantium. Perferendis dolor, corporis quasi?
+                            Tempore quod molestiae quis cumque pariatur dolore vel sit, fugit delectus quasi
+                            reprehenderit officia voluptate incidunt, culpa odit impedit qui dolorum fugiat. Quidem
+                            possimus reprehenderit, quae recusandae voluptatibus magnam!</p>
+                        <p>Ratione facilis quod laborum eaque illo dolore blanditiis nobis dicta voluptatem fugit optio,
+                            eveniet non dolor quia delectus, sint, dignissimos atque porro consequuntur unde. Soluta ex
+                            necessitatibus delectus saepe aliquam, culpa officiis doloremque, ipsa facere hic,
+                            voluptatem accusantium veniam, quasi! Explicabo accusantium sint, corporis consequuntur
+                            fugit ipsam, dolorum excepturi adipisci.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -315,7 +352,7 @@
                 <div class="row copyright">
                     <div class="col-md-12">
                         <p class="pull-left">
-                            <small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
+                            <small class="block">&copy; 2022 DebaStore Group</small>
                         </p>
                         <p class="pull-right">
                         <ul class="gtco-social-icons pull-right">

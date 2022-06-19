@@ -52,17 +52,21 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('reservation');
 Route::post('/reservation', [HomeController::class, 'reservation']);
 
 Route::get('/upload/{id}', [HomeController::class, 'upload'])->name('upload');
+
 Route::post('/upload-process/{id}', [HomeController::class, 'uploadProcess'])->name('upload.process');
 
 
 
 // For Admin
 Route::get('/user-role', [HomeController::class, 'userManagement'])->name('user.role');
-Route::get('/delete-role/{id}', [HomeController::class, 'delete'])->name('delete.user');
-Route::get('/trash', [HomeController::class, 'trash'])->name('trash.user');
-Route::get('/restore/{id}', [HomeController::class, 'restore'])->name('restore.user');
-Route::get('/restore-all', [HomeController::class, 'restoreAll'])->name('restore.all.user');
 
+Route::get('/delete-role/{id}', [HomeController::class, 'delete'])->name('delete.user');
+
+Route::get('/trash', [HomeController::class, 'trash'])->name('trash.user');
+
+Route::get('/restore/{id}', [HomeController::class, 'restore'])->name('restore.user');
+
+Route::get('/restore-all', [HomeController::class, 'restoreAll'])->name('restore.all.user');
 
 Route::get('/delete-role/{id}', [HomeController::class, 'delete'])->name('delete.user');
 
@@ -105,6 +109,8 @@ Route::get('/viewreservation', [HomeController::class, 'viewreservation']);
 Route::get('/order-details', [PesanController::class, 'orderDetails'])->name('oder.deatail');
 
 Route::get('/profile-admin', [ProfileController::class, 'profileAdmin'])->name('profile.admin');
+
 Route::get('/setting', [ProfileController::class, 'setting'])->name('setting.admin');
+
 Route::post('/setting-process', [ProfileController::class, 'updateProfileAdmin'])->name('setting.process');
 

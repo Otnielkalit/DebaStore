@@ -48,8 +48,8 @@
                 <!-- Collapsible wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Navbar brand -->
-                    <a class="navbar-brand mt-2 mt-lg-0" href="{{ route('home') }}">
-                        <img src="img/deba.png" height="15" alt="MDB Logo" loading="lazy" />
+                    <a class="navbar-brand mt-2 mt-lg-0" href="{{ url('/') }}">
+                        <img src="img/deba.png" height="15" alt="logo Deba" loading="lazy" />
                     </a>
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -214,12 +214,12 @@
 </body>
 <script>
     $(document).on('change', '.file-input', function() {
-        
+
 
         var filesCount = $(this)[0].files.length;
-        
+
         var textbox = $(this).prev();
-      
+
         if (filesCount === 1) {
           var fileName = $(this).val().split('\\').pop();
           textbox.text(fileName);

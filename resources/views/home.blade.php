@@ -1,10 +1,6 @@
 @extends('user.layouts.app')
 
 @section('content')
-<<<<<<< HEAD
-    <h1>Hai</h1>
-@endsection
-=======
     <div class="container">
         <div class="row">
             @foreach ($barangs as $barang)
@@ -29,4 +25,3 @@
         </div>
     </div>
 @endsection
->>>>>>> 2fbf3eb2ea0e18d1df38d3008205fcc800205973
