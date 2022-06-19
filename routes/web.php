@@ -56,6 +56,7 @@ Route::post('/upload-process/{id}', [HomeController::class, 'uploadProcess'])->n
 
 
 
+
 // For Admin
 Route::get('/user-role', [HomeController::class, 'userManagement'])->name('user.role');
 Route::get('/delete-role/{id}', [HomeController::class, 'delete'])->name('delete.user');
@@ -103,7 +104,8 @@ Route::get("/deleteagen/{id}",[HomeController::class,"deleteagen"]);
 Route::get('/viewreservation', [HomeController::class, 'viewreservation']);
 
 Route::get('/order-details', [PesanController::class, 'orderDetails'])->name('oder.deatail');
-
+Route::get('/result-file/{id}', [PesanController::class, 'resultFile'])->name('result.file');
+Route::post('/confirm-order/{id}', [PesanController::class, 'confirmOrders'])->name('confirm.order');
 Route::get('/profile-admin', [ProfileController::class, 'profileAdmin'])->name('profile.admin');
 Route::get('/setting', [ProfileController::class, 'setting'])->name('setting.admin');
 Route::post('/setting-process', [ProfileController::class, 'updateProfileAdmin'])->name('setting.process');

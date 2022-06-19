@@ -11,26 +11,43 @@
                     <table id="mainTable" class="table table-striped">
                         <thead>
                             <tr>
+                                <th>No.</th>
                                 <th>Name</th>
                                 <th>Status</th>
                                 <th>Kode</th>
                                 <th>Jumlah Harga</th>
+                                <th>Tanggal</th>
                                 <th>Gambar</th>
+                                <th>Alamat Penerima</th>
+                                <th>Lihat Gambar</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($data as $reservation)
+                            @php $no=1; @endphp
+                            @foreach ($dataOrders as $data)
                                 <tr>
-                                    <td>{{ $reservation->name }}</td>
-                                    <td>{{ $reservation->email }}</td>
-                                    <td>{{ $reservation->phone }}</td>
-                                    <td>{{ $reservation->guest }}</td>
-                                    <td>{{ $reservation->date }}</td>
-                                    <td>{{ $reservation->time }}</td>
-                                    <td>{{ $reservation->message }}</td>
-                                    <td>{{ $reservation->created_at }}</td>
+                                    <td>{{ $no++; }}</td>
+                                    <td>{{ $data->users->name }}</td>
+                                    <td>{{ __('Sudah bayar') }}</td>
+                                    <td>{{ $data->kode }}</td>
+                                    <td>Rp{{ number_format($data->jumlah_harga, 0, ',', '.') }}</td>
+                                    <td>{{ $data->updated_at->isoFormat('dddd, D MMM Y') }}</td>
+                                    <td>{{ $data->gambar }}</td>
+                                    <td>
+                                        <a href="{{ url('/result-file/'.$data->id) }}" class="nav-link">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </td>
+                                    <td>{{ $data->gambar }}</td>
+                                    <td>
+                                        <form action="{{ url('/confirm-order/'.$data->id) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary">Confirm</button>
+                                        </form>
+                                    </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

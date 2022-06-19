@@ -19,6 +19,10 @@ class Pesanan extends Model
         return $this->belongTo('App\User', 'user_id', 'id');
     }
 
+    public function users() {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
     public function pesanan_detail()
     {
         return $this->hasMany('App\PesananDetail','pesanan_id', 'id');

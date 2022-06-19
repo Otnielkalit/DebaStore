@@ -27,6 +27,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    public function getUpdatedAtAttribute()
+    {
+        return \Carbon\Carbon::parse($this->attributes['updated_at'])
+           ->diffForHumans();
+    }
+    
     public function index()
     {
         $usertype=Auth::user()->usertype;
@@ -223,21 +230,22 @@ class HomeController extends Controller
         return view('user.upload', compact('dataPesan'));
     }
 
-    public function uploadProcess(Request $request) {
+    public function uploadProcess(Request $request, $id) {
         // dd($request);
         $request->validate([
             'gambar' => 'required',
         ]);
 
-        $dataPesanan = Pesanan::where('id', Auth::user()->id)->first();
-        // $dataPesanan->gambar     = $request->gambar;
+        $dataPesanan = Pesanan::where('id', $id)->first();
 
         if($request->hasFile('gambar')) {
             $request->file('gambar')->move('productimage/', $request->file('gambar')->getClientOriginalName());
             $dataPesanan->gambar = $request->file('gambar')->getClientOriginalName();
+            $dataPesanan->status = 2;
             $dataPesanan->update();
         }
         
+        return redirect()->route('history.detail')->with('toast_success', 'Gambar sudah berhasil dikirim');
     }
 
 }

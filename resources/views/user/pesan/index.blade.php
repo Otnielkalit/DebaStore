@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="{{ url('productimage') }}/{{ $barang->gambar }}" width="450px" alt="">
+                                <img src="{{ url('productimage') }}/{{ $barang->gambar }}" width="445px" alt="">
                             </div>
                             <div class="col-md-6 mt-4">
                                 <h3>{{ $barang->nama_barang }}</h3>
@@ -46,9 +46,9 @@
                                         <td>
                                             <form action="{{ url('/pesan-process/'.$barang->id) }}" method="POST">
                                                 @csrf
-                                                <input type="number" name="jumlah_pesan" class="form-control" required="">
+                                                <input type="number" name="jumlah_pesan" class="form-control" required min="1">
                                                 <button type="submit" class="btn btn-primary mt-2"><i
-                                                        class="fas fa-shopping-cart"></i>add cart</button>
+                                                        class="fas fa-shopping-cart"></i> add cart</button>
                                             </form>
                                         </td>
                                     </tr>
