@@ -23,7 +23,6 @@
                 <a href="{{ route('menu') }}" class="nav-link"><i
                         class="
               fas fa-utensils"></i><span>Menu</span></a>
-<<<<<<< HEAD
             </li>
             <li class="dropdown">
                 <a href="{{ url('/viewagen') }}" class="nav-link"><i class="
@@ -37,7 +36,6 @@
                 <a href="{{ route('oder.deatail') }}" class="nav-link"><i class="fas fa-shopping-cart"></i><span>Order Details</span></a>
             </li>
         </ul>
-=======
           </li>
           <li class="dropdown">
             <a href="index.html" class="nav-link"><i class="
@@ -52,6 +50,5 @@
             </i><span>About Us</span></a>
           </li>
       </ul>
->>>>>>> ab6dbb9becb4f30a653883f618cd5ad77bff0e8f
     </aside>
 </div>

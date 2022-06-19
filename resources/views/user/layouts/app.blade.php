@@ -38,14 +38,12 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <!-- Container wrapper -->
             <div class="container-fluid">
-<<<<<<< HEAD
                 <!-- Toggle button -->
                 <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
                     data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
-=======
             <!-- Toggle button -->
             <button
                 class="navbar-toggler"
@@ -58,7 +56,7 @@
             >
                 <i class="fas fa-bars"></i>
             </button>
-        
+
             <!-- Collapsible wrapper -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Navbar brand -->
@@ -88,14 +86,13 @@
                 <!-- Left links -->
             </div>
             <!-- Collapsible wrapper -->
-        
+
             <!-- Right elements -->
             <div class="d-flex align-items-center">
                 @guest
                     @if (Route::has('login'))
                     <a href="{{ route('login') }}" class="nav-link">Login</a>
                     @endif
->>>>>>> ab6dbb9becb4f30a653883f618cd5ad77bff0e8f
 
                 <!-- Collapsible wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
