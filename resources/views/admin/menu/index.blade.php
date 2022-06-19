@@ -9,7 +9,7 @@
                         <h4 class="card-title">Tambahkan Produk Anda Disini</h4>
                         <p class="card-description">
                             <a href="{{ route('add.menu') }}"><button type="button" class="btn btn-info btn-icon-text">Tambah Menu<i class="mdi mdi-bookmark-plus"></i></button></a>
-                          </p>
+                        </p>
                         <div class="table-responsive pt-3">
                             <table class="table table-bordered">
                                 <thead>
