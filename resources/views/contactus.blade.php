@@ -71,7 +71,6 @@
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="namaanda" class="form-label">Nama Anda</label>
-<<<<<<< HEAD
                                 <input type="text" name="name" class="form-control" id="validationDefaultUsername" placeholder="" value="{{ old('name') }}"
                                     required autofocus>
                                 @error('name')
@@ -79,18 +78,10 @@
                                         *{{ $message }}
                                     </div>
                                 @enderror
-=======
-                                <input type="text" name="name" class="form-control" id="validationDefaultUsername"
-                                    placeholder="" value="" required autofocus>
-                                <div class="invalid-feedback">
-                                    Valid first nama is required.
-                                </div>
->>>>>>> a2df29bf2d85c45eac2e4a75801bac206480ea27
                             </div>
 
                             <div class="col-sm-6">
                                 <label for="lastName" class="form-label">Email Aktif</label>
-<<<<<<< HEAD
                                 <input type="email" name="email" class="form-control" id="lastName" placeholder="" value="{{ old('email') }}"
                                     required>
                                     @error('email')
@@ -98,36 +89,21 @@
                                         *{{ $message }}
                                     </div>
                                     @enderror
-=======
-                                <input type="email" name="email" class="form-control" id="lastName" placeholder=""
-                                    value="" required>
-                                <div class="invalid-feedback">
-                                    Valid last email is required.
-                                </div>
->>>>>>> a2df29bf2d85c45eac2e4a75801bac206480ea27
                             </div>
 
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <label class="form-label" for="typeNumber">No Hp/WA</label>
-<<<<<<< HEAD
                                     <input type="number" name="phone" id="typeNumber" class="form-control" placeholder="" value="{{ old('phone') }}"
                                         required>
                                     @error('phone')
                                     <div class="text-danger">
                                         *{{ $message }}
-=======
-                                    <input type="number" name="phone" id="typeNumber" class="form-control" placeholder=""
-                                        value="" required>
-                                    <div class="invalid-feedback">
-                                        Valid first No HP/WA is required.
->>>>>>> a2df29bf2d85c45eac2e4a75801bac206480ea27
                                     </div>
                                     @enderror
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="form-label" for="typeNumber">Nomor Meja</label>
-<<<<<<< HEAD
                                     <input type="number" name="guest" id="typeNumber" class="form-control" placeholder="" value=""
                                         required>
                                         @error('guest')
@@ -135,18 +111,10 @@
                                             *{{ $message }}
                                         </div>
                                         @enderror
-=======
-                                    <input type="number" name="guest" id="typeNumber" class="form-control" placeholder=""
-                                        value="" required>
-                                    <div class="invalid-feedback">
-                                        Valid nomor meja is required.
-                                    </div>
->>>>>>> a2df29bf2d85c45eac2e4a75801bac206480ea27
                                 </div>
                                 <div class="row g-3">
                                     <div class="col-sm-6">
                                         <label for="firstName" class="form-label">Tanggal Kedatangan</label>
-<<<<<<< HEAD
                                         <input type="date" name="date"  class="form-control timepicker-input active" id="firstName"
                                             placeholder="" value="" required>
                                             @error('date')
@@ -164,21 +132,6 @@
                                                 *{{ $message }}
                                             </div>
                                             @enderror
-=======
-                                        <input type="date" name="date" class="form-control timepicker-input active"
-                                            id="firstName" placeholder="" value="" required>
-                                        <div class="invalid-feedback">
-                                            Valid first Tanggal Kedatangan is required.
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label for="lastName" class="form-label">Waktu tiba di tempat</label>
-                                        <input type="time" name="time" class="form-control" id="lastName"
-                                            placeholder="" value="" required>
-                                        <div class="invalid-feedback">
-                                            Valid last is required.
-                                        </div>
->>>>>>> a2df29bf2d85c45eac2e4a75801bac206480ea27
                                     </div>
                                     <div class="form-outline mb-4">
                                         <textarea name="message" class="form-control" id="form6Example7" rows="7" style="resize: none;"></textarea>

@@ -304,7 +304,7 @@
         <section id="gtco-contact" data-section="contact">
             <div class="container">
                 <div class="row row-pb-md">
-                    <div class="col-md-8 col-md-offset-2 heading animate-box" data-animate-effect="fadeIn">
+                    <div class="col-md-6 col-md-offset-2 heading animate-box" data-animate-effect="fadeIn">
                         <h1>Contact</h1>
                         <p class="sub">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus
                             alias autem provident. Odit ab aliquam dolor eius.</p>
@@ -313,23 +313,11 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-push-6 animate-box">
-                        <form action="#">
-                            <div class="form-group">
-                                <label for="name" class="sr-only">Name</label>
-                                <input type="text" class="form-control" placeholder="Name" id="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="sr-only">Email</label>
-                                <input type="email" class="form-control" placeholder="Email" id="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="message" class="sr-only">Message</label>
-                                <textarea name="message" id="message" class="form-control" cols="30" rows="7" placeholder="Message"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Send Message" class="btn btn-success">
-                            </div>
-                        </form>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5086.907373970723!2d98.71762905804279!3d2.3350194502143786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302e252ebe3e90e9%3A0xf5b5c24020b9df4c!2sBandrek%20Andaliman!5e1!3m2!1sid!2sid!4v1654255804608!5m2!1sid!2sid"
+                            width="1350" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                     <div class="col-md-4 col-md-pull-6 animate-box">
                         <div class="gtco-contact-info">

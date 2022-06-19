@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('imgjumbotron')->nullabel();
             $table->string('imgwelcom1')->nullabel();
             $table->string('imgwelcom2')->nullabel();
-            $table->string('imgwelcom2')->nullabel();
             $table->timestamps();
         });
     }

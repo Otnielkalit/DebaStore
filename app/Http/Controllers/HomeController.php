@@ -43,7 +43,8 @@ class HomeController extends Controller
         }
         else
         {
-            return view('home');
+            $barangs = Barang::paginate('20');
+            return view('home', compact('barangs'));
         }
     }
 
@@ -244,12 +245,9 @@ class HomeController extends Controller
             $dataPesanan->status = 2;
             $dataPesanan->update();
         }
-<<<<<<< HEAD
         
         return redirect()->route('history.detail')->with('toast_success', 'Gambar sudah berhasil dikirim');
     }
-=======
->>>>>>> a2df29bf2d85c45eac2e4a75801bac206480ea27
 
     }
-}
+

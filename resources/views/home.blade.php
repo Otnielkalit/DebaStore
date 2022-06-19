@@ -1,7 +1,6 @@
 @extends('user.layouts.app')
 
 @section('content')
-<<<<<<< HEAD
     <h1>Hai</h1>
 =======
     <div class="container">
@@ -15,11 +14,11 @@
                     <strong>Harga :</strong> Rp.{{ number_format($barang->harga) }} <br>
                     <strong>Stok :</strong> {{ $barang->stok }} <br>
                     <hr>
-<<<<<<< HEAD
-=======
+
+
                     <strong>Keterangan :{{ $barang->keterangan }}</strong> <br>
                     <strong><a href="/detailbandrek"> Informasi Selengkapnya tentang Produk ini</a></strong>
->>>>>>> ab6dbb9becb4f30a653883f618cd5ad77bff0e8f
+
                   </p>
                   @if ($barang->stok == 0)
                     <p class="text-danger">*Maaf, stok sudah habis.</p>
@@ -32,5 +31,5 @@
             @endforeach
         </div>
     </div>
->>>>>>> a2df29bf2d85c45eac2e4a75801bac206480ea27
+
 @endsection
