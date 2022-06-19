@@ -29,6 +29,10 @@
             <a href="index.html" class="nav-link"><i class="
               fas fa-ticket-alt"></i><span>Reservation</span></a>
           </li>
+          <li class="dropdown">
+            <a href="/aboutus" class="nav-link"><i class="fas fa-user"></i>
+            </i><span>About Us</span></a>
+          </li>
       </ul>
     </aside>
   </div>

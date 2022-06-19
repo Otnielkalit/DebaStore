@@ -13,6 +13,7 @@
                     <strong>Stok :</strong> Rp. {{ $barang->stok }} <br>
                     <hr>
                     <strong>Keterangan :{{ $barang->keterangan }}</strong> <br>
+                    <strong><a href="/detailbandrek"> Informasi Selengkapnya tentang Produk ini</a></strong>
                   </p>
                   <a href="{{ url('pesan') }}/{{ $barang->id }}" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Pesan</a>
                 </div>
