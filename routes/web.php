@@ -47,7 +47,6 @@ Route::get('history', [App\Http\Controllers\HistoryController::class, 'index'])-
 
 Route::get('history/{id}', [App\Http\Controllers\HistoryController::class, 'detail']);
 
-<<<<<<< HEAD
 Route::get('/agen', [HomeController::class, 'useragen']);
 
 Route::get('/contact', [HomeController::class, 'contact'])->name('reservation');
@@ -58,7 +57,6 @@ Route::get('/upload/{id}', [HomeController::class, 'upload'])->name('upload');
 
 Route::post('/upload-process/{id}', [HomeController::class, 'uploadProcess'])->name('upload.process');
 
-=======
 Route::get('/aboutususer', [AboutUsController::class, 'indexuser']);
 
 Route::get('/detailbandrek', [DetailMenuController::class, 'detailbandrek']);
@@ -68,7 +66,6 @@ Route::get('/usertambah', function() {
 });
 
 // Route::get('/aboutususer', [AboutUsController::class, 'slideSatu']);
->>>>>>> ab6dbb9becb4f30a653883f618cd5ad77bff0e8f
 
 
 
