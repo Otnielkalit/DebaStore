@@ -102,8 +102,6 @@
                 <div class="row row-pb-md">
                     <div class="col-md-8 col-md-offset-2 heading animate-box" data-animate-effect="fadeIn">
                         <h1>Selamat Datang di DebaStore</h1>
-                        <p class="sub">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias
-                            autem provident. Odit ab aliquam dolor eius.</p>
                         <p class="subtle-text animate-box" data-animate-effect="fadeIn">Welcome</p>
                     </div>
                 </div>
@@ -140,6 +138,65 @@
                             necessitatibus delectus saepe aliquam, culpa officiis doloremque, ipsa facere hic,
                             voluptatem accusantium veniam, quasi! Explicabo accusantium sint, corporis consequuntur
                             fugit ipsam, dolorum excepturi adipisci.</p>
+                    </div>
+                </div> <br><br><br>
+                <div class="row mb-1">
+                    <div class="col-md-6 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
+                        <div class="img-shadow">
+                            <img src="aboutimg/c.jpeg" class="img-responsive" alt="product">
+                        </div>
+                    </div>
+                    <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+                        <h2 class="heading-colored">Bersama Bapak M. Suhendra</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aut praesentium nihil hic
+                            quam culpa magnam ducimus suscipit repellat quidem cumque, unde impedit, labore earum
+                            eligendi perspiciatis nemo molestiae sequi veritatis. Veritatis, reprehenderit, eaque!
+                            Rerum, libero ipsam enim, iusto adipisci quae repellendus officia consequatur ducimus
+                            cupiditate impedit, aliquam numquam excepturi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gtco-about" data-section="about">
+            <div class="container">
+                <div class="row row-pb-md">
+                    <div class="col-md-8 col-md-offset-2 heading animate-box" data-animate-effect="fadeIn">
+                        <h1>Latar Belakang DebaStore</h1>
+                        <p class="subtle-text animate-box" data-animate-effect="fadeIn">Welcome</p>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-md-6 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
+                        <div class="img-shadow">
+                            <img src="aboutimg/f.png" class="img-responsive" alt="product">
+                        </div>
+                    </div>
+                    <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
+                        <h2>Introduction</h2>
+                        <p>Ijinkan kami memperkenalkan diri dari UMKM ‘deba group’ Desa Hutapaung Kecamatan Polllung, Kabupaten Humbang Hasundutan Provinsi Sumatera Utara (profile terlampir). Adapun UMKM ‘deba group’ saya dirikan awalnya untuk mengggali potensi lokal di desa kami, serta memperkenalkan potensi tersebut ke luar. Berawal dari akhir 2016 kami membuka bisnis sarapan pagi, serta membuka Loket Pengiriman JNE Express Pollung. Kemudian akhir 2017, usaha sarapan pagi tersebut kami tingkatkan menjadi Rumah Makan Nasional (Lapo Mangan Nasional). Diawal 2018 melihat begitu besarnya potensi hasil Pertanian di kampung serta cuaca yang sejuk/dingin, kami menambah jasa menjadi Kode Kopi (coffeeshop speciality) serta mengeluarkan produk baru berupa BANDREK ANDALIMAN segar/cair.
+                            Untuk meningkatkan penjualan kami mencoba memproduksi Bandrek andaliman tersebut dalam bentuk bubuk dalam kemasan sachet pcs, dan ternyata mendapat respon baik dari masyarakat. Jaringan UMKM semakin terjalin dengan adanya JNE yg semakin mempermudah distribusi #Bandal ke beberapa daerah. Perijinan dan lainnya kami lengkapi, merk kami daftarkan di Kemenhumham.
+                            Kemudian kami terkendala di harga produksi yang agak tinggi dikarenakan masih di skala mikro/kecil. Untuk meningkatkan quantity dan menurunkan biaya produksi kami terkendala alat (mesin sachet & sealer) serta modal untuk beli bahan baku agar biaya produksi semakin kecil dan harga jual sesuai dengan keinginan konsumen.
+                            </p>
+                    </div>
+                </div><br><br><br>
+                <div class="row team-item gtco-team-reverse">
+                    <div class="col-md-6 col-md-push-7 animate-box" data-animate-effect="fadeInRight">
+                        <div class="img-shadow">
+                            <img src="aboutimg/e.png" class="img-responsive" alt="Photos" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="col-md-6  col-md-pull-6 animate-box" data-animate-effect="fadeInRight">
+                        <h2>JUMLAH AGEN & JANGKAUAN DISTRIBUSI & METODE PROMOSI.</h2>
+                        <p>Jangkauan distribusi hingga sekarang telah mencapai 18 Propinsi dan 2 negara (Malaysia & Perancis) dengan metode Agen – Reseler – beli putus.
+                            Adapun Jumlah Agen Resmi kami yang telah mendaftar ada 30 Agen (Produktif 12 Agen) di 8 Propinsi & Kota Kabupaten. Sumut 14 Agen, Sumsel 3 Agen, Kepri 4 Agen, Jabodetabek 6, Kalsel 1 Agen, Bali 1 Agen, Papua Barat 1 Agen, Malaysia/Penang 1 Agen.
+                            Metode promosi dan penjualan yang kami lakukan adalah :
+                            -	Titip jual di beberapa toko oleh-oleh dio kawasan danau toba (batikta, siholta, Taman Eden 100, dan lainnya)
+                            -	Media sosial, akun Fanpge, Instragram, WA.
+                            -	Online Shop marketplace, Tokopedia, Lazada, Shopee,Blanja, dll
+                            -	Bundling Produk, paket penjualan bersama umkm lainnya.. beli sambal dapat bandal, beli bandal dapat keripik, dll
+                            -	Komplimen, kerjasama dengan beberapa umkm jasa, seperti Penyewaan Tenda di Baktiraja Camping akan mendapatkan Bandrek andaliman saset GRATIS
+                            </p>
                     </div>
                 </div> <br><br><br>
                 <div class="row mb-1">
@@ -313,11 +370,20 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-push-6 animate-box">
+<<<<<<< HEAD
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5086.907373970723!2d98.71762905804279!3d2.3350194502143786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302e252ebe3e90e9%3A0xf5b5c24020b9df4c!2sBandrek%20Andaliman!5e1!3m2!1sid!2sid!4v1654255804608!5m2!1sid!2sid"
                             width="1350" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
+=======
+                            <!-- <div class="size-303" id="google_map" data-map-x="40.691446" data-map-y="-73.886787" data-pin="images/icons/pin.png" data-scrollwhell="0" data-draggable="1" data-zoom="11"></div> -->
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5086.907373970723!2d98.71762905804279!3d2.3350194502143786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302e252ebe3e90e9%3A0xf5b5c24020b9df4c!2sBandrek%20Andaliman!5e1!3m2!1sid!2sid!4v1654255804608!5m2!1sid!2sid"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+>>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
                     </div>
                     <div class="col-md-4 col-md-pull-6 animate-box">
                         <div class="gtco-contact-info">

@@ -6,7 +6,7 @@
             @foreach ($aboutuss as $aboutus)
                 <div class="card col-sm-12">
                     <strong>{{ $aboutus->judul }}</strong><br>
-                    <img src="{{ url('aboutusimage') }}/{{ $aboutus->gambar }}" style="width:auto; height:350px;"
+                    <img src="{{ url('aboutusimage') }}/{{ $aboutus->gambar }}" style="width:auto; height:600px;"
                         class="card-img-top" alt="" />
                     <div class="card-body">
                         <h5 class="card-title">{{ $aboutus->nama_barang }}</h5>

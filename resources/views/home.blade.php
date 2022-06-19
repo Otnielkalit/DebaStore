@@ -2,6 +2,7 @@
 
 @section('content')
     <h1>Hai</h1>
+<<<<<<< HEAD
 =======
     <div class="container">
         <div class="row">
@@ -32,4 +33,6 @@
         </div>
     </div>
 
+=======
+>>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
 @endsection

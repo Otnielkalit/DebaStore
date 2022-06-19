@@ -248,6 +248,10 @@ class HomeController extends Controller
         
         return redirect()->route('history.detail')->with('toast_success', 'Gambar sudah berhasil dikirim');
     }
+<<<<<<< HEAD
 
     }
 
+=======
+}
+>>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5

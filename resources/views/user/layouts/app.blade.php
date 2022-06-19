@@ -44,8 +44,7 @@
 
 <body>
     <div id="app">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Toggle button -->
@@ -54,12 +53,15 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
                 <!-- Collapsible wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Navbar brand -->
                     <a class="navbar-brand mt-2 mt-lg-0" href="{{ url('/') }}">
-                        <img src="img/deba.png" height="15" alt="logo Deba" loading="lazy" />
+                        <img src="img/deba.png" height="45" alt="logo Deba" loading="lazy" />
                     </a>
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -76,7 +78,11 @@
                             <a class="nav-link" href="{{ url('/contact') }}">Pesan Tempat</a>
                         </li>
                         <li class="nav-item">
+<<<<<<< HEAD
                             <a class="nav-link" href="{{ url('/aboutususer') }}">About Us</a>
+=======
+                            <a class="nav-link" href="/aboutususer">About Us</a>
+>>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
                         </li>
                     </ul>
                     <!-- Left links -->
@@ -149,11 +155,12 @@
             <!-- Container wrapper -->
         </nav>
         <!-- Navbar -->
-        <main class="py-4">
+        <main class="py-4" style="margin-bottom: 50px; margin-top: 60px;">
             @yield('content')
         </main>
     </div>
     @include('sweetalert::alert')
+<<<<<<< HEAD
     <footer class="text-center text-white" style="background-color: #f1f1f1;">
         <!-- Grid container -->
 
@@ -173,6 +180,44 @@
                 <a class="btn btn-link btn-floating btn-lg text-dark" href="https://www.instagram.com/bandrek_andaliman/?hl=id" role="button"
                     data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
             </section>
+=======
+    <footer class="text-center text-white fixed-bottom" style="background-color: #f1f1f1;">
+        {{-- <!-- Grid container -->
+        <div class="container pt-4">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
+
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+
+
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-whatsapp"></i></a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container --> --}}
+
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
+
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+
+
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-whatsapp"></i></a>
+            © 2022 DebaStore
+>>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
         </div>
         <!-- Copyright -->
     </footer>
