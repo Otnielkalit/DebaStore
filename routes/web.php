@@ -47,6 +47,10 @@ Route::get('/aboutususer', [AboutUsController::class, 'indexuser']);
 
 Route::get('/detailbandrek', [DetailMenuController::class, 'detailbandrek']);
 
+Route::get('/usertambah', function() {
+    return view('user.tambah');
+});
+
 // Route::get('/aboutususer', [AboutUsController::class, 'slideSatu']);
 
 

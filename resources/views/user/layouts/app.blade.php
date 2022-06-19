@@ -173,6 +173,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact Us</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/usertambah">Tambah</a>
+                </li>
                 </ul>
                 <!-- Left links -->
             </div>
