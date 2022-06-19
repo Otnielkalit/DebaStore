@@ -34,8 +34,7 @@
 
 <body>
     <div id="app">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Toggle button -->
@@ -44,61 +43,11 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
-            <!-- Toggle button -->
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-mdb-toggle="collapse"
-                data-mdb-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Navbar brand -->
-                <a class="navbar-brand mt-2 mt-lg-0" href="{{ route('home') }}">
-                <img
-                    src="img/deba.png"
-                    height="15"
-                    alt="MDB Logo"
-                    loading="lazy"
-                />
-                </a>
-                <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/aboutususer">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/usertambah">Tambah</a>
-                </li>
-                </ul>
-                <!-- Left links -->
-            </div>
-            <!-- Collapsible wrapper -->
-
-            <!-- Right elements -->
-            <div class="d-flex align-items-center">
-                @guest
-                    @if (Route::has('login'))
-                    <a href="{{ route('login') }}" class="nav-link">Login</a>
-                    @endif
-
                 <!-- Collapsible wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Navbar brand -->
                     <a class="navbar-brand mt-2 mt-lg-0" href="{{ url('/') }}">
-                        <img src="img/deba.png" height="15" alt="logo Deba" loading="lazy" />
+                        <img src="img/deba.png" height="45" alt="logo Deba" loading="lazy" />
                     </a>
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -113,6 +62,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/contact') }}">Pesan Tempat</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/aboutususer">About Us</a>
                         </li>
                     </ul>
                     <!-- Left links -->
@@ -185,81 +137,52 @@
             <!-- Container wrapper -->
         </nav>
         <!-- Navbar -->
-        <main class="py-4">
+        <main class="py-4" style="margin-bottom: 50px; margin-top: 60px;">
             @yield('content')
         </main>
     </div>
     @include('sweetalert::alert')
-    {{-- <footer class="text-center text-white" style="background-color: #f1f1f1;">
-  <!-- Grid container -->
-  <div class="container pt-4">
-    <!-- Section: Social media -->
-    <section class="mb-4">
-      <!-- Facebook -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
+    <footer class="text-center text-white fixed-bottom" style="background-color: #f1f1f1;">
+        {{-- <!-- Grid container -->
+        <div class="container pt-4">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
 
-      <!-- Twitter -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-twitter"></i
-      ></a>
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
 
-      <!-- Google -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-google"></i
-      ></a>
 
-      <!-- Instagram -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-instagram"></i
-      ></a>
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-whatsapp"></i></a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container --> --}}
 
-      <!-- Linkedin -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-linkedin"></i
-      ></a>
-      <!-- Github -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
-    <!-- Section: Social media -->
-  </div>
-  <!-- Grid container -->
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
 
-  <!-- Copyright -->
-  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-</footer> --}}
-<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+
+
+                <!-- Instagram -->
+                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-whatsapp"></i></a>
+            © 2022 DebaStore
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 </body>
 <script>
     $(document).on('change', '.file-input', function() {
@@ -270,11 +193,12 @@
         var textbox = $(this).prev();
 
         if (filesCount === 1) {
-          var fileName = $(this).val().split('\\').pop();
-          textbox.text(fileName);
+            var fileName = $(this).val().split('\\').pop();
+            textbox.text(fileName);
         } else {
-          textbox.text(filesCount + ' files selected');
+            textbox.text(filesCount + ' files selected');
         }
-      });
+    });
 </script>
+
 </html>

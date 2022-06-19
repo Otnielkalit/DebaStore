@@ -35,7 +35,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input type="url" name="link" class="form-control"
+                                <input type="text" name="link" class="form-control"
                                     placeholder="Link Youtube atau Website" value="{{ old('link') }}">
                                 @error('link')
                                     <div class="text-danger">

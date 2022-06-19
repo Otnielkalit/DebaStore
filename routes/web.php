@@ -124,7 +124,8 @@ Route::get("/deleteagen/{id}",[HomeController::class,"deleteagen"]);
 Route::get('/viewreservation', [HomeController::class, 'viewreservation']);
 
 Route::get('/order-details', [PesanController::class, 'orderDetails'])->name('oder.deatail');
-
+Route::get('/result-file/{id}', [PesanController::class, 'resultFile'])->name('result.file');
+Route::post('/confirm-order/{id}', [PesanController::class, 'confirmOrders'])->name('confirm.order');
 Route::get('/profile-admin', [ProfileController::class, 'profileAdmin'])->name('profile.admin');
 
 Route::get('/setting', [ProfileController::class, 'setting'])->name('setting.admin');

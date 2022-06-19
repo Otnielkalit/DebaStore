@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a href="{{ url('history') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i>Kembali</a>
+                <a href="{{ url('history') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
             </div>
             <div class="col-md-12 mt-3">
                 <div class="container-fluid">
@@ -42,7 +42,9 @@
                         <h4><i class="fa fa-shopping-cart"></i> Detail Pemesanan</h4>
                         @if (!empty($pesanan))
                             <p class="text-end">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
+                            @if($pesanan->stok == 1)
                             <p class="text-end text-danger">*setelah melakukan pembayaran, silahkan upload bukti pembayaran dibawah ini</p>
+                            @endif
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -83,7 +85,11 @@
                                 <tr>
                                     <td colspan="5" class="text-end" colspan="4"><strong>Total Pembayaran :</strong></td>
                                     <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
+                                    @if($pesanan->status == 1 )
                                     <td><strong><a href="{{ url('/upload/'.$pesanan->id) }}"><button class="btn btn-secondary">Upload</button></a></strong></td>
+                                    @else
+                                    <td><strong><button class="btn btn-warning" disabled><b>Uploaded</b></button></strong></td>
+                                    @endif
                                 </tr>
                             </table>
                             @endif

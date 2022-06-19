@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a href="{{ url('home') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i>Kembali</a>
+                <a href="{{ url('home') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
             </div>
             <div class="col-md-12 mt-3">
                 <div class="container-fluid">
@@ -36,8 +36,10 @@
                                     <td>
                                         @if ($pesanan->status == 1)
                                         Sudah pesan & Belum dibayar
+                                        @elseif($pesanan->status == 2)
+                                        Pembayaran berhasil, tunggu confirm dari admin
                                         @else
-                                        Sudah dibayar
+                                        Confirm telah berhasil, barang akan segera dikirim
                                         @endif
                                     </td>
                                     <td>Rp. {{ number_format($pesanan->jumlah_harga+$pesanan->kode )}}</td>

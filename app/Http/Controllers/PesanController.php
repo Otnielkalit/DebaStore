@@ -43,7 +43,7 @@ class PesanController extends Controller
             $cek_pesanan_detail   = PesananDetail::where('barang_id', $barang->id)->where('pesanan_id', $cek_pesanan->id)->first();
             if(!empty($cek_pesanan_detail)){
                 if($request->jumlah_pesan + $cek_pesanan_detail->jumlah > $barang->stok){
-                    return redirect()->back()->with('toast_error', 'Anda sudah melebihi batas stok');
+                    return redirect()->back()->with('toast_info', 'Stok yang ada dipesanan anda, sudah melebihi stok yang tersedia. Silahkan cek kerangjang anda!');
                 }
             }
         }
@@ -157,5 +157,22 @@ class PesanController extends Controller
 
 
         return redirect('history/'.$pesanan_id)->with('success', 'CheckOut berhasil silahkan lakukan pembayaran');
+    }
+
+    public function orderDetails() {
+        $dataOrders = Pesanan::all()->where('status', 2);
+        return view('admin.orders', compact('dataOrders'));
+    }
+
+    public function resultFile($id) {
+        $dataResultFile = Pesanan::find($id);
+        return view('admin.result-file', compact('dataResultFile'));
+    }
+
+    public function confirmOrders($id) {
+        $dataPesanan = Pesanan::where('id', $id)->first();  
+        $dataPesanan->status = 3;
+        $dataPesanan->update();
+        return redirect()->route('oder.deatail')->with('toast_success', 'Data has been confirm');
     }
 }

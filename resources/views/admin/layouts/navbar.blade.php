@@ -25,40 +25,42 @@
         $stocks = \DB::select("SELECT * from barangs where stok = 0");  
         $orders = \DB::select("SELECT * from pesanans where status = 2");
       @endphp
-      <li class="dropdown dropdown-list-toggle ">
-        <a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle count"><i data-feather="bell"></i>
-          <span class="badge headerBadge1 bg-danger count">{{ count($orders) }}</span> 
-        </a>
-        <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
-          <div class="dropdown-header">
-            Notifications
-          </div>
-          <div class="dropdown-list-content dropdown-list-icons">
-            @foreach ($stocks as $stock)
-            <a href="{{ url('/edit-menu/'.$stock->id) }}" class="dropdown-item dropdown-item-unread"> 
-              <span class="dropdown-item-icon bg-danger text-white"> 
-                <i class="fas fa-exclamation-triangle"></i>
-              </span> 
-              <span class="dropdown-item-desc"> {{ $stock->nama_barang.' sudah habis.' }} <br>
-                <i class="text-danger">*silahkan lakukan pengisian stok segera!</i>
-              </span>
-            </a> 
-            @endforeach
-            @foreach ($orders as $order)
-            <a href="{{ url('/edit-menu/'.$order->id) }}" class="dropdown-item dropdown-item-unread"> 
+      <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+        class="nav-link nav-link-lg message-toggle"><i data-feather="bell"></i>
+        <span class="badge headerBadge1 bg-danger">{{ count($stocks)+count($orders) }}</span> </a>
+      <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+        <div class="dropdown-header">
+          Messages
+        </div>
+        <div class="dropdown-list-content dropdown-list-message">
+          @foreach ($stocks as $stock)
+          <a href="{{ url('/edit-menu/'.$stock->id) }}" class="dropdown-item dropdown-item-unread"> 
+            <span class="dropdown-item-icon bg-danger text-white"> 
+              <i class="fas fa-exclamation-triangle"></i>
+            </span> 
+            <span class="dropdown-item-desc"> {{ 'Stock '.$stock->nama_barang.' sudah habis' }} <br>
+              <span class="time text-dark">-- {{ $stock->updated_at }} --</span>
+              <i class="text-danger">*silahkan lakukan pengisian stok!</i>
+            </span>
+          </a>
+          @endforeach
+          @foreach ($orders as $order)
+            <a href="{{ url('/result-file/'.$order->id) }}" class="dropdown-item dropdown-item-unread"> 
               <span class="dropdown-item-icon bg-success text-white"> 
                 <i class="fas fa-check"></i>
               </span> 
-              <span class="dropdown-item-desc"> {{'Kode dengan nomor ' .$order->kode. ' telah bayar pesanan'}} <br>
+              <span class="dropdown-item-desc"> {{ 'Pesanan dengan kode '.$order->kode.' sudah dibayar' }} <br>
+                <span class="time text-dark">{{ $order->updated_at }}</span>
+                <i class="text-danger">*silahkan cek foto disini</i>
               </span>
             </a> 
-            @endforeach
-          </div>
-          <div class="dropdown-footer text-center">
-            <a href="#">View All <i class="fas fa-chevron-right"></i></a>
-          </div>
+          @endforeach
+        </div>
+        <div class="dropdown-footer text-center">
+          <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+        </div>
       </div>
-      </li>
+    </li>
       <li class="dropdown"><a href="#" data-toggle="dropdown"
           class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="assets/img/user.png"
             class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>

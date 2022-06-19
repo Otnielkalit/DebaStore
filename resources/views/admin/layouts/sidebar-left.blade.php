@@ -26,8 +26,7 @@
             </li>
             <li class="dropdown">
                 <a href="{{ url('/viewagen') }}" class="nav-link"><i class="
-              fas fa-address-book"></i><span>Agen &
-                        Pelayan</span></a>
+              fas fa-address-book"></i><span>Agen & Pelayan</span></a>
             </li>
             <li class="dropdown">
                 <a href="{{ url('/viewreservation') }}" class="nav-link"><i class="fas fa-ticket-alt"></i><span>Reservation</span></a>
@@ -35,20 +34,10 @@
             <li class="dropdown">
                 <a href="{{ route('oder.deatail') }}" class="nav-link"><i class="fas fa-shopping-cart"></i><span>Order Details</span></a>
             </li>
+            <li class="dropdown">
+                <a href="/aboutus" class="nav-link"><i class="fas fa-user"></i>
+                </i><span>About Us</span></a>
+              </li>
         </ul>
-          </li>
-          <li class="dropdown">
-            <a href="index.html" class="nav-link"><i class="
-              fas fa-address-book"></i><span>Agen & Pelayan</span></a>
-          </li>
-          <li class="dropdown">
-            <a href="index.html" class="nav-link"><i class="
-              fas fa-ticket-alt"></i><span>Reservation</span></a>
-          </li>
-          <li class="dropdown">
-            <a href="/aboutus" class="nav-link"><i class="fas fa-user"></i>
-            </i><span>About Us</span></a>
-          </li>
-      </ul>
     </aside>
 </div>

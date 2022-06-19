@@ -57,7 +57,7 @@
     </style>
 @endsection
 @section('content')
-{{-- <div class="container d-flex justify-content-center mt-100">
+<div class="container d-flex justify-content-center mt-100">
     <div class="row">
         <div class="col-md-12">
         <h2>PAYMENT FILE UPLOAD</h2>
@@ -78,12 +78,6 @@
 
     </div>
     
-</div> --}}
-<form action="{{ url('/upload-process/'.$dataPesan->id) }}"  method="POST" enctype="multipart/form-data">
-  @csrf
-<div>
-  <input type="file" name="gambar" id="">
 </div>
-<button type="submit" class="btn btn-secondary">Submit</button>
-</form>
+
 @endsection
