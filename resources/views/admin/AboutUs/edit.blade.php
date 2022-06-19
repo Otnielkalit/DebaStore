@@ -43,7 +43,7 @@
                                     </div>
                                 @enderror
                             </div>
-                            <a href="/aboutus"><button type="button" class="btn btn-dark btn-icon-text" value="Save"><i class="mdi mdi-plus-box"></i> Kembali</button></a>
+                            <a href="{{ url('/aboutus') }}"><button type="button" class="btn btn-dark btn-icon-text" value="Save"><i class="mdi mdi-plus-box"></i> Kembali</button></a>
                             <button type="submit" class="btn btn-primary btn-icon-text" value="Save"><i class="mdi mdi-plus-box"></i> Tambahkan</button>
                         </form>
                     </div>

@@ -10,12 +10,16 @@ use Illuminate\Support\Facades\Redirect;
 class MenuController extends Controller
 {
     public function index() {
-        $dataMenu = Barang::all();
-        return view('admin.menu.index', compact('dataMenu'));
+        $dataMenu = Barang::paginate(5);
+        return view('admin.menu.index', [
+            "title" => 'Data Menu'
+        ], compact('dataMenu'));
     }
 
     public function menu() {
-        return view('admin.menu.add');
+        return view('admin.menu.add' , [
+            "title" => "Tambah Data Menu"
+        ]);
     }
 
     public function store(Request $request) {
@@ -46,7 +50,9 @@ class MenuController extends Controller
 
     public function getUpdate($id) {
         $dataMenuUpdate = Barang::find($id);
-        return view('admin.menu.edit', compact('dataMenuUpdate'));
+        return view('admin.menu.edit', [
+            "title" => 'Edit Data Menu'
+        ], compact('dataMenuUpdate'));
     }
 
     public function update(Request $request, $id) {

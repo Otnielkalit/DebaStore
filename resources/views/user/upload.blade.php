@@ -1,4 +1,7 @@
 @extends('user.layouts.app')
+@section('title')
+    Upload Gambar
+@endsection
 @section('style')
     <style>
         body {
@@ -52,7 +55,7 @@
   }
   
   .mt-100{
-      margin-top:100px;
+      margin-top:50px;
   }
     </style>
 @endsection
@@ -68,9 +71,13 @@
         <span class="choose-file-button">Choose files</span>
         <span class="file-message">or drag and drop files here</span>
         <input class="file-input" type="file" multiple name="gambar">
+        @error('gambar')
+            <div class="text-danger">
+              {{ $message }}
+            </div>
+        @enderror
       </div>
-      
-      <button type="submit" class="btn btn-secondary">Submit</button>
+      <button type="submit" class="btn btn-secondary" style="margin-top:15px;">Submit</button>
     </form>
             
         </div>

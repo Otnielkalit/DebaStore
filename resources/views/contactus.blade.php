@@ -1,5 +1,7 @@
 @extends('user.layouts.app')
-
+@section('title')
+    Contact Us
+@endsection
 @section('content')
     <!-- Content page -->
     <div class="container">

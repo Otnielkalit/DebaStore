@@ -39,22 +39,36 @@ class HomeController extends Controller
         $usertype=Auth::user()->usertype;
         if($usertype == '1')
         {
-            return view('admin.home');
+            return view('admin.home', [
+                "title" => "Dashboard"
+            ]);
         }
         else
         {
-            return view('home');
+            return view('user.menu', [
+                "title" => 'Home'
+            ]);
         }
     }
 
     public function menu() {
         $dataMenu = Barang::all();
-        return view('user.menu', compact('dataMenu'));
+        return view('user.menu', [
+            "title" => 'List Menu'
+        ], compact('dataMenu'));
     }
 
-    public function userManagement() {
-        $dataUser = User::all();
-        return view('admin.user-management', compact('dataUser'));
+    public function userManagement(Request $request) {
+        if($request->has('search')) {
+            $dataUser = User::where('name', 'LIKE', '%'.$request->search.'%')
+            ->orWhere('email', 'LIKE', '%'.$request->search.'%')
+            ->paginate(10);
+        }else {
+            $dataUser = User::paginate(10);
+        }
+        return view('admin.user-management', [
+            "title" => 'User Management'
+        ], compact('dataUser'));
     }
 
     public function delete($id) {
@@ -64,21 +78,23 @@ class HomeController extends Controller
     }
 
     public function trash() {
-        $trashesUser = User::onlyTrashed()->get();
-        return view('admin.restore-user', compact('trashesUser'));
+        $trashesUser = User::onlyTrashed()->paginate(10);
+        return view('admin.restore-user', [
+            "title" => 'Restore User'
+        ], compact('trashesUser'));
     }
 
     public function restore($id) {
         $restoreUser = User::onlyTrashed()->where('id', $id);
         $restoreUser->restore();
-        return redirect()->route('user.role')->with('toast_success', 'Data user berhasil di kemabalikan');
+        return redirect()->back()->with('toast_success', 'Data user berhasil di kemabalikan');
     }
 
     public function restoreAll()
     {
         $restoreAll = User::onlyTrashed();
         $restoreAll->restore();
-        return back();
+        return redirect()->route('user.role')->with('toast_success', 'Semua data user berhasil di kemabalikan');
     }
 
     public function logout()
@@ -93,13 +109,17 @@ class HomeController extends Controller
     public function useragen()
     {
         $data = agen::all();
-        return view('agen', compact('data'));
+        return view('agen', [
+            "title" => 'Agen & Pelayan'
+        ], compact('data'));
     }
 
     public function viewagen()
     {
         $data = agen::all();
-        return view('admin.agen.index', compact('data'));
+        return view('admin.agen.index', [
+            "title" => 'Agen & Pelayan'
+        ], compact('data'));
     }
 
     public function uploadagen(Request $request)
@@ -133,7 +153,9 @@ class HomeController extends Controller
     {
         $data = agen::find($id);
 
-        return view('admin.agen.updateagen', compact('data'));
+        return view('admin.agen.updateagen', [
+            "title" => 'Update Agen & Pelayan'
+        ], compact('data'));
 
     }
 
@@ -172,7 +194,9 @@ class HomeController extends Controller
 
     public function addagen()
     {
-        return view('admin.agen.add');
+        return view('admin.agen.add', [
+            "title" => "Tambah Agen & Pelayan"
+        ]);
     }
 
         // Class deleteagen
@@ -188,7 +212,9 @@ class HomeController extends Controller
     // Class     contact
     public function contact()
     {
-        return view('contactus');
+        return view('contactus', [
+            "title" => 'Contact Us'
+        ]);
     }
 
     // class reservation
@@ -222,12 +248,16 @@ class HomeController extends Controller
     {
         $data = reservation::all();
 
-        return view('admin.viewreservation', compact('data'));
+        return view('admin.viewreservation', [
+            "title" => "Reservation"
+        ], compact('data'));
     }
 
     public function upload($id) {
         $dataPesan = Pesanan::find($id);
-        return view('user.upload', compact('dataPesan'));
+        return view('user.upload', [
+            "title" => 'Upload Gambar'
+        ], compact('dataPesan'));
     }
 
     public function uploadProcess(Request $request, $id) {

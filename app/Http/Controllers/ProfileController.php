@@ -18,7 +18,9 @@ class ProfileController extends Controller
     {
         $user = User::where('id', Auth::user()->id)->first();
 
-        return view('user.profile.index', compact('user'));
+        return view('user.profile.index', [
+            "title" => 'My Profile'
+        ], compact('user'));
     }
 
     public function update(Request $request)
@@ -42,12 +44,16 @@ class ProfileController extends Controller
 
         public function profileAdmin() {
             $user = User::where('id', Auth::user()->id)->first();
-            return view('admin.profile', compact('user'));
+            return view('admin.profile', [
+                "title" => 'My Profile'
+            ], compact('user'));
         }
 
         public function setting() {
             $user = User::where('id', Auth::user()->id)->first();
-            return view('admin.settings', compact('user'));
+            return view('admin.settings', [
+                "title" => 'Setting'
+            ], compact('user'));
         }
 
         public function updateProfileAdmin(Request $request)

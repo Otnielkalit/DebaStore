@@ -8,6 +8,8 @@ class DetailMenuController extends Controller
 {
     public function detailbandrek()
     {
-        return view('user.detailmenu.bandrek');
+        return view('user.detailmenu.bandrek',[
+            "title" => 'Informasi Menu'
+        ]);
     }
 }

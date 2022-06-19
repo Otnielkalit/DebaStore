@@ -14,6 +14,7 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr class="text-center">
+                                        <th class="text-center"><h6>No.</h6></th>
                                         <th class="text-center"><h6>Nama Produk</h6></th>
                                         <th class="text-center"><h6>Harga</h6></th>
                                         <th class="text-center"><h6>Deskripsi</h6></th>
@@ -23,8 +24,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($dataMenu as $data)
+                                    @foreach ($dataMenu as $index => $data)
                                     <tr>
+                                        <td class="text-center">{{ $index + $dataMenu->firstItem() }}</td>
                                         <td class="text-center">{{ $data->nama_barang }}</td>
                                         <td class="text-center">{{ $data->harga }}</td>
                                         <td class="text-center">{{ $data->keterangan }}</td>
@@ -38,6 +40,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            {{ $dataMenu->links() }}
                         </div>
                     </div>
                 </div>

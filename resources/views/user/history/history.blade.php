@@ -1,6 +1,6 @@
 @extends('user.layouts.app')
 @section('title')
-    Data Pesanan
+    History Pemesanan
 @endsection
 @section('content')
     <div class="container">
@@ -13,7 +13,8 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/list-menu') }}">Menu</a></li>
-                            <li class="breadcrumb-item">Pesanan</li>
+                            <li class="breadcrumb-item"><a href="{{ url('/list-menu') }}">Pesanan</a></li>
+                            <li class="breadcrumb-item">History Pesanan</li>
                         </ol>
                     </nav>
                 </div>
@@ -32,26 +33,18 @@
                                 <th>Aksi</th>
                             </tr>
                             <?php $no = 1; ?>
-                            @foreach ($pesanans as $pesanan)
-                            @if ($pesanan->status == 1 || $pesanan->status == 2)
-                            <tr>
-                                <td>{{ $no++ }}</td>
-                                <td>{{ $pesanan->tanggal }}</td>
-                                <td>
-                                    @if ($pesanan->status == 1)
-                                    Sudah pesan & Belum dibayar
-                                    @elseif($pesanan->status == 2)
-                                    Pembayaran berhasil, tunggu confirm dari admin
-                                    @else
-                                    Confirm telah berhasil, barang akan segera dikirim
-                                    @endif
-                                </td>
-                                <td>Rp. {{ number_format($pesanan->jumlah_harga+$pesanan->kode )}}</td>
-                                <td>
-                                    <a href="{{ url('pesanan') }}\{{ $pesanan->id }}" class="btn btn-primary">Detail</a>
-                                </td>
-                            </tr>
-                            @endif
+                            @foreach ($historyPesanan as $pesanan)
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $pesanan->tanggal }}</td>
+                                    <td>
+                                        Finished
+                                    </td>
+                                    <td>Rp. {{ number_format($pesanan->jumlah_harga+$pesanan->kode )}}</td>
+                                    <td>
+                                        <a href="{{ url('/history/'.$pesanan->id) }}" class="btn btn-primary">Detail</a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </table>
                     </div>

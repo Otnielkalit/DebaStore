@@ -1,4 +1,7 @@
 @extends('user.layouts.app')
+@section('title')
+    Pesan Menu
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -25,6 +28,7 @@
                             <div class="col-md-6 mt-4">
                                 <h3>{{ $barang->nama_barang }}</h3>
                                 <table class="table table-borderless">
+                                    <form action="{{ url('/pesan-process/'.$barang->id) }}" method="POST">
                                     <tr>
                                         <td>Harga</td>
                                         <td>:</td>
@@ -41,17 +45,24 @@
                                         <td>{{ $barang->keterangan }}</td>
                                     </tr>
                                     <tr>
+                                        <td>Alamat Pengirim</td>
+                                        <td>:</td>
+                                        <td>
+                                            <textarea name="address" id="" cols="40" rows="7" style="resize: none" required></textarea>    
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td>Jumlah Pesan</td>
                                         <td>:</td>
                                         <td>
-                                            <form action="{{ url('/pesan-process/'.$barang->id) }}" method="POST">
                                                 @csrf
                                                 <input type="number" name="jumlah_pesan" class="form-control" required min="1">
                                                 <button type="submit" class="btn btn-primary mt-2"><i
                                                         class="fas fa-shopping-cart"></i> add cart</button>
-                                            </form>
+                                            
                                         </td>
                                     </tr>
+                                    </form>
                                 </table>
                             </div>
                         </div>

@@ -1,5 +1,7 @@
 @extends('user.layouts.app')
-
+@section('title')
+    Agen & Pelayan
+@endsection
 @section('content')
     <section class="p-4 text-center w-100">
         <div class="row row-cols-1 row-cols-md-3 g-4">

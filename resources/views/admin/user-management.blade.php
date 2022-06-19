@@ -5,20 +5,23 @@
         <div class="card-body">
             <h4 class="card-title">Tabel User Activated</h4>
             <p class="card-description">Table Penngguna Deba Store</p>
+            <a href="{{ route('trash.user') }}" style="float: right"><button type="button" class="btn btn-warning btn-icon-tex" ><i class="ti-alert btn-icon-prepend"></i>Trashed</button></a>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th class="text-center">No.</th>
                             <th class="text-center">Nama</th>
                             <th class="text-center">Email</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach ($dataUser as $data)
+                    @foreach ($dataUser as $index => $data)
 
                         <tr class="text-center">
-                            <td class="text-center"><h5>{{ $data->name }}</h5></td>
+                            <td class="text-center"><h5>{{ $index + $dataUser->firstItem() }}</h5></td>
+                            <td class="text-center"><h6>{{ $data->name }}</h6></td>
                             <td class="text-center"><h6>{{ $data->email }}</h6></td>
                             @if ($data->usertype == '0')
                                 <td class="text-center">
@@ -34,7 +37,7 @@
                     @endforeach
                     </tbody>
                 </table>
-                <a href="{{ route('trash.user') }}"><button type="button" class="btn btn-warning btn-icon-tex" ><i class="ti-alert btn-icon-prepend"></i>Trashed</button></a>
+                {{ $dataUser->links() }}
             </div>
         </div>
     </div>

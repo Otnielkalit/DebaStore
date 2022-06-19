@@ -16,6 +16,8 @@ class AboutUsController extends Controller
     {
         return view('admin.AboutUs.index', [
             'aboutuss' => AboutUs::all()
+        ], [
+            "title" => 'About Us'
         ]);
     }
 
@@ -26,7 +28,9 @@ class AboutUsController extends Controller
      */
     public function create()
     {
-        return view('admin.AboutUs.add');
+        return view('admin.AboutUs.add', [
+            "title" => "Add About Us"
+        ]);
     }
 
     /**
@@ -76,14 +80,12 @@ class AboutUsController extends Controller
      * @param  \App\Models\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function show(AboutUs $aboutUs)
-    {
-        //
-    }
 
     public function edit($id) {
         $dataAboutUsUpdate = AboutUs::find($id);
-        return view('admin.AboutUs.edit', compact('dataAboutUsUpdate'));
+        return view('admin.AboutUs.edit', [
+            "title" => "Edit About Us"
+        ], compact('dataAboutUsUpdate'));
     }
 
     public function update(Request $request, $id) {
@@ -125,7 +127,8 @@ class AboutUsController extends Controller
     public function indexuser()
     {
         return view('user.AboutUs.index', [
-            'aboutuss' => AboutUs::all()
+            'aboutuss' => AboutUs::all(),
+            "title" => 'About Us'
         ]);
     }
 

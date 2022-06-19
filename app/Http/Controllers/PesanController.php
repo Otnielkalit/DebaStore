@@ -21,7 +21,9 @@ class PesanController extends Controller
     {
         $barang = Barang::where('id', $id)->first();
         $jumlah = PesananDetail::all();
-        return view('user.pesan.index', compact('barang','jumlah'));
+        return view('user.pesan.index', [
+            "title" => 'Pemesanan Menu'
+        ], compact('barang','jumlah'));
     }
 
 
@@ -60,6 +62,7 @@ class PesanController extends Controller
             $pesanan->status = 0;
             $pesanan->jumlah_harga = 0;
             $pesanan->kode = mt_rand(1000, 9999);
+            $pesanan->address = $request->address;
             $pesanan->save();
 
         }
@@ -109,7 +112,9 @@ class PesanController extends Controller
 
         }
 
-        return view('user.pesan.checkout', compact('pesanan', 'pesanan_details',));
+        return view('user.pesan.checkout', [
+            "title" => 'Check Out'
+        ], compact('pesanan', 'pesanan_details',));
     }
 
     public function delete($id)
@@ -160,13 +165,35 @@ class PesanController extends Controller
     }
 
     public function orderDetails() {
-        $dataOrders = Pesanan::all()->where('status', 2);
-        return view('admin.orders', compact('dataOrders'));
+        $dataOrders = Pesanan::where('status', 2)->paginate(10);
+        return view('admin.orders', [
+            "title" => 'Data Pemesanan'
+        ], compact('dataOrders'));
+    }
+
+    public function orderResult(Request $request) {
+        if($request->has('search')) {
+            $dataResult = Pesanan::where('kode', 'LIKE', '%'.$request->search.'%')->paginate(10);
+        }else{
+            $dataResult = Pesanan::where('status', 3)->paginate(10);
+        }
+        return view('admin.order-result', [
+            "title" => 'Pemesanan Selesai'
+        ], compact('dataResult'));
+    }
+
+    public function orderResultUpload($id) {
+        $orderResultUpload = Pesanan::find($id);
+        return view('admin.order-upload-result', [
+            "title" => 'Hasil Upload Gambar'
+        ], compact('orderResultUpload'));
     }
 
     public function resultFile($id) {
         $dataResultFile = Pesanan::find($id);
-        return view('admin.result-file', compact('dataResultFile'));
+        return view('admin.result-file', [
+            "title" => 'Hasil File'
+        ], compact('dataResultFile'));
     }
 
     public function confirmOrders($id) {

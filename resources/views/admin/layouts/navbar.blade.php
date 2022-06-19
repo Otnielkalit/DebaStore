@@ -8,9 +8,9 @@
                 </a>
             </li>
             <li>
-                <form class="form-inline mr-auto">
+                <form class="form-inline mr-auto" action="{{ url('/order-finish') }}" method="GET">
                     <div class="search-element">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search"
+                        <input class="form-control" name="search" type="search" placeholder="Search by ordered code" aria-label="Search"
                             data-width="200">
                         <button class="btn" type="submit">
                             <i class="fas fa-search"></i>
@@ -62,7 +62,7 @@
       </div>
     </li>
       <li class="dropdown"><a href="#" data-toggle="dropdown"
-          class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="assets/img/user.png"
+          class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="productimage/db.png"
             class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
         <div class="dropdown-menu dropdown-menu-right pullDown">
           <div class="dropdown-title">Hello {{ Auth::user()->name }}</div>

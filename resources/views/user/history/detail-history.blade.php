@@ -1,12 +1,12 @@
 @extends('user.layouts.app')
 @section('title')
-    Detail Pemesanan
+    History Detail Pemesanan
 @endsection
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a href="{{ url('pesanan') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
+                <a href="{{ url('history') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
             </div>
             <div class="col-md-12 mt-3">
                 <div class="container-fluid">
@@ -14,14 +14,14 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/list-menu') }}">Menu</a></li>
                             <li class="breadcrumb-item"><a href="{{ url('pesanan') }}">Pesanan</a></li>
-                            <li class="breadcrumb-item">Detail Pemesanan</li>
+                            <li class="breadcrumb-item">History Detail Pemesanan</li>
                         </ol>
                     </nav>
                 </div>
             </div>
             
             <div class="col-md-12">
-                @if($pesanan->status == 1)
+                @if($historyPesanan->status == 1)
                     <div class="card">
                         <div class="card-body">
                             <h3 class="text-center">Checkout pesanan anda berhasil</h3>
@@ -33,11 +33,11 @@
                                 </tr>
                                 <tr>
                                     <th>Jumlah Pembayaran</th>
-                                    <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
+                                    <td><strong>Rp. {{ number_format($historyPesanan->jumlah_harga) }}</strong></td>
                                 </tr>
                                 <tr>
                                     <th>Kode pemesanan anda</th>
-                                    <td><strong>{{ $pesanan->kode }}</strong></td>
+                                    <td><strong>{{ $historyPesanan->kode }}</strong></td>
                                 </tr>
                             </table>
                         </div>
@@ -46,9 +46,9 @@
                 <div class="card mt-2">
                     <div class="card-header">
                         <h4><i class="fa fa-shopping-cart"></i> Detail Pemesanan</h4>
-                        @if (!empty($pesanan))
-                            <p class="text-end">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
-                            @if($pesanan->status == 1)
+                        @if (!empty($historyPesanan))
+                            <p class="text-end">Tanggal Pesan : {{ $historyPesanan->tanggal }}</p>
+                            @if($historyPesanan->status == 1)
                             <p class="text-end text-danger">*setelah melakukan pembayaran, silahkan upload bukti pembayaran dibawah ini</p>
                             @endif
                     </div>
@@ -68,7 +68,7 @@
                                 <?php
                                 $no = 1;
                                 ?>
-                                @foreach ($pesanan_details as $pesanan_detail)
+                                @foreach ($historyDetailPesanan as $pesanan_detail)
                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>
@@ -84,19 +84,19 @@
                                 @endforeach
                                 <tr>
                                     <td colspan="6" class="text-end" colspan="5"><strong>Total Pesanan:</strong></td>
-                                    <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
+                                    <td><strong>Rp. {{ number_format($historyPesanan->jumlah_harga) }}</strong></td>
                                 </tr>
                                 <tr>
                                     <td colspan="6" class="text-end" colspan="5"><strong>Kode Pesanan :</strong></td>
-                                    <td><strong>{{ $pesanan->kode }}</strong></td>
+                                    <td><strong>{{ $historyPesanan->kode }}</strong></td>
                                 </tr>
                                 <tr>
                                     <td colspan="6" class="text-end" colspan="5"><strong>Total Pembayaran :</strong></td>
-                                    <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
-                                    @if($pesanan->status == 1 )
-                                    <td><strong><a href="{{ url('/upload/'.$pesanan->id) }}"><button class="btn btn-secondary">Upload</button></a></strong></td>
+                                    <td><strong>Rp. {{ number_format($historyPesanan->jumlah_harga) }}</strong></td>
+                                    @if($historyPesanan->status == 1 )
+                                    <td><strong><a href="{{ url('/upload/'.$historyPesanan->id) }}"><button class="btn btn-secondary">Upload</button></a></strong></td>
                                     @else
-                                    <td><strong><button class="btn btn-warning" disabled><b>Uploaded</b></button></strong></td>
+                                    <td><strong><button class="btn btn-success" disabled><b>Finished</b></button></strong></td>
                                     @endif
                                 </tr>
                             </table>

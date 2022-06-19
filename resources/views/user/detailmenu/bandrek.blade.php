@@ -1,5 +1,7 @@
 @extends('user.layouts.app')
-
+@section('title')
+    Informasi Menu
+@endsection
 @section('content')
 <!DOCTYPE html>
 <html lang="en">

@@ -8,9 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
-
+    
     <base href="/public">
     @yield('style')
     <!-- Scripts -->
@@ -30,9 +30,11 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
+    <style>
+    </style>
 </head>
 
-<body>
+<body style="height: 100%;">
     <div id="app">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,10 +56,7 @@
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/list-menu') }}">Menu</a>
+                            <a class="nav-link {{ ('title' === "Menu") ? 'active' : '' }}" href="{{ url('/list-menu') }}">Menu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href=" {{ url('/agen') }}">Agen</a>
@@ -117,7 +116,10 @@
                                         <a class="dropdown-item" href="{{ url('profile') }}">My profile</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ url('history') }}">History Pesanan</a>
+                                        <a class="dropdown-item" href="{{ url('pesanan') }}">Pesanan</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url('/history') }}">History Pesanan</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
@@ -144,7 +146,7 @@
         </main>
     </div>
     @include('sweetalert::alert')
-    {{-- <footer class="text-center text-white" style="background-color: #f1f1f1;">
+    <footer class="text-center text-white" style="background-color: #f1f1f1;" id="footer">
   <!-- Grid container -->
         <div class="container pt-4">
             <!-- Section: Social media -->
@@ -212,7 +214,7 @@
             <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
         </div>
   <!-- Copyright -->
-    </footer> --}}
+    </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     </body>
     <script>

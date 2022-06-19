@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\DetailMenuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PesanController;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DetailMenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +44,9 @@ Route::get('profile', [App\Http\Controllers\ProfileController::class, 'index']);
 
 Route::post('profile', [App\Http\Controllers\ProfileController::class, 'update']);
 
-Route::get('history', [App\Http\Controllers\HistoryController::class, 'index'])->name('history.detail');
+Route::get('pesanan', [App\Http\Controllers\HistoryController::class, 'index'])->name('history.detail');
 
-Route::get('history/{id}', [App\Http\Controllers\HistoryController::class, 'detail']);
+Route::get('pesanan/{id}', [App\Http\Controllers\HistoryController::class, 'detail']);
 
 Route::get('/agen', [HomeController::class, 'useragen']);
 
@@ -65,6 +66,8 @@ Route::get('/usertambah', function() {
     return view('user.tambah');
 });
 
+Route::get('/history', [HistoryController::class, 'history'])->name('history');
+Route::get('/history/{id}', [HistoryController::class, 'historyDetail'])->name('history');
 // Route::get('/aboutususer', [AboutUsController::class, 'slideSatu']);
 
 
@@ -125,6 +128,8 @@ Route::get("/deleteagen/{id}",[HomeController::class,"deleteagen"]);
 Route::get('/viewreservation', [HomeController::class, 'viewreservation']);
 
 Route::get('/order-details', [PesanController::class, 'orderDetails'])->name('oder.deatail');
+Route::get('/order-finish', [PesanController::class, 'orderResult'])->name('oder.finish');
+Route::get('/order-finish/{id}', [PesanController::class, 'orderResultUpload'])->name('oder.finish.upload');
 Route::get('/result-file/{id}', [PesanController::class, 'resultFile'])->name('result.file');
 Route::post('/confirm-order/{id}', [PesanController::class, 'confirmOrders'])->name('confirm.order');
 Route::get('/profile-admin', [ProfileController::class, 'profileAdmin'])->name('profile.admin');

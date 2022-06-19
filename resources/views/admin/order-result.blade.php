@@ -4,7 +4,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4>New Order Details</h4>
+                <h4>Order Finished</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -19,14 +19,12 @@
                                 <th>Tanggal</th>
                                 <th>Alamat Penerima</th>
                                 <th>Lihat Gambar</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @php $no=1; @endphp
-                            @foreach ($dataOrders as $data)
+                            @foreach ($dataResult as $index => $data)
                                 <tr>
-                                    <td>{{ $no++; }}</td>
+                                    <td>{{ $index + $dataResult->firstItem() }}</td>
                                     <td>{{ $data->users->name }}</td>
                                     <td>{{ __('Sudah bayar') }}</td>
                                     <td>{{ $data->kode }}</td>
@@ -34,21 +32,15 @@
                                     <td>{{ $data->updated_at->isoFormat('dddd, D MMM Y') }}</td>
                                     <td>{{ $data->address }}</td>
                                     <td>
-                                        <a href="{{ url('/result-file/'.$data->id) }}" class="nav-link">
+                                        <a href="{{ url('/order-finish/'.$data->id) }}" class="nav-link">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                    </td>
-                                    <td>
-                                        <form action="{{ url('/confirm-order/'.$data->id) }}" method="POST">
-                                            @csrf
-                                            <button type="submit" class="btn btn-primary">Confirm</button>
-                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $dataOrders->links() }}
+                    {{ $dataResult->links() }}
                 </div>
             </div>
         </div>

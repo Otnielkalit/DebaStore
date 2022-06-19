@@ -1,4 +1,7 @@
 @extends('user.layouts.app')
+@section('title')
+    Check Out
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -30,6 +33,7 @@
                                 <th>Nama Barang</th>
                                 <th>Jumlah</th>
                                 <th>Harga</th>
+                                <th>Alamat</th>
                                 <th>Total Harga</th>
                                 <th>Action</th>
                             </tr>
@@ -45,6 +49,7 @@
                                     <td>{{ $pesanan_detail->barang->nama_barang }}</td>
                                     <td>{{ $pesanan_detail->jumlah }} buah</td>
                                     <td>Rp. {{ number_format($pesanan_detail->barang->harga) }}</td>
+                                    <td>{{ $pesanan_detail->pesanan->address }}</td>
                                     <td>Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</td>
                                     <td>
                                         <form action="{{ url('check-out') }}/{{ $pesanan_detail->id }}" method="post">
@@ -58,7 +63,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            <td class="text-end" colspan="5"><strong>Total Harga :</strong></td>
+                            <td class="text-end" colspan="6"><strong>Total Harga :</strong></td>
                             <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
                             @if(count($pesanan_details) > 0 )
                             <td>
