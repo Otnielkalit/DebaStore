@@ -6,7 +6,7 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Tambahkan Data About Us dari Deba Store</h4>
+                        <h4 class="card-title">Edit About Us</h4>
                         <form action="{{ route('edit.aboutus.process') }}" method="post" enctype="multipart/form-data"
                             class="forms-sample">
                             @csrf
@@ -27,16 +27,16 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input type="file" name="gambar" value="{{ $dataAboutUsUpdate->gambar }}>
+                                <input type="file" name="gambar" value="{{ $dataAboutUsUpdate->gambar }}">
                                 @error('gambar')
-                                    <div class="text-danger" >
+                                    <div class="text-danger">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input type="url" name="link" class="form-control"
-                                    placeholder="Link Youtube atau Website" value="{{ $dataAboutUsUpdate->link }}>
+                                <input type="text" name="link" class="form-control"
+                                    placeholder="Link Youtube atau Website" value="{{ $dataAboutUsUpdate->link }}">
                                 @error('link')
                                     <div class="text-danger">
                                         {{ $message }}
@@ -44,7 +44,7 @@
                                 @enderror
                             </div>
                             <a href="{{ url('/aboutus') }}"><button type="button" class="btn btn-dark btn-icon-text" value="Save"><i class="mdi mdi-plus-box"></i> Kembali</button></a>
-                            <button type="submit" class="btn btn-primary btn-icon-text" value="Save"><i class="mdi mdi-plus-box"></i> Tambahkan</button>
+                            <button type="submit" class="btn btn-primary btn-icon-text" value="Save"><i class="mdi mdi-plus-box"></i>Edit</button>
                         </form>
                     </div>
                 </div>
@@ -52,3 +52,6 @@
         </div>
 </div>
 @endsection
+
+
+

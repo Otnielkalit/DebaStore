@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Welcome;
 use App\Models\AboutUs;
 use Illuminate\Http\Request;
 
@@ -123,18 +123,17 @@ class AboutUsController extends Controller
         return redirect('aboutus')->with('toast_success', 'Data berhasil dihapus');
     }
 
-    public function indexuser()
-    {
-        return view('user.AboutUs.index', [
-            'aboutuss' => AboutUs::all(),
-            "title" => 'About Us'
-        ]);
-    }
-
-    // public function slideSatu()
+    // public function indexuser()
     // {
-    //     $aboutus = AboutUs::find(1);
-    //     return $aboutus->gambar;
+    //     return view('user.AboutUs.index', ['aboutuss' => AboutUs::all(),
+    //         "title" => 'About Us'
+    //     ]);
     // }
 
+
+    public function indexuser()
+    {
+        $data = AboutUs::all();
+        return view('user.AboutUs.index', ["title" => 'About Us'], compact('data'));
+    }
 }

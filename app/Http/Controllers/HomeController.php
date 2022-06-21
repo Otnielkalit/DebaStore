@@ -33,7 +33,7 @@ class HomeController extends Controller
         return \Carbon\Carbon::parse($this->attributes['updated_at'])
            ->diffForHumans();
     }
-    
+
     public function index()
     {
         $usertype=Auth::user()->usertype;
@@ -45,14 +45,8 @@ class HomeController extends Controller
         }
         else
         {
-<<<<<<< HEAD
-            return view('user.menu', [
-                "title" => 'Home'
-            ]);
-=======
             $barangs = Barang::paginate('20');
             return view('home', compact('barangs'));
->>>>>>> b4dd1e9b329216482322e3eef336606557c59312
         }
     }
 
@@ -279,13 +273,7 @@ class HomeController extends Controller
             $dataPesanan->status = 2;
             $dataPesanan->update();
         }
-        
+
         return redirect()->route('history.detail')->with('toast_success', 'Gambar sudah berhasil dikirim');
     }
-<<<<<<< HEAD
-
-    }
-
-=======
 }
->>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5

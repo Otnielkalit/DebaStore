@@ -36,11 +36,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" name="link" class="form-control"
-<<<<<<< HEAD
                                     placeholder="Link Youtube atau Website" value="-">
-=======
-                                    placeholder="Link Youtube atau Website" value="{{ old('link') }}">
->>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
                                 @error('link')
                                     <div class="text-danger">
                                         {{ $message }}

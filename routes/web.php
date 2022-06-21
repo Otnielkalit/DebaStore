@@ -64,17 +64,11 @@ Route::get('/detailbandrek', function(){
     return view('user.detailmenu.bandrek');
 });
 
-<<<<<<< HEAD
 Route::get('/history', [HistoryController::class, 'history'])->name('history');
 Route::get('/history/{id}', [HistoryController::class, 'historyDetail'])->name('history');
 // Route::get('/aboutususer', [AboutUsController::class, 'slideSatu']);
-=======
-<<<<<<< HEAD
->>>>>>> b4dd1e9b329216482322e3eef336606557c59312
 
-=======
-// Route::get('/aboutususer', [AboutUsController::class, 'slideSatu']);
->>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
+
 
 
 // For Admin
@@ -109,11 +103,17 @@ Route::get('/edit-menu/{id}', [MenuController::class, 'getUpdate'])->name('edit.
 Route::post('/edit-menu-process/{id}', [MenuController::class, 'update'])->name('edit.menu.process');
 
 Route::get('/delete/{id}', [MenuController::class, 'delete'])->name('delete');
+
 Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus');
+
 Route::get('/addaboutus', [AboutUsController::class, 'create']);
+
 Route::post('/add-aboutus-process', [AboutUsController::class, 'store'])->name('add.aboutus.process');
+
 Route::delete('/delete/{id}', [AboutUsController::class, 'destroy'])->name('delete');
+
 Route::get('/edit-aboutus/{id}', [AboutUsController::class, 'edit'])->name('edit.aboutus');
+
 Route::post('/edit-aboutus-process', [AboutUsController::class, 'update'])->name('edit.aboutus.process');
 
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');

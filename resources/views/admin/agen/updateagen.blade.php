@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Posisi</label>
+                                    <label class="col-sm-3 col-form-label">Posisi - domisili</label>
                                     <div class="col-sm-9">
                                         <input type="text" name="speciality" class="form-control"
                                             value="{{ $data->speciality }}" />

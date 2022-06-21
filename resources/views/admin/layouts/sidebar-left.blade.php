@@ -22,17 +22,11 @@
                     <li><a class="nav-link" href="{{ route('user.role') }}">Roles</a></li>
                 </ul>
             </li>
-<<<<<<< HEAD
             <li class="dropdown {{ ($title === "Data Menu" || $title === "Tambah Data Menu" || $title === "Edit Data Menu") ? 'active' : '' }}">
                 <a href="{{ route('menu') }}" class="nav-link">
                     <i class="fas fa-utensils"></i>
                     <span>Menu</span>
                 </a>
-=======
-            <li class="dropdown">
-                <a href="{{ url('/viewagen') }}" class="nav-link"><i class="
-              fas fa-address-book"></i><span>Agen & Pelayan</span></a>
->>>>>>> b4dd1e9b329216482322e3eef336606557c59312
             </li>
             <li class="dropdown {{ ($title === "Agen & Pelayan" || $title === "Tambah Agen & Pelayan" || $title === "Update Agen & Pelayan") ? 'active' : '' }}">
                 <a href="{{ url('/viewagen') }}" class="nav-link">
@@ -55,27 +49,12 @@
                     <li><a class="nav-link" href="{{ url('/order-finish') }}">Order Finished</a></li>
                 </ul>
             </li>
-<<<<<<< HEAD
             <li class="dropdown {{ ($title === "About Us" || $title === "Add About Us" || $title === "Edit About Us") ? 'active' : '' }}">
                 <a href="/aboutus" class="nav-link">
                     <i class="fas fa-user"></i>
                     <span>About Us</span>
                 </a>
             </li>
-=======
-<<<<<<< HEAD
-        </li>
-        <li class="dropdown">
-          <a href="/aboutus" class="nav-link"><i class="fas fa-user"></i>
-          </i><span>About Us</span></a>
-        </li>
-=======
-            <li class="dropdown">
-                <a href="/aboutus" class="nav-link"><i class="fas fa-user"></i>
-                </i><span>About Us</span></a>
-              </li>
->>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
->>>>>>> b4dd1e9b329216482322e3eef336606557c59312
         </ul>
     </aside>
 </div>

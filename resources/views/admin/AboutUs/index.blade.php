@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Tambah dan Ubah About Us Anda Disini</h4>
                         <p class="card-description">
-                            <a href="/addaboutus"><button type="button" class="btn btn-info btn-icon-text">Tambah Data<i class="mdi mdi-bookmark-plus"></i></button></a>
+                            <a href="/addaboutus"><button type="button" class="btn btn-info btn-icon-text">Tambah Artikel<i class="mdi mdi-bookmark-plus"></i></button></a>
                         </p>
                         <div class="table-responsive pt-3">
                             <table class="table table-bordered">

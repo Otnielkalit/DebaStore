@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+{{-- @extends('admin.layouts.master')
 @section('content')
     <div class="row ">
         <div class="col-12">
@@ -42,6 +42,54 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection --}}
+
+@extends('admin.layouts.master')
+@section('content')
+    <div class="row ">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Data Agen & Pelayan</h4>
+                </div>
+                <div class="card-body bg-light">
+                    <a href="{{ url('/addagen') }}"><button type="submit" class="btn btn-icon icon-left btn-info"
+                            value="Save"><i class="fas fa-user-plus"></i>Tambah</button></a>
+                    <div class="table-responsive">
+                        <h4 class="title text-center">Agen & Pelayan yang bekerja sama denga Deba Store</h4>
+                        <div class="row">
+                            @foreach ($data as $data)
+                            <div class="col-12 col-md-4 col-lg-4">
+                                <article class="article article-style-c">
+                                    <div class="article-header">
+                                        <div class="article-image" data-background="agenimage/{{ $data->image }}">
+                                        </div>
+                                    </div>
+                                    <div class="article-details">
+                                        <div class="article-category"><a>Update terkahir</a>
+                                            <div class="bullet"></div><a>{{ $data->updated_at }}</a>
+                                        </div>
+                                        <div class="article-title">
+                                            <h5 class="text-center">{{ $data->name }}</h5>
+                                            <p class="text-center">{{ $data->speciality }}</p>
+                                        </div>
+                                            <a href="{{ $data->facebook }}" target="_blank" class="btn btn-icon btn-primary"><i class=" fab fa-facebook-f"></i></a>
+                                            <a href="{{ $data->instagram }}" target="_blank" class="btn btn-icon btn-info"><i class="fab fa-instagram"></i></a>
+                                            <a href="{{ $data->twitter }}" target="_blank" class="btn btn-icon btn-success"><i class="fab fa-whatsapp"></i></a>
+                                        <div class="article-user">
+                                            <a class="btn btn-icon btn-success" href="{{ url('/updateagen', $data->id) }}"><i class="fas fa-user-edit"></i></a>
+                                            <a class="btn btn-icon btn-danger" href="{{ url('/deleteagen', $data->id) }}"><i class="fas fa-trash"></i></a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>

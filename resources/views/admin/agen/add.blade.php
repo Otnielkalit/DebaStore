@@ -14,7 +14,7 @@
                             <input type="text" name="name" class="form-control" required="" autofocus>
                         </div>
                         <div class="form-group">
-                            <label>Posisi</label>
+                            <label>Posisi - domisili</label>
                             <input type="text" name="speciality" class="form-control" required="">
                         </div>
                         <div class="section-title mt-0">Masukkan link sosial media NB : (jika tidak ada beri tanda "-")

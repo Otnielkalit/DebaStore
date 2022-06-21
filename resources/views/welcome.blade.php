@@ -222,8 +222,7 @@
                 <div class="row row-pb-md">
                     <div class="col-md-8 col-md-offset-2 heading animate-box" data-animate-effect="fadeIn">
                         <h1>Produk Kami</h1>
-                        <p class="sub">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus
-                            alias autem provident. Odit ab aliquam dolor eius.</p>
+                        <p class="sub">-</p>
                         <p class="subtle-text animate-box" data-animate-effect="fadeIn">Produk <span>Kami</span></p>
                     </div>
                 </div>
@@ -235,9 +234,7 @@
                             </div>
                             <div class="gtco-copy">
                                 <h3>Bandrek Andaliamn</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
-                                    sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
-                                    ornare tortor leo eget erat. </p>
+                                <p>-</p>
                             </div>
                         </div>
 
@@ -247,9 +244,7 @@
                             </div>
                             <div class="gtco-copy">
                                 <h3>Kulit Pangsit Kriuk</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
-                                    sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
-                                    ornare tortor leo eget erat. </p>
+                                <p>-</p>
                             </div>
                         </div>
                     </div>
@@ -261,9 +256,7 @@
                             </div>
                             <div class="gtco-copy">
                                 <h3>Kacang Pariban</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
-                                    sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
-                                    ornare tortor leo eget erat. </p>
+                                <p>-</p>
                             </div>
                         </div>
 
@@ -273,9 +266,7 @@
                             </div>
                             <div class="gtco-copy">
                                 <h3>Kopi Tombak</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed scelerisque
-                                    sapien. Sed sodales, libero non faucibus rutrum, purus tellus finibus diam, eget
-                                    ornare tortor leo eget erat. </p>
+                                <p>-</p>
                             </div>
                         </div>
                     </div>
@@ -370,20 +361,12 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-md-push-6 animate-box">
-<<<<<<< HEAD
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5086.907373970723!2d98.71762905804279!3d2.3350194502143786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302e252ebe3e90e9%3A0xf5b5c24020b9df4c!2sBandrek%20Andaliman!5e1!3m2!1sid!2sid!4v1654255804608!5m2!1sid!2sid"
-                            width="1350" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-=======
                             <!-- <div class="size-303" id="google_map" data-map-x="40.691446" data-map-y="-73.886787" data-pin="images/icons/pin.png" data-scrollwhell="0" data-draggable="1" data-zoom="11"></div> -->
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5086.907373970723!2d98.71762905804279!3d2.3350194502143786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302e252ebe3e90e9%3A0xf5b5c24020b9df4c!2sBandrek%20Andaliman!5e1!3m2!1sid!2sid!4v1654255804608!5m2!1sid!2sid"
                                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
->>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5
                     </div>
                     <div class="col-md-4 col-md-pull-6 animate-box">
                         <div class="gtco-contact-info">
