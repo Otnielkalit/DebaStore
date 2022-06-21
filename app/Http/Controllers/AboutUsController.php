@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view('admin.AboutUs.index', [
@@ -33,12 +29,7 @@ class AboutUsController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -51,7 +42,6 @@ class AboutUsController extends Controller
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'gambar' => $request->gambar,
-            'link' => $request->link,
         ]);
 
         if($request->hasFile('gambar')) {
@@ -62,24 +52,7 @@ class AboutUsController extends Controller
 
         return redirect()->route('aboutus')->with('toast_success', 'Data berhasil ditambahkan');
     }
-        // $validatedData = $request->validate([
-        //     'judul' => 'required',
-        //     'deskripsi' => 'required',
-        //     'gambar' => 'required',
-        //     'link' => 'required'
-        // ]);
-
-        // AboutUs::create($validatedData);
-
-        // return redirect('/aboutus')->with('success', 'Jadwal telah ditambahkan');
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\AboutUs  $aboutUs
-     * @return \Illuminate\Http\Response
-     */
-
+        
     public function edit($id) {
         $dataAboutUsUpdate = AboutUs::find($id);
         return view('admin.AboutUs.edit', [
@@ -88,34 +61,24 @@ class AboutUsController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $data = AboutUs::find($id);
-        $image = $request->gambar;
+        $request->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-        $imagename = $image->getClientOriginalName();
-
-            $request->gambar->move('productimage/', $imagename);
-
-            $data->gambar=$imagename;
-
-            $data->nama_barang=$request->nama_barang;
-
-            $data->harga=$request->harga;
-
-            $data->keterangan=$request->keterangan;
-
-            $data->stok=$request->stok;
-
-            $data->save();
-
-            return redirect()->route('menu')->with('toast_success', 'Menu berhasil di ubah');
+        if ($files = $request->file('gambar')) {
+            $destinationPath = 'aboutusimage/'; // upload path
+            $aboutusimage = date('YmdHis') . "." . $files->getClientOriginalName();
+            $files->move($destinationPath, $aboutusimage);
+            $update['gambar'] = "$aboutusimage";
+            }
+            $update['judul'] = $request->get('judul');
+            $update['deskripsi'] = $request->get('deskripsi');
+            AboutUs::where('id',$id)->update($update);
+        return redirect()->route('aboutus')->with('toast_success','Sukses meng-update about us');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\AboutUs  $aboutUs
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $aboutus = AboutUs::find($id);
@@ -124,17 +87,10 @@ class AboutUsController extends Controller
     }
 
     public function indexuser()
-    {
-        return view('user.AboutUs.index', [
-            'aboutuss' => AboutUs::all(),
-            "title" => 'About Us'
-        ]);
+    {   
+        $aboutUsUser = AboutUs::all()->sortByDesc('updated_at');
+        return view('user.AboutUs.index', compact('aboutUsUser'));
+        
     }
-
-    // public function slideSatu()
-    // {
-    //     $aboutus = AboutUs::find(1);
-    //     return $aboutus->gambar;
-    // }
 
 }

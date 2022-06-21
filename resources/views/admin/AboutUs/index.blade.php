@@ -7,7 +7,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Tambah dan Ubah About Us Anda Disini</h4>
+                        <h4 class="card-title">About Us</h4>
                         <p class="card-description">
                             <a href="/addaboutus"><button type="button" class="btn btn-info btn-icon-text">Tambah Data<i class="mdi mdi-bookmark-plus"></i></button></a>
                         </p>
@@ -17,7 +17,6 @@
                                     <tr class="text-center">
                                         <th class="text-center"><h4>Judul</h4></th>
                                         <th class="text-center"><h4>Deskripsi</h4></th>
-                                        <th class="text-center"><h4>Link</h4></th>
                                         <th class="text-center"><h4>Gambar</h4></th>
                                         <th class="text-center"><h4>Action</h4></th>
                                     </tr>
@@ -27,7 +26,6 @@
                                     <tr>
                                         <td class="text-center">{{ $aboutus->judul }}</td>
                                         <td class="text-center">{{ $aboutus->deskripsi }}</td>
-                                        <td class="text-center">{{ $aboutus->link }}</td>
                                         <td class="text-center"><img src="aboutusimage/{{ $aboutus->gambar }}" style="height: 100px; width:100px; align-item:center;" alt="About Us"></td>
                                         <td class="text-center">
                                             <a href="{{ url('/edit-aboutus/'.$aboutus->id) }}"><button type="button" class="btn btn-warning btn-icon-text"><i class="ti-reload btn-icon-prepend"></i>Edit</button></a>

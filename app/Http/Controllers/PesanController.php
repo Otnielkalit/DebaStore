@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+use Auth;
+use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Barang;
 use App\Models\Pesanan;
-use App\Models\PesananDetail;
-use Auth;
-use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\PesananDetail;
+use Illuminate\Support\Facades\DB;
 
 
 class PesanController extends Controller
@@ -175,7 +176,7 @@ class PesanController extends Controller
         if($request->has('search')) {
             $dataResult = Pesanan::where('kode', 'LIKE', '%'.$request->search.'%')->paginate(10);
         }else{
-            $dataResult = Pesanan::where('status', 3)->paginate(10);
+            $dataResult = Pesanan::orderBy('created_at', 'desc')->where('status', 3)->paginate(10);
         }
         return view('admin.order-result', [
             "title" => 'Pemesanan Selesai'

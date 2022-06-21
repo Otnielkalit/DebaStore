@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Agen extends Model
+class Contactus extends Model
 {
     use HasFactory;
-    protected $table = 'agens';
+    protected $table = 'contact_us';
     protected $fillable = [
-        'name',
-        'speciality',
-        'image',
-        'facebook',
-        'instagram',
-        'twitter',
+        'nama',
+        'email',
+        'message',
     ];
 }

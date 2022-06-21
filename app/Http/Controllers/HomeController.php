@@ -5,6 +5,7 @@ use App\Models\Agen;
 use App\Models\User;
 use App\Models\Barang;
 use App\Models\Pesanan;
+use App\Models\Contactus;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,14 +46,8 @@ class HomeController extends Controller
         }
         else
         {
-<<<<<<< HEAD
-            return view('user.menu', [
-                "title" => 'Home'
-            ]);
-=======
-            $barangs = Barang::paginate('20');
-            return view('home', compact('barangs'));
->>>>>>> b4dd1e9b329216482322e3eef336606557c59312
+            $dataMenu = Barang::all();
+            return view('user.menu', compact('dataMenu'));
         }
     }
 
@@ -69,17 +64,20 @@ class HomeController extends Controller
             ->orWhere('email', 'LIKE', '%'.$request->search.'%')
             ->paginate(10);
         }else {
-            $dataUser = User::paginate(10);
+            $dataUser = User::orderBy('created_at', 'desc')
+            ->where('usertype', 1)
+            ->orWhere('usertype', 0)
+            ->paginate(10);
         }
         return view('admin.user-management', [
-            "title" => 'User Management'
+            "title" => 'User Management | User'
         ], compact('dataUser'));
     }
 
     public function delete($id) {
         $roleUser = User::find($id);
         $roleUser->delete();
-        return redirect()->route('user.role')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('user.role')->with('success', 'Data berhasil dinonaktifkan');
     }
 
     public function trash() {
@@ -92,15 +90,22 @@ class HomeController extends Controller
     public function restore($id) {
         $restoreUser = User::onlyTrashed()->where('id', $id);
         $restoreUser->restore();
-        return redirect()->back()->with('toast_success', 'Data user berhasil di kemabalikan');
+        return redirect()->back()->with('toast_success', 'Data berhasil di Aktifkan kembali');
     }
 
     public function restoreAll()
     {
         $restoreAll = User::onlyTrashed();
         $restoreAll->restore();
-        return redirect()->route('user.role')->with('toast_success', 'Semua data user berhasil di kemabalikan');
+        return redirect()->back()->with('toast_success', 'Semua data berhasil di Aktifkan');
     }
+
+    // public function trashAdmin() {
+    //     $trashesAdmin = User::onlyTrashed()->paginate(10);
+    //     return view('admin.restore.restore-admin', [
+    //         "title" => 'Restore Admin'
+    //     ], compact('trashesUser'));
+    // }
 
     public function logout()
     {
@@ -129,29 +134,32 @@ class HomeController extends Controller
 
     public function uploadagen(Request $request)
     {
-        $data = new agen;
+        $request->validate([
+            'name' => 'required|String|min:3|max:50',
+            'speciality'=> 'required',
+            'facebook'=> 'required',
+            'instagram'=> 'required',
+            'twitter'=> 'required|numeric',
+            'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-        $image = $request->image;
 
-        $imagename = time().'.'.$image->getClientOriginalExtension();
+        $dataAgen = Agen::create([
+            'name' => $request->name,
+            'speciality' => $request->speciality,
+            'facebook' => $request->facebook,
+            'instagram' => $request->instagram,
+            'twitter' => $request->twitter,
+            'image' => $request->image,
+        ]);
 
-            $request->image->move('agenimage', $imagename);
+        if($request->hasFile('image')) {
+            $request->file('image')->move('agenimage/', $request->file('image')->getClientOriginalName());
+            $dataAgen->image = $request->file('image')->getClientOriginalName();
+            $dataAgen->save();
+        }
 
-            $data->image=$imagename;
-
-            $data->name=$request->name;
-
-            $data->speciality=$request->speciality;
-
-            $data->facebook=$request->facebook;
-
-            $data->instagram=$request->instagram;
-
-            $data->twitter=$request->twitter;
-
-            $data->save();
-
-            return redirect('/viewagen')->with('success', 'Berhasil Menambahkan');
+        return redirect('/viewagen')->with('success', 'Berhasil Menambahkan');
     }
 
     public function updateagen($id)
@@ -282,10 +290,32 @@ class HomeController extends Controller
         
         return redirect()->route('history.detail')->with('toast_success', 'Gambar sudah berhasil dikirim');
     }
-<<<<<<< HEAD
 
+    public function contactus() {
+        return view('user.contact-us');
     }
 
-=======
+    public function contactUsProcess(Request $request) {
+        $request->validate([
+            'nama' => 'required|min:3',
+            'email' => 'required|email',
+            'message' => 'required|min:3'
+        ]);
+
+        $contact = Contactus::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'message' => $request->message,
+        ]);
+
+        $contact->save();
+        return view('user.thank-you');
+    }
+
+    public function contactUsAdmin() {
+        $dataContact = Contactus::paginate(10);
+        return view('admin.contact-us', [
+            "title" => 'Contact Us'
+        ], compact('dataContact'));
+    }
 }
->>>>>>> 77294b50d93d62eaae8de367ddaead906795e5d5

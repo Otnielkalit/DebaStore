@@ -3,10 +3,9 @@
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Tabel User Deactivated</h4>
-            <p class="card-description">Table Penngguna Deba Store</p>
-            <a href="{{ route('user.role') }}"><button type="button" class="btn btn-primary">Kembali ke halaman user</button></a>
-            <a href="{{ route('restore.all.user') }}" style="float: right;"><button type="button" class="btn btn-primary">Restore All</button></a>
+            <h4 class="card-title">User Not Activated</h4>
+            <a href="{{ route('user.role') }}"><button type="button" class="btn btn-primary">Kembali</button></a>
+            <a href="{{ route('restore.all.user') }}" style="float: right;"><button type="button" class="btn btn-danger">Restore All</button></a>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -19,15 +18,17 @@
                     </thead>
                     <tbody>
                     @foreach ($trashesUser as $index => $data)
-
-                        <tr class="text-center">
-                            <td class="text-center"><h5>{{ $index + $trashesUser->firstItem() }}</h5></td>
-                            <td class="text-center"><h5>{{ $data->name }}</h5></td>
-                            <td class="text-center"><h6>{{ $data->email }}</h6></td>
-                            <td class="text-center">
-                                <a href="{{ url('/restore/'.$data->id) }}" class="delete" data-id={{ $data->id }}><button type="button" class="btn btn-outline-danger btn-icon-text"><i class="mdi mdi-delete"></i>Restore</button></a>
-                            </td>
-                        </tr>
+                        @if($data->usertype == '1')
+                            <tr class="text-center text-muted">
+                                <td class="text-center"><h5>{{ $index + $trashesUser->firstItem() }}</h5></td>
+                                <td class="text-center"><h5>{{ $data->name }}</h5></td>
+                                <td class="text-center"><h6>{{ $data->email }}</h6></td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-outline-danger" disabled>Not-Activated</button>
+                                    <a href="{{ url('/restore/'.$data->id) }}"  data-id={{ $data->id }} data-nama={{ $data->name }}><button type="button" class="btn btn-success btn-icon-text"><i class="mdi mdi-delete"></i>Restore</button></a>
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>

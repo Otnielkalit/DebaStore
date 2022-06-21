@@ -18,6 +18,14 @@
 
       <!-- Styles -->
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+      <link rel="stylesheet" type="text/css" href="css/trix.css">
+      <script type="text/javascript" src="js/trix.js"></script>
+      <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+          display: none;
+        }
+      </style>
 </head>
 
 <body>
@@ -54,17 +62,18 @@
   <script>
     $('.delete').click( function() {
       var userid = $(this).attr('data-id')
+      var name = $(this).attr('data-name')
       // var type = $(this).attr('data-type');
       swal({
-            title: "Apa anda yakin delete data ini?",
-            text: "Anda akan menghapus data user "+userid+'',
+            title: "Apa anda yakin menonaktifkan data ini?",
+            text: "Anda akan menonaktifkan "+name+'',
             icon: "warning",
             buttons: true,
             dangerMode: true,
           })
           .then((willDelete) => {
             if (willDelete) {
-              swal("Data berhasil dihapus", {
+              swal("Data berhasil dinonaktifkan", {
                 icon: "success",
               });
             } else {
@@ -76,4 +85,9 @@
   @include('sweetalert::alert')
 </body>
 <!-- index.html  21 Nov 2019 03:47:04 GMT -->
+<script>
+  document.addEventListener('trix-file-accept', function(e) {
+    e.preventDefault();
+  })
+</script>
 </html>
