@@ -1,17 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Welcome;
+use App\Models\Galeri;
 use App\Models\AboutUs;
 use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view('admin.AboutUs.index', [
@@ -33,12 +29,7 @@ class AboutUsController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -51,7 +42,6 @@ class AboutUsController extends Controller
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'gambar' => $request->gambar,
-            'link' => $request->link,
         ]);
 
         if($request->hasFile('gambar')) {
@@ -62,23 +52,6 @@ class AboutUsController extends Controller
 
         return redirect()->route('aboutus')->with('toast_success', 'Data berhasil ditambahkan');
     }
-        // $validatedData = $request->validate([
-        //     'judul' => 'required',
-        //     'deskripsi' => 'required',
-        //     'gambar' => 'required',
-        //     'link' => 'required'
-        // ]);
-
-        // AboutUs::create($validatedData);
-
-        // return redirect('/aboutus')->with('success', 'Jadwal telah ditambahkan');
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\AboutUs  $aboutUs
-     * @return \Illuminate\Http\Response
-     */
 
     public function edit($id) {
         $dataAboutUsUpdate = AboutUs::find($id);
@@ -88,34 +61,24 @@ class AboutUsController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $data = AboutUs::find($id);
-        $image = $request->gambar;
+        $request->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-        $imagename = $image->getClientOriginalName();
-
-            $request->gambar->move('productimage/', $imagename);
-
-            $data->gambar=$imagename;
-
-            $data->nama_barang=$request->nama_barang;
-
-            $data->harga=$request->harga;
-
-            $data->keterangan=$request->keterangan;
-
-            $data->stok=$request->stok;
-
-            $data->save();
-
-            return redirect()->route('menu')->with('toast_success', 'Menu berhasil di ubah');
+        if ($files = $request->file('gambar')) {
+            $destinationPath = 'aboutusimage/'; // upload path
+            $aboutusimage = date('YmdHis') . "." . $files->getClientOriginalName();
+            $files->move($destinationPath, $aboutusimage);
+            $update['gambar'] = "$aboutusimage";
+            }
+            $update['judul'] = $request->get('judul');
+            $update['deskripsi'] = $request->get('deskripsi');
+            AboutUs::where('id',$id)->update($update);
+        return redirect()->route('aboutus')->with('toast_success','Sukses meng-update about us');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\AboutUs  $aboutUs
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $aboutus = AboutUs::find($id);
@@ -123,17 +86,94 @@ class AboutUsController extends Controller
         return redirect('aboutus')->with('toast_success', 'Data berhasil dihapus');
     }
 
-    // public function indexuser()
-    // {
-    //     return view('user.AboutUs.index', ['aboutuss' => AboutUs::all(),
-    //         "title" => 'About Us'
-    //     ]);
-    // }
-
-
     public function indexuser()
     {
-        $data = AboutUs::all();
-        return view('user.AboutUs.index', ["title" => 'About Us'], compact('data'));
+        $aboutUsUser = AboutUs::all()->sortByDesc('updated_at');
+        return view('user.AboutUs.index', compact('aboutUsUser'));
+
+    }
+
+
+
+    // CLASS FOR GALERI
+    public function viewgaleri()
+    {
+        $galeri = galeri::all();
+        return view('admin.galeri.index',[
+            "title" => 'Galeri'
+        ], compact('galeri'));
+    }
+
+    public function addgaleri()
+    {
+        return view('admin.galeri.addgaleri',[
+            "title" => 'Add Galeri']);
+    }
+
+
+    public function galeriadd(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $galeri = galeri::create([
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+            'image' => $request->gambar,
+        ]);
+
+        if($request->hasFile('image')) {
+            $request->file('image')->move('galeriimage/', $request->file('image')->getClientOriginalName());
+            $galeri->image = $request->file('image')->getClientOriginalName();
+            $galeri->save();
+        }
+
+        return redirect()->route('galeri')->with('toast_success', 'Data berhasil ditambahkan');
+    }
+
+    public function galeriedit($id)
+    {
+        return view('admin.galeri.editgaleri',[
+            "title" => 'Edit Galeri']);
+    }
+
+        // Class editgaleri
+        public function editgaleri(Request $request, $id)
+        {
+            $galeri = Galeri::find($id);
+
+            $image = $request->image;
+
+            if($image){
+
+                $imagename = time().'.'.$image->getClientOriginalExtension();
+
+                $request->image->move('galeriimage', $imagename);
+
+                $galeri->image=$imagename;
+            }
+
+                $galeri->name=$request->title;
+
+                $galeri->speciality=$request->description;
+
+                $galeri->save();
+
+                return redirect('galeri')->with('success', 'Galeri Berhasil di update');
+
+        }
+
+
+    // Class deleteagen
+    public function deletegaleri($id)
+    {
+        $data = Galeri::find($id);
+
+        $data->delete();
+
+        return redirect('galeri')->with('success', 'Berhasil Menghapus Galeri');
     }
 }

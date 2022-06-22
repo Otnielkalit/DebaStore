@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\AboutUs;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\HistoryController;
@@ -21,7 +23,8 @@ use App\Http\Controllers\DetailMenuController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $dataAboutUs = AboutUs::all();
+    return view('welcome', compact('dataAboutUs'));
 });
 
 Auth::routes();
@@ -60,15 +63,19 @@ Route::post('/upload-process/{id}', [HomeController::class, 'uploadProcess'])->n
 
 Route::get('/aboutususer', [AboutUsController::class, 'indexuser']);
 
+Route::get('/galeriuser', [AboutUsController::class, 'galeriuser']);
+
 Route::get('/detailbandrek', function(){
     return view('user.detailmenu.bandrek');
 });
 
+Route::get('/hubungi-kami', [HomeController::class, 'contactus'])->name('contactus');
+Route::post('/hubungi-kami', [HomeController::class, 'contactUsProcess'])->name('contactus.process');
+
 Route::get('/history', [HistoryController::class, 'history'])->name('history');
 Route::get('/history/{id}', [HistoryController::class, 'historyDetail'])->name('history');
 // Route::get('/aboutususer', [AboutUsController::class, 'slideSatu']);
-
-
+// Route::get('/aboutususer', [AboutUsController::class, 'slideSatu']);
 
 
 // For Admin
@@ -78,7 +85,7 @@ Route::get('/delete-role/{id}', [HomeController::class, 'delete'])->name('delete
 
 Route::get('/trash', [HomeController::class, 'trash'])->name('trash.user');
 
-Route::get('/restore/{id}', [HomeController::class, 'restore'])->name('restore.user');
+Route::get('/restore/{id}', [HomeController::class, 'restoreUser'])->name('restore.user');
 
 Route::get('/restore-all', [HomeController::class, 'restoreAll'])->name('restore.all.user');
 
@@ -89,6 +96,9 @@ Route::get('/trash', [HomeController::class, 'trash'])->name('trash.user');
 Route::get('/restore/{id}', [HomeController::class, 'restore'])->name('restore.user');
 
 Route::get('/restore-all', [HomeController::class, 'restoreAll'])->name('restore.all.user');
+
+// Restore for admin
+
 
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 
@@ -114,7 +124,7 @@ Route::delete('/delete/{id}', [AboutUsController::class, 'destroy'])->name('dele
 
 Route::get('/edit-aboutus/{id}', [AboutUsController::class, 'edit'])->name('edit.aboutus');
 
-Route::post('/edit-aboutus-process', [AboutUsController::class, 'update'])->name('edit.aboutus.process');
+Route::post('/edit-aboutus-process/{id}', [AboutUsController::class, 'update'])->name('edit.aboutus.process');
 
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 
@@ -143,3 +153,25 @@ Route::get('/setting', [ProfileController::class, 'setting'])->name('setting.adm
 
 Route::post('/setting-process', [ProfileController::class, 'updateProfileAdmin'])->name('setting.process');
 
+Route::get('/contact-us', [HomeController::class, 'contactUsAdmin'])->name('contact.us');
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::get('/add-admin', [AdminController::class, 'store'])->name('add.admin');
+Route::post('/add-admin-process', [AdminController::class, 'storeProcess'])->name('add.admin.process');
+Route::get('/edit-admin/{id}', [AdminController::class, 'edit'])->name('edit.admin');
+Route::post('/edit-admin-process/{id}', [AdminController::class, 'editProcess'])->name('edit.admin.process');
+
+
+
+// FOR GALERI
+Route::get('/galeri', [AboutUsController::class, 'viewgaleri']);
+
+Route::get('/addgaleri', [AboutUsController::class, 'addgaleri']);
+
+Route::post('/galeriadd', [AboutUsController::class, 'galeriadd']);
+
+Route::get('/galeriedit/{id}', [AboutUsController::class, 'galeriedit']);
+
+Route::post('/editgaleri/{id}', [AboutUsController::class, 'editgaleri']);
+
+Route::get("/deletegaleri/{id}",[AboutUsController::class,"deletegaleri"]);

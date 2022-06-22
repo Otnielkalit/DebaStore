@@ -30,8 +30,8 @@
                                         <td class="text-center">{{ $data->name }}</td>
                                         <td class="text-center">{{ $data->speciality }}</td>
                                         <td class="text-center">
-                                            <a href="{{ $data->facebook }}" target="_blank" class="btn btn-icon btn-primary"><i class=" fab fa-facebook-f"></i></a>
-                                            <a href="{{ $data->instagram }}" target="_blank" class="btn btn-icon btn-info"><i class="fab fa-instagram"></i></a>
+                                            <a href="{{ url('/viewagen') }}" class="btn btn-icon btn-primary facebook"><i class=" fab fa-facebook-f"></i></a>
+                                            <a href="{{ url('/viewagen') }}"  class="btn btn-icon btn-info"><i class="fab fa-instagram"></i></a>
                                             <a href="{{ $data->twitter }}" target="_blank" class="btn btn-icon btn-success"><i class="fab fa-whatsapp"></i></a>
                                         </td>
                                         <td class="text-center">

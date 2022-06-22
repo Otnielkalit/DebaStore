@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use Auth;
+use App\Models\User;
 use App\Models\Barang;
 use App\Models\Pesanan;
-use App\Models\PesananDetail;
-use App\Models\User;
-use Auth;
 use Illuminate\Http\Request;
+use App\Models\PesananDetail;
+use Illuminate\Support\Facades\DB;
 
 class HistoryController extends Controller
 {
@@ -19,7 +20,7 @@ class HistoryController extends Controller
 
     public function index()
     {
-        $pesanans = Pesanan::where('user_id', Auth::user()->id)->where('status', '!=',0)->get();
+        $pesanans = Pesanan::where('user_id', Auth::user()->id)->where('status', '!=',0)->get()->sortByDesc('updated_at');
 
         return view('user.history.index', [
             "title" => 'Pesanan'
@@ -37,7 +38,9 @@ class HistoryController extends Controller
     }
 
     public function history() {
-        $historyPesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', '=',3)->get();
+        $historyPesanan = DB::table('pesanans')->where('user_id', Auth::user()->id)
+        ->where('status', '=',3)
+        ->orderBy('updated_at', 'desc')->paginate(10);
         return view('user.history.history', [
             "title" => 'History Pemesanan'
         ], compact('historyPesanan'));

@@ -5,7 +5,7 @@
 @section('style')
     <style>
         body {
-    background: linear-gradient(to right, #8E24AA, #b06ab3);
+          background-color: gray;
   }
     
   
@@ -64,10 +64,10 @@
     <div class="row">
         <div class="col-md-12">
         <h2>PAYMENT FILE UPLOAD</h2>
-        <a href="{{ route('history.detail') }}"><button type="button" class="btn btn-secondary" style="margin-bottom: 15px;">Kembali</button></a>
+        <a href="{{ route('history.detail') }}"><button type="button" class="btn btn-primary" style="margin-bottom: 15px;">Kembali</button></a>
     <form action="{{ url('/upload-process/'.$dataPesan->id) }}"  method="POST" enctype="multipart/form-data">
       @csrf
-      <div class="file-drop-area">
+      <div class="file-drop-area"  style="border: 1px solid black">
         <span class="choose-file-button">Choose files</span>
         <span class="file-message">or drag and drop files here</span>
         <input class="file-input" type="file" multiple name="gambar">
@@ -77,7 +77,7 @@
             </div>
         @enderror
       </div>
-      <button type="submit" class="btn btn-secondary" style="margin-top:15px;">Submit</button>
+      <button type="submit" class="btn btn-primary" style="margin-top:15px;">Submit</button>
     </form>
             
         </div>

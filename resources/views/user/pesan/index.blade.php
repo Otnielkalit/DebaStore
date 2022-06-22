@@ -48,7 +48,7 @@
                                         <td>Alamat Pengirim</td>
                                         <td>:</td>
                                         <td>
-                                            <textarea name="address" id="" cols="40" rows="7" style="resize: none" required></textarea>    
+                                            <textarea name="address" id="" cols="40" rows="7" style="resize: none" required value={{ old('address') }}></textarea>    
                                         </td>
                                     </tr>
                                     <tr>
@@ -56,7 +56,7 @@
                                         <td>:</td>
                                         <td>
                                                 @csrf
-                                                <input type="number" name="jumlah_pesan" class="form-control" required min="1">
+                                                <input type="number" name="jumlah_pesan" class="form-control" required min="1" value="{{ old('jumlah_pesan') }}">
                                                 <button type="submit" class="btn btn-primary mt-2"><i
                                                         class="fas fa-shopping-cart"></i> add cart</button>
                                             

@@ -33,9 +33,9 @@
                                 <th>Aksi</th>
                             </tr>
                             <?php $no = 1; ?>
-                            @foreach ($historyPesanan as $pesanan)
+                            @foreach ($historyPesanan as $index => $pesanan)
                                 <tr>
-                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $index + $historyPesanan->firstItem() }}</td>
                                     <td>{{ $pesanan->tanggal }}</td>
                                     <td>
                                         Finished
@@ -47,6 +47,7 @@
                                 </tr>
                             @endforeach
                         </table>
+                        {{ $historyPesanan->links() }}
                     </div>
                     </div>
                 </div>

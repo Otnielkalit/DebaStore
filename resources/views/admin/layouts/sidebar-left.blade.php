@@ -19,7 +19,10 @@
                     <span>User Managements</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('user.role') }}">Roles</a></li>
+                    <li><a class="nav-link" href="{{ route('admin') }}">Admin</a></li>
+                </ul>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('user.role') }}">User</a></li>
                 </ul>
             </li>
             <li class="dropdown {{ ($title === "Data Menu" || $title === "Tambah Data Menu" || $title === "Edit Data Menu") ? 'active' : '' }}">
@@ -51,10 +54,23 @@
             </li>
             <li class="dropdown {{ ($title === "About Us" || $title === "Add About Us" || $title === "Edit About Us") ? 'active' : '' }}">
                 <a href="/aboutus" class="nav-link">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-info"></i>
                     <span>About Us</span>
                 </a>
             </li>
+            <li class="dropdown {{ ($title === "Galeri" || $title === "Add About Us" || $title === "Edit Galeri") ? 'active' : '' }}">
+                <a href="/galeri" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    <span>Galeri</span>
+                </a>
+            </li>
+            <li class="dropdown {{ ($title === "Contact Us") ? 'active' : '' }}">
+                <a href="{{ url('/contact-us') }}" class="nav-link">
+                    <i class="fas fa-address-book"></i>
+                    <span>Contact Us</span>
+                </a>
+            </li>
+        </li>
         </ul>
     </aside>
 </div>

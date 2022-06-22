@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @foreach ($aboutuss as $aboutus)
+            @foreach ($aboutUsUser as $aboutus)
                 <div class="card col-sm-12">
                     <strong>{{ $aboutus->judul }}</strong><br>
                     <img src="{{ url('aboutusimage') }}/{{ $aboutus->gambar }}" style="width:auto; height:600px;"
@@ -13,12 +13,10 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $aboutus->nama_barang }}</h5>
                         <p class="card-text">
-                            <strong>{{ $aboutus->deskripsi }}</strong><br>
+                            <p>{{ $aboutus->deskripsi }}</p><br>
                             <hr>
-                            <strong><a href="{{ $aboutus->link }}">{{ $aboutus->link }}</a></strong> <br>
+                            <i>{{ $aboutus->updated_at }}</i>
                         </p>
-                        {{-- <a href="{{ url('pesan') }}/{{ $aboutus->id }}" class="btn btn-primary"><i
-                                class="fas fa-shopping-cart"></i> Pesan</a> --}}
                     </div>
                 </div>
             @endforeach
