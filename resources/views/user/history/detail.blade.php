@@ -51,6 +51,82 @@
                             @if($pesanan->status == 1)
                             <p class="text-end text-danger">*setelah melakukan pembayaran, silahkan upload bukti pembayaran dibawah ini</p>
                             @endif
+                            @if($pesanan->status == 3)
+                            <div class="card text-bold" style=
+                            "box-shadow: inset 3px 3px 4px rgba(0,0,0,0.4);
+                            border: 1px solid grey;">
+                                <h6 class="card-body">Pesanan anda sudah di confirm oleh admin.</h6>
+                            </div>
+                            @endif
+                            @if($pesanan->status == 4)
+                            <div class="card text-bold" style=
+                            "box-shadow: inset 3px 3px 4px rgba(0,0,0,0.4);
+                            border: 1px solid grey;">
+                                <h6 class="card-body">Lihat Gambar : 
+                                    <a href="productimage/{{ $pesanan->img }}" data-sub-html="Demo Description">
+                                        <img class="img-responsive thumbnail" src="productimage/{{ $pesanan->img }}"
+                                          alt="{{ $pesanan->img }}">
+                                    </a>
+                                </h6>
+                            </div>
+                            @endif
+                            @if($pesanan->status == 5)
+                            <div class="card text-bold" style=
+                            "box-shadow: inset 3px 3px 4px rgba(0,0,0,0.4);
+                            border: 1px solid grey;">
+                                <h6 class="card-header">Detail tracking : </h6>
+                                <h6 class="card-body">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Nama Pengirim:</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" value="{{ $pesanan->nama_pengirim }}" disabled >
+                                        </div>
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">No. Telepon :</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" value="{{ $pesanan->tlpn }}" disabled >
+                                        </div>
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Transportasi :</label>
+                                        <div class="col-sm-9">
+                                          <input type="text" class="form-control" value="{{ $pesanan->angkutan }}" disabled>
+                                        </div>
+                                      </div>
+                                      @if($pesanan->angkutan == 'Angkutan Umum')
+                                      <div class="form-group mb-0 row">
+                                        <label class="col-sm-3 col-form-label">Jenis :</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" value="{{ $pesanan->jenis }}" disabled>
+                                        </div>
+                                      </div>
+                                      <div class="form-group mb-0 row">
+                                        <label class="col-sm-3 col-form-label">Plat :</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" value="{{ $pesanan->plat }}" disabled>
+                                        </div>
+                                      </div>
+                                      @endif
+                                      @if($pesanan->angkutan == 'Kurir')
+                                      <div class="form-group mb-0 row">
+                                        <label class="col-sm-3 col-form-label">Kurir :</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" value="{{ $pesanan->kurir }}" disabled>
+                                        </div>
+                                      </div>
+                                      <div class="form-group mb-0 row">
+                                        <label class="col-sm-3 col-form-label">No. Resi :</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" value="{{ $pesanan->resi }}" disabled>
+                                        </div>
+                                      </div>
+                                      @endif
+                                      <a href="productimage/{{ $pesanan->img }}" target="_blank"><p>Lihat barang anda disini</p></a>
+                                      <a href="{{ url('/berikan-ulasan/'.$pesanan->id) }}"><button type="button" class="btn btn-primary">Pesanan Diterima</button></a>
+                                </h6>
+                            </div>
+                            @endif
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

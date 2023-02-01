@@ -14,7 +14,7 @@
                             <p class="card-text">{{ $galeri->caption }}</p>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">Update terakhir {{ $galeri->updated_at }}</small>
+                            <small class="text-muted">Last Update {{ $galeri->updated_at->diffForHumans() }}</small>
                         </div>
                     </div>
                 </div>

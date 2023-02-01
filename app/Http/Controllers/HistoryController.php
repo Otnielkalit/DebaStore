@@ -39,7 +39,7 @@ class HistoryController extends Controller
 
     public function history() {
         $historyPesanan = DB::table('pesanans')->where('user_id', Auth::user()->id)
-        ->where('status', '=',3)
+        ->where('status', '=',6)
         ->orderBy('updated_at', 'desc')->paginate(10);
         return view('user.history.history', [
             "title" => 'History Pemesanan'

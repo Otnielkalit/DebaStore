@@ -21,7 +21,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4><i class="fa fa-hostory">Check Out</i></h4>
+                        <h4><i class="fa fa-hostory">Pesanan Anda</i></h4>
                         <div class="table-responsive">
                         <table class="table">
                             <tr>
@@ -33,7 +33,7 @@
                             </tr>
                             <?php $no = 1; ?>
                             @foreach ($pesanans as $pesanan)
-                            @if ($pesanan->status == 1 || $pesanan->status == 2)
+                            @if ($pesanan->status == 1 || $pesanan->status == 2 || $pesanan->status == 3 || $pesanan->status == 4 || $pesanan->status == 5)
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $pesanan->tanggal }}</td>
@@ -42,11 +42,15 @@
                                     Sudah pesan & Belum dibayar
                                     @elseif($pesanan->status == 2)
                                     Pembayaran berhasil, tunggu confirm dari admin
-                                    @else
-                                    Confirm telah berhasil, barang akan segera dikirim
+                                    @elseif($pesanan->status == 3)
+                                    Barang sudah di confirm oleh admin
+                                    @elseif($pesanan->status == 4)
+                                    Lihat hasil gambar produk anda
+                                    @elseif($pesanan->status == 5)
+                                    Barang anda sudah dikirim, lihat detail pengiriman
                                     @endif
                                 </td>
-                                <td>Rp. {{ number_format($pesanan->jumlah_harga+$pesanan->kode )}}</td>
+                                <td>Rp. {{ number_format($pesanan->jumlah_harga )}}</td>
                                 <td>
                                     <a href="{{ url('pesanan') }}\{{ $pesanan->id }}" class="btn btn-primary">Detail</a>
                                 </td>

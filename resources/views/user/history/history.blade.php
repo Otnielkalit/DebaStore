@@ -22,7 +22,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4><i class="fa fa-hostory">Check Out</i></h4>
+                        <h4><i class="fa fa-hostory">All Orders</i></h4>
                         <div class="table-responsive">
                         <table class="table">
                             <tr>

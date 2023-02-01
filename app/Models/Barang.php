@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Barang extends Model
 {
     use HasFactory;
+    protected $table = 'barangs';
     protected $fillable = [
         'nama_barang',
         'harga',
@@ -19,5 +20,9 @@ class Barang extends Model
     public function pesanan_detail()
     {
         return $this->belongTo('App\PesananDetail', 'barang_id', 'id');
+    }
+
+    public function pesanan() {
+        return $this->belongTo(Pesanan::class);
     }
 }

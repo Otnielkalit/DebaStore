@@ -84,4 +84,11 @@ class MenuController extends Controller
         $data->delete();
         return redirect()->route('menu')->with('toast_success', 'Produk berhasil dihapus');
     }
+
+    public function menuUser() {
+        $dataMenu = Barang::all();
+        return view('user.menu', [
+            "title" => 'List Menu'
+        ], compact('dataMenu'));
+    }
 }

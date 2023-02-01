@@ -18,9 +18,25 @@ class HomeController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $usertype=Auth::user()->usertype;
+        if($usertype == '1')
+        {
+            return view('admin.home', [
+                "title" => "Dashboard"
+            ]);
+        }
+        else
+        {
+            return view('user.home');
+        }
     }
 
     /**
@@ -35,28 +51,6 @@ class HomeController extends Controller
            ->diffForHumans();
     }
 
-    public function index()
-    {
-        $usertype=Auth::user()->usertype;
-        if($usertype == '1')
-        {
-            return view('admin.home', [
-                "title" => "Dashboard"
-            ]);
-        }
-        else
-        {
-            $dataMenu = Barang::all();
-            return view('user.menu', compact('dataMenu'));
-        }
-    }
-
-    public function menu() {
-        $dataMenu = Barang::all();
-        return view('user.menu', [
-            "title" => 'List Menu'
-        ], compact('dataMenu'));
-    }
 
     public function userManagement(Request $request) {
         if($request->has('search')) {
@@ -287,7 +281,7 @@ class HomeController extends Controller
             $dataPesanan->status = 2;
             $dataPesanan->update();
         }
-
+        
         return redirect()->route('history.detail')->with('toast_success', 'Gambar sudah berhasil dikirim');
     }
 

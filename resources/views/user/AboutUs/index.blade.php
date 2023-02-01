@@ -1,6 +1,6 @@
 @extends('user.layouts.app')
 @section('title')
-    About Us
+    Article
 @endsection
 @section('content')
     <div class="container">

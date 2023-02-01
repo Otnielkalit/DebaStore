@@ -64,6 +64,8 @@ class PesanController extends Controller
             $pesanan->jumlah_harga = 0;
             $pesanan->kode = mt_rand(1000, 9999);
             $pesanan->address = $request->address;
+            $pesanan->barang_id = $barang->id;
+            $pesanan->jumlah_pesan = $request->jumlah_pesan;
             $pesanan->save();
 
         }
@@ -166,17 +168,24 @@ class PesanController extends Controller
     }
 
     public function orderDetails() {
-        $dataOrders = Pesanan::where('status', 2)->paginate(10);
+        $dataOrders = Pesanan::orderBy('updated_at', 'desc')->where('status', 2)->paginate(10);
         return view('admin.orders', [
             "title" => 'Data Pemesanan'
         ], compact('dataOrders'));
+    }
+
+    public function confirmOrdersProcess($id) {
+        $dataConfirmProcess = Pesanan::where('id', $id)->first();
+        $dataConfirmProcess->status = 3;
+        $dataConfirmProcess->update();
+        return redirect()->route('oder.deatail')->with('toast_success', 'Data has been confirmed');
     }
 
     public function orderResult(Request $request) {
         if($request->has('search')) {
             $dataResult = Pesanan::where('kode', 'LIKE', '%'.$request->search.'%')->paginate(10);
         }else{
-            $dataResult = Pesanan::orderBy('created_at', 'desc')->where('status', 3)->paginate(10);
+            $dataResult = Pesanan::orderBy('created_at', 'desc')->where('status', 5)->paginate(10);
         }
         return view('admin.order-result', [
             "title" => 'Pemesanan Selesai'
@@ -197,10 +206,68 @@ class PesanController extends Controller
         ], compact('dataResultFile'));
     }
 
-    public function confirmOrders($id) {
-        $dataPesanan = Pesanan::where('id', $id)->first();  
-        $dataPesanan->status = 3;
-        $dataPesanan->update();
-        return redirect()->route('oder.deatail')->with('toast_success', 'Data has been confirm');
+    public function confirmPhoto() {
+        $dataConfirmPhoto = Pesanan::where('status', '3')->paginate(10);
+        return view('admin.confirm-photo', [
+            'title' => 'Confirm Photo'
+        ], compact('dataConfirmPhoto'));
+    }
+
+    public function confirmPhotoProcess(Request $request, $id) {
+        // dd($request);
+        $request->validate([
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        $dataConfirmPhotoProcess = Pesanan::where('id', $id)->first();
+        if($request->hasFile('img')) {
+            $request->file('img')->move('productimage/', $request->file('img')->getClientOriginalName());
+            $dataConfirmPhotoProcess->img = $request->file('img')->getClientOriginalName();
+            $dataConfirmPhotoProcess->status = 4;
+            $dataConfirmPhotoProcess->update();
+        }
+        
+        return redirect()->route('confirm.photo')->with('Bukti foto berhasil di upload')->with('toast_success', 'Bukti berhasil di upload');
+    }
+
+    public function tracking() {
+        $dataTracking = Pesanan::where('status', '4')->paginate(10);
+        return view('admin.tracking', [
+            "title" => 'Tracking'
+        ], compact('dataTracking'));
+    }
+
+    public function formTracking($id) {
+        $dataFormTracking = Pesanan::find($id);
+        return view('admin.form-tracking', [
+            "title" => 'Form Tracking'
+        ], compact('dataFormTracking'));
+    }
+
+    public function formTrackingProcess(Request $request, $id) {
+        // return $request;
+        // dd($request->all());
+        $request->validate([
+            'nama_pengirim' => 'required',
+            'tlpn' => 'required',
+            'angkutan' => 'required',
+            'jenis' => 'required',
+            'plat' => 'required',
+            'kurir' => 'required',
+            'resi' => 'required',
+        ]);
+
+        $formTracking = Pesanan::where('id', $id)->first();
+        $formTracking->nama_pengirim = $request->nama_pengirim;
+        $formTracking->tlpn = $request->tlpn;
+        $formTracking->angkutan = $request->angkutan;
+        $formTracking->jenis = $request->jenis;
+        $formTracking->plat = $request->plat;
+        $formTracking->kurir = $request->kurir;
+        $formTracking->resi = $request->resi;
+        $formTracking->status = 5;
+        $formTracking->update();
+
+        return redirect()->route('order.tracking')->with('toast_success', 'Data berhasil tersimpan');
     }
 }

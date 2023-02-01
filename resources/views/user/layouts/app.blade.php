@@ -10,7 +10,7 @@
 
     <title>@yield('title')</title>
 
-
+    
     <base href="/public">
     @yield('style')
     <!-- Scripts -->
@@ -32,13 +32,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <style>
-
+        
     </style>
 </head>
 
 <body style="height: 100%;">
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Toggle button -->
@@ -55,23 +55,23 @@
                     </a>
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Home</a>
-                        </li> --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/list-menu') }}">Menu</a>
+                            <a class="nav-link" href="{{ url('/home') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href=" {{ url('/agen') }}">Agen</a>
+                            <a class="nav-link" href="/list-menu">Menu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/contact') }}">Pesan Tempat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/aboutususer">About Us</a>
+                            <a class="nav-link" href="/aboutususer">Article</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/galeriuser') }}">Galeri</a>
+                            <a class="nav-link" href="{{ url('/review') }}">Review</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/image') }}">Gallery</a>
                         </li>
                     </ul>
                     <!-- Left links -->
@@ -82,7 +82,7 @@
                 <div class="d-flex align-items-center">
                     @guest
                         @if (Route::has('login'))
-                            <a href="{{ route('login') }}" class="nav-link">Login</a>
+                            <a href="{{ route('login') }}" class="nav-link text-white">Login</a>
                         @endif
 
                         @if (Route::has('register'))
@@ -93,6 +93,56 @@
                     <!-- Icon -->
                     @if (Route::has('login'))
                         @auth
+                        {{-- @php $orders = \DB::select("SELECT * from pesanans where status = 3 and user_id = ".{{ Auth::user()->id }});
+                             $packing = \DB::select("SELECT * from pesanans where status = 4");
+                             $tracking = \DB::select("SELECT * from pesanans where status = 5");
+                        @endphp --}}
+                        @php $orders = \DB::table("pesanans")
+                                        ->where('status', 3)
+                                        ->where('user_id', Auth::user()->id)
+                                        ->get();
+                        $packing = \DB::table("pesanans")
+                                        ->where('status', 4)
+                                        ->where('user_id', Auth::user()->id)
+                                        ->get();;
+                        $tracking = \DB::table("pesanans")
+                                        ->where('status', 5)
+                                        ->where('user_id', Auth::user()->id)
+                                        ->get();;
+                        @endphp
+                        <div class="dropdown">
+                            <a
+                              class="text-reset me-3 dropdown-toggle hidden-arrow"
+                              href="#"
+                              id="navbarDropdownMenuLink"
+                              role="button"
+                              data-mdb-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fas fa-bell"></i>
+                              <span class="badge rounded-pill badge-notification bg-danger">{{ count($orders)+count($packing)+count($tracking) }}</span>
+                            </a>
+                            <ul
+                              class="dropdown-menu dropdown-menu-end"
+                              aria-labelledby="navbarDropdownMenuLink"
+                            >
+                            @foreach ($orders as $item)
+                            <li>
+                                <a class="dropdown-item" href="{{ url('pesanan/'.$item->id) }}">{{ 'Pesanan anda dengan kode '.$item->kode.' sudah di confirm' }}</a>
+                            </li>
+                            @endforeach
+                            @foreach ($packing as $item)
+                            <li>
+                                <a class="dropdown-item" href="{{ url('pesanan/'.$item->id) }}">{{ 'Lihat hasil packingan barang anda' }}</a>
+                            </li>
+                            @endforeach
+                            @foreach ($tracking as $item)
+                            <li>
+                                <a class="dropdown-item" href="{{ url('pesanan/'.$item->id) }}">{{ 'Barang anda sudah di kirim, berikan penilaian jika sudah sampai' }}</a>
+                            </li>
+                            @endforeach
+                            </ul>
+                          </div>
                             <?php
                             $pesanan_utama = App\Models\Pesanan::where('user_id', Auth::user()->id)
                                 ->where('status', 0)
@@ -109,12 +159,20 @@
                                 @endif
                             </a>
                             <!-- Avatar -->
+                            @php 
+                            $avatars = App\Models\User::where('id', Auth::user()->id)->first();
+                            @endphp
                             <div class="dropdown">
                                 <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
                                     id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown"
                                     aria-expanded="false">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle"
-                                        height="35" alt="Black and White Portrait of a Man" loading="lazy" />
+                                    @if($avatars->avatar)
+                                    <img src="avatar/{{ $avatars->avatar }}" class="rounded-circle"
+                                        height="35" alt="avatar/{{ $avatars->avatar }}" loading="lazy" />
+                                    @else
+                                    <img src="avatar/user.png" class="rounded-circle"
+                                        height="35" alt="avatar/user.png" loading="lazy" />
+                                    @endif
                                     <strong class="d-none d-sm-block ms-3 text-dark">{{ Auth::user()->name }}</strong>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
@@ -152,67 +210,7 @@
         </main>
     </div>
     @include('sweetalert::alert')
-    {{-- <footer class="text-center text-white" style="background-color: #f1f1f1;" id="footer">
-  <!-- Grid container -->
-    <footer class="text-center text-white" style="background-color: #f1f1f1;">
-        <!-- Grid container -->
-
-        <!-- Copyright -->
-        <div class="text-center text-dark p-2" style="background-color: rgba(0, 0, 0, 0.2);">
-            <section class="mb-1">
-                © 2022 Copyright:
-                <!-- Facebook -->
-                <a class="btn btn-link btn-floating btn-lg text-dark" href="https://www.facebook.com/bandrekandaliman" role="button"
-                    data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
-
-                <!-- Twitter -->
-                <a class="btn btn-link btn-floating btn-lg text-dark" href="https://twitter.com/login" role="button"
-                    data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
-
-                <!-- Instagram -->
-                <a class="btn btn-link btn-floating btn-lg text-dark" href="https://www.instagram.com/bandrek_andaliman/?hl=id" role="button"
-                    data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
-            </section> --}}
-    {{-- <footer class="text-center text-white fixed-bottom" style="background-color: #f1f1f1;">
-        {{-- <!-- Grid container -->
-        <div class="container pt-4">
-            <!-- Section: Social media -->
-            <section class="mb-4">
-                <!-- Facebook -->
-                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
-                    data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
-
-                <!-- Instagram -->
-                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
-                    data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
-
-
-                <!-- Instagram -->
-                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
-                    data-mdb-ripple-color="dark"><i class="fab fa-whatsapp"></i></a>
-            </section>
-            <!-- Section: Social media -->
-        </div>
-        <!-- Grid container --> --}}
-
-        <!-- Copyright -->
-        {{-- <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
-                    data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
-
-                <!-- Instagram -->
-                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
-                    data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
-
-
-                <!-- Instagram -->
-                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
-                    data-mdb-ripple-color="dark"><i class="fab fa-whatsapp"></i></a>
-            © 2022 DebaStore
-        </div>
-  <!-- Copyright -->
-    </footer> --}}
-    <hr class="footer-divider">
+    <hr class="footer-divider" style="border: 3px solid rgb(36, 15, 221)">
 <div class="footer-commons">
     <div class="container">
         <div class="row">
@@ -262,6 +260,7 @@
         </div>
     </div>
 </footer>
+    @yield('script')
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     </body>
     <script>
@@ -270,6 +269,7 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
         integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+        
 </body>
 <script>
     $(document).on('change', '.file-input', function() {

@@ -37,6 +37,12 @@
                     <span>Agen &Pelayan</span>
                 </a>
             </li>
+            <li class="dropdown {{ ($title === "Gallery" || $title === "Tambah Gallery" || $title === "Update Gallery") ? 'active' : '' }}">
+                <a href="{{ url('/gallerys') }}" class="nav-link">
+                    <i class="fas fa-image"></i>
+                    <span>Gallery</span>
+                </a>
+            </li>
             <li class="dropdown {{ ($title === "Reservation") ? 'active' : '' }}">
                 <a href="{{ url('/viewreservation') }}" class="nav-link"><i class="fas fa-ticket-alt"></i><span>Reservation</span></a>
             </li>
@@ -49,6 +55,12 @@
                     <li><a class="nav-link" href="{{ route('oder.deatail') }}">New order</a></li>
                 </ul>
                 <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('confirm.photo') }}">Confirm Photo</a></li>
+                </ul>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('order.tracking') }}">Tracking </a></li>
+                </ul>
+                <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ url('/order-finish') }}">Order Finished</a></li>
                 </ul>
             </li>
@@ -56,12 +68,6 @@
                 <a href="/aboutus" class="nav-link">
                     <i class="fas fa-info"></i>
                     <span>About Us</span>
-                </a>
-            </li>
-            <li class="dropdown {{ ($title === "Galeri" || $title === "Add About Us" || $title === "Edit Galeri") ? 'active' : '' }}">
-                <a href="/galeri" class="nav-link">
-                    <i class="fas fa-book"></i>
-                    <span>Galeri</span>
                 </a>
             </li>
             <li class="dropdown {{ ($title === "Contact Us") ? 'active' : '' }}">

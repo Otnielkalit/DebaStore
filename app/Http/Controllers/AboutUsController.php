@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Galeri;
+use Auth;
 use App\Models\AboutUs;
 use Illuminate\Http\Request;
 
@@ -52,7 +52,7 @@ class AboutUsController extends Controller
 
         return redirect()->route('aboutus')->with('toast_success', 'Data berhasil ditambahkan');
     }
-
+        
     public function edit($id) {
         $dataAboutUsUpdate = AboutUs::find($id);
         return view('admin.AboutUs.edit', [
@@ -87,93 +87,10 @@ class AboutUsController extends Controller
     }
 
     public function indexuser()
-    {
+    {   
         $aboutUsUser = AboutUs::all()->sortByDesc('updated_at');
         return view('user.AboutUs.index', compact('aboutUsUser'));
-
+        
     }
 
-
-
-    // CLASS FOR GALERI
-    public function viewgaleri()
-    {
-        $galeri = galeri::all();
-        return view('admin.galeri.index',[
-            "title" => 'Galeri'
-        ], compact('galeri'));
-    }
-
-    public function addgaleri()
-    {
-        return view('admin.galeri.addgaleri',[
-            "title" => 'Add Galeri']);
-    }
-
-
-    public function galeriadd(Request $request)
-    {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        $galeri = galeri::create([
-            'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi,
-            'image' => $request->gambar,
-        ]);
-
-        if($request->hasFile('image')) {
-            $request->file('image')->move('galeriimage/', $request->file('image')->getClientOriginalName());
-            $galeri->image = $request->file('image')->getClientOriginalName();
-            $galeri->save();
-        }
-
-        return redirect()->route('galeri')->with('toast_success', 'Data berhasil ditambahkan');
-    }
-
-    public function galeriedit($id)
-    {
-        return view('admin.galeri.editgaleri',[
-            "title" => 'Edit Galeri']);
-    }
-
-        // Class editgaleri
-        public function editgaleri(Request $request, $id)
-        {
-            $galeri = Galeri::find($id);
-
-            $image = $request->image;
-
-            if($image){
-
-                $imagename = time().'.'.$image->getClientOriginalExtension();
-
-                $request->image->move('galeriimage', $imagename);
-
-                $galeri->image=$imagename;
-            }
-
-                $galeri->name=$request->title;
-
-                $galeri->speciality=$request->description;
-
-                $galeri->save();
-
-                return redirect('galeri')->with('success', 'Galeri Berhasil di update');
-
-        }
-
-
-    // Class deleteagen
-    public function deletegaleri($id)
-    {
-        $data = Galeri::find($id);
-
-        $data->delete();
-
-        return redirect('galeri')->with('success', 'Berhasil Menghapus Galeri');
-    }
 }

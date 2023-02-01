@@ -25,11 +25,17 @@ class ProfileController extends Controller
 
     public function update(Request $request)
         {
+            // dd($request);
             $this->validate($request, [
+                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'password' => 'confirmed',
             ]);
 
             $user = User::where('id', Auth::user()->id)->first();
+            if($request->hasFile('avatar')) {
+                $request->file('avatar')->move('avatar/', $request->file('avatar')->getClientOriginalName());
+                $user->avatar = $request->file('avatar')->getClientOriginalName();
+            }
             $user->name     = $request->name;
             $user->email    = $request->email;
             $user->nohp     = $request->nohp;

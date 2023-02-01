@@ -11,7 +11,8 @@ class Pesanan extends Model
     protected $table = 'pesanans';
 
     protected $fillable = [
-        'gambar',
+        'gambars',
+        'review',
     ];
 
     public function user()
@@ -25,6 +26,10 @@ class Pesanan extends Model
 
     public function pesanan_detail()
     {
-        return $this->hasMany('App\PesananDetail','pesanan_id', 'id');
+        return $this->hasMany(PesananDetail::class,'pesanan_id', 'id');
+    }
+
+    public function barangs() {
+        return $this->hasOne(Barang::class, 'id', 'barang_id');
     }
 }

@@ -20,6 +20,21 @@ return new class extends Migration
             $table->string('status');
             $table->integer('kode');
             $table->integer('jumlah_harga');
+            $table->string('gambar')->default('');
+            $table->text('address');
+            $table->integer('barang_id');
+            $table->integer('jumlah_pesan');
+            $table->string('img')->default('');
+            $table->string('nama_pengirim')->default('');
+            $table->string('tlpn')->default('');
+            $table->string('angkutan')->default('');
+            $table->string('jenis')->default('');
+            $table->string('plat')->default('');
+            $table->string('kurir')->default('');
+            $table->string('resi')->default('');
+            $table->text('review')->default('');
+            $table->string('img2')->default('');
+            $table->string('video')->default('');
             $table->timestamps();
         });
     }

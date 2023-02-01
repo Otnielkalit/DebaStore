@@ -22,6 +22,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h4><i class="fa fa-user"></i>My Profile</h4>
+                        @if($user->avatar)
+                        <img src="avatar/{{ $user->avatar }}" width="200px" height="150px;" style="text-align: center;" alt="{{ $user->avatar }}">
+                        @else
+                        <img src="avatar/user.png" width="200px" height="150px;" style="text-align: center;" alt="avatar/user.png">
+                        @endif
                         <table class="table table-hover">
                             <tr>
                                 <th>Nama</th>
@@ -47,7 +52,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4><i class="fa fa-pencil-alt"></i>Edit Profile</h4>
-                        <form method="POST" action="{{ url('profile') }}">
+                        <form method="POST" action="{{ url('profile') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
                                 <label for="name" class="col-md-2 col-form-label text-md-end">{{ __('Name') }}</label>
@@ -84,8 +89,8 @@
                                 <label for="nphp" class="col-md-2 col-form-label text-md-end">No HP</label>
 
                                 <div class="col-md-6">
-                                    <input id="nohp" type="text" class="form-control @error('name') is-invalid @enderror"
-                                        name="nohp" value="{{ $user->nohp }}" required autocomplete="nohp" autofocus>
+                                    <input id="nohp" type="number" min="0" class="form-control @error('name') is-invalid @enderror"
+                                        name="nohp" value="{{ $user->nohp }}" autocomplete="nohp" autofocus>
 
                                     @error('nohp')
                                         <span class="invalid-feedback" role="alert">
@@ -101,9 +106,25 @@
                                 <div class="col-md-6">
 
                                     <textarea name="alamat" id="alamat" cols="30" rows="3" class="form-control" @error('alamat') is-invalid @enderror
-                                        value="{{ $user->alamat }}" required autocomplete="alamat" required="">{{ $user->alamat }}</textarea>
+                                        value="{{ $user->alamat }}" autocomplete="alamat">{{ $user->alamat }}</textarea>
 
                                     @error('alamat')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="avatar" class="col-md-2 col-form-label text-md-end">Avatar</label>
+
+                                <div class="col-md-6">
+
+                                    <input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror"
+                                        name="avatar" autocomplete="avatar" autofocus>
+
+                                    @error('avatar')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

@@ -6,8 +6,8 @@
     <div class="container">
         <div class="row">
             @foreach ($dataMenu as $barang)
-            <div class="card col-sm-4">
-                <img src="{{ url('productimage') }}/{{ $barang->gambar }}"  class="card-img-top" alt="{{ $barang->gambar }}" style="width:300px; height:300px;"/>
+            <div class="card col-sm-4" style="border: 1px solid blue; margin:5px; width:350px; height:auto;justify-content:center; align-items:center;">
+                <img src="{{ url('productimage') }}/{{ $barang->gambar }}"  class="card-img-top" alt="{{ $barang->gambar }}" style="width:300px; height:200px;"/>
                 <div class="card-body">
                   <h5 class="card-title">{{ $barang->nama_barang }}</h5>
                   <p class="card-text">

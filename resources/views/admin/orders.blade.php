@@ -12,8 +12,9 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Name</th>
-                                <th>Status</th>
+                                <th>Nama</th>
+                                <th>Pesanan</th>
+                                <th>Jumlah</th>
                                 <th>Kode</th>
                                 <th>Jumlah Harga</th>
                                 <th>Tanggal</th>
@@ -28,7 +29,10 @@
                                 <tr>
                                     <td>{{ $no++; }}</td>
                                     <td>{{ $data->users->name }}</td>
-                                    <td>{{ __('Sudah bayar') }}</td>
+                                    <td>
+                                        {{ $data->barangs->nama_barang }}
+                                    </td>
+                                    <td>{{ $data->jumlah_pesan }} Buah</td>
                                     <td>{{ $data->kode }}</td>
                                     <td>Rp{{ number_format($data->jumlah_harga, 0, ',', '.') }}</td>
                                     <td>{{ $data->updated_at->isoFormat('dddd, D MMM Y') }}</td>
@@ -39,10 +43,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <form action="{{ url('/confirm-order/'.$data->id) }}" method="POST">
-                                            @csrf
-                                            <button type="submit" class="btn btn-primary">Confirm</button>
-                                        </form>
+                                        <a href="{{ url('/confirm-order-process/'.$data->id) }}"><button type="submit" class="btn btn-primary">Confirm</button></a>
                                     </td>
                                 </tr>
                             @endforeach
